@@ -1,4 +1,5 @@
 
+from email import message
 from .messages.Header import  Header
 from .messages.MessageTypes import MessageTypes
 from .messages.AlarmMessage import AlarmMessage
@@ -41,13 +42,13 @@ class ProtocolParser:
         params = ProtocolParser.__parseParameters(string)
 
         switch_cases = {MessageTypes.LoginMessage : LoginMessage.fromDict,
-                        MessageTypes.LoginResponce : LoginResponse.fromDict,
+                        MessageTypes.LoginResponse : LoginResponse.fromDict,
                         MessageTypes.RegisterMessage : RegisterMessage.fromDict,
-                        MessageTypes.RegisterResponce : RegisterResponse.fromDict,
+                        MessageTypes.RegisterResponse : RegisterResponse.fromDict,
                         MessageTypes.AlarmMessage : AlarmMessage.fromDict,
-                        MessageTypes.AlarmResponce : AlarmResponse.fromDict,
+                        MessageTypes.AlarmResponse : AlarmResponse.fromDict,
                         MessageTypes.HistoryRequest : HistoryRequest.fromDict,
-                        MessageTypes.HistoryResponce : HistoryResponse.fromDict}
+                        MessageTypes.HistoryResponse : HistoryResponse.fromDict}
         
         func = switch_cases[type]
 

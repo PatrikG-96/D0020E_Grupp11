@@ -1,13 +1,13 @@
+from dataclasses import field
 from . import Message
-from .ProtocolException import ProtocolException
 
 class HistoryResponse(Message.Message):
 
     _field = ['device_id', 'table_data']
 
     def __init__(self):
-        self.table_data = None
-        self.device_id = None
+        field = ['device_id', 'table_data']
+        super().__init__(field)
 
     def setTableData(self, table_data):
         self.table_data = table_data
@@ -23,16 +23,8 @@ class HistoryResponse(Message.Message):
 
     @classmethod
     def isDictValid(self, params):
-        if all(key in params for key in self._fields):
-            return True
-
-        return False
+        return super().isDictValid(self, params)
 
     @classmethod
     def fromDict(self, params):
-        if not self.isDictValid(params):
-            raise ProtocolException('Error: Incorrect parameters')
-        msg = HistoryResponse()
-        msg.setTableData(params['table_data'])
-        msg.setDeviceId(params['device_id'])
-        return msg
+        return super().fromDict(self, params, HistoryResponse())

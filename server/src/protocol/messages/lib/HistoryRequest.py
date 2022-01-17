@@ -1,13 +1,12 @@
 from . import Message
-from .ProtocolException import ProtocolException
 
 class HistoryRequest(Message.Message):
 
     _field = ['user_id', 'device_id']
 
     def __init__(self):
-        self.user_id = None
-        self.device_id = None
+        field = ['user_id', 'device_id']
+        super().__init__(field)
 
     def setUserId(self, uid):
         self.user_id = uid
@@ -23,16 +22,8 @@ class HistoryRequest(Message.Message):
 
     @classmethod
     def isDictValid(self, params):
-        if all(key in params for key in self._fields):
-            return True
-
-        return False
+        return super().isDictValid(self, params)
 
     @classmethod
     def fromDict(self, params):
-        if not self.isDictValid(params):
-            raise ProtocolException('Error: Incorrect parameters')
-        msg = HistoryRequest()
-        msg.setUserId(params['user_id'])
-        msg.setDeviceId(params['device_id'])
-        return msg
+        return super().fromDict(self, params, HistoryRequest())
