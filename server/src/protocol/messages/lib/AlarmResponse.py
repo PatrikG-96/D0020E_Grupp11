@@ -1,16 +1,12 @@
 from . import Message
-from .ProtocolException import ProtocolException
 
 class AlarmResponse(Message.Message):
 
     _field = ['user_id', 'device_id', 'alarm_id', 'response_type']
-    
 
     def __init__(self):
-        self.user_id = None
-        self.device_id = None
-        self.alarm_id = None
-        self.response_type = None
+        fields = ['user_id', 'device_id', 'alarm_id', 'response_type']
+        super().__init__(fields)
 
     def setUserId(self, uid):
         self.user_id = uid
@@ -38,19 +34,9 @@ class AlarmResponse(Message.Message):
 
     @classmethod
     def isDictValid(self, params):
-        if all(key in params for key in self._fields):
-            return True
-
-        return False
+        return super().isDictValid(self, params)
 
     @classmethod
     def fromDict(self, params):
-        if not self.isDictValid(params):
-            raise ProtocolException('Error: Incorrect parameters')
-        msg = AlarmResponse()
-        msg.setUserId(params['user_id'])
-        msg.setDeviceId(params['device_id'])
-        msg.setAlarmId(params['alarm_id'])
-        msg.setResponseType(params['response_type'])
-        return msg
+        return super().fromDict(self, params, AlarmResponse())
 

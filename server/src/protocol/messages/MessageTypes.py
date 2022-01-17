@@ -3,13 +3,13 @@ import enum
 
 class MessageTypes(enum.Enum):
     RegisterMessage = 1
-    RegisterResponce = 2
+    RegisterResponse = 2
     LoginMessage = 3
-    LoginResponce = 4
+    LoginResponse = 4
     AlarmMessage = 5
-    AlarmResponce = 6
+    AlarmResponse = 6
     HistoryRequest = 7
-    HistoryResponce = 8
+    HistoryResponse = 8
 
     @classmethod
     def has_key(self, key):
