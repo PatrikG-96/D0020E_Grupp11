@@ -1,7 +1,7 @@
 from dataclasses import field
-from . import Message
+from ..Message import Message
 
-class HistoryResponse(Message.Message):
+class HistoryResponse(Message):
 
     _field = ['device_id', 'table_data']
 

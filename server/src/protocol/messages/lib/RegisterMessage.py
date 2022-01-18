@@ -1,6 +1,6 @@
-from . import Message
+from ..Message import Message
 
-class RegisterMessage(Message.Message):
+class RegisterMessage(Message):
 
     _fields = ['username', 'password']
         

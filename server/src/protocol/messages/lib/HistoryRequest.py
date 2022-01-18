@@ -1,6 +1,6 @@
-from . import Message
+from ..Message import Message
 
-class HistoryRequest(Message.Message):
+class HistoryRequest(Message):
 
     _field = ['user_id', 'device_id']
 

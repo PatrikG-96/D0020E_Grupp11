@@ -1,6 +1,6 @@
-from . import Message
+from ..Message import Message
 
-class AlarmMessage(Message.Message):
+class AlarmMessage(Message):
 
     _fields = ['device_id', 'alarm_id', 'alarm_flag']
 

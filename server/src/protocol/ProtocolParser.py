@@ -2,14 +2,14 @@
 from email import message
 from .messages.Header import  Header
 from .messages.MessageTypes import MessageTypes
-from .messages.AlarmMessage import AlarmMessage
-from .messages.AlarmResponse import AlarmResponse
-from .messages.HistoryRequest import HistoryRequest
-from .messages.HistoryResponse import HistoryResponse
-from .messages.LoginMessage import LoginMessage
-from .messages.LoginResponse import LoginResponse
-from .messages.RegisterMessage import RegisterMessage
-from .messages.RegisterResponse import RegisterResponse
+from .messages.lib.AlarmMessage import AlarmMessage
+from .messages.lib.AlarmResponse import AlarmResponse
+from .messages.lib.HistoryRequest import HistoryRequest
+from .messages.lib.HistoryResponse import HistoryResponse
+from .messages.lib.LoginMessage import LoginMessage
+from .messages.lib.LoginResponse import LoginResponse
+from .messages.lib.RegisterMessage import RegisterMessage
+from .messages.lib.RegisterResponse import RegisterResponse
 from .messages.FullMessage import FullMessage
 
 

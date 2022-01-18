@@ -1,6 +1,6 @@
-from . import Message
+from ..Message import Message
 
-class AlarmResponse(Message.Message):
+class AlarmResponse(Message):
 
     _field = ['user_id', 'device_id', 'alarm_id', 'response_type']
 

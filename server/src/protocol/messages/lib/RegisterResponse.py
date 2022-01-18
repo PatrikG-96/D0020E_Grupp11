@@ -1,6 +1,6 @@
-from . import Message
+from ..Message import Message
 
-class RegisterResponse(Message.Message):
+class RegisterResponse(Message):
 
     _fields = ['user_id']
 
