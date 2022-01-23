@@ -1,12 +1,13 @@
 from ..Message import Message
+from twisted.python import log
 
 class HistoryRequest(Message):
 
-    _field = ['user_id', 'device_id']
+    _fields = ['user_id', 'device_id']
 
     def __init__(self):
-        field = ['user_id', 'device_id']
-        super().__init__(field)
+        fields = ['user_id', 'device_id']
+        super().__init__(fields)
 
     def setUserId(self, uid):
         self.user_id = uid

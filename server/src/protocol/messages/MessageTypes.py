@@ -10,8 +10,9 @@ class MessageTypes(enum.Enum):
     AlarmResponse = 6
     HistoryRequest = 7
     HistoryResponse = 8
+    Heartbeat = 9
 
     @classmethod
     def has_key(self, key):
-        return key in list(MessageTypes)
+        return key in self.__members__
 

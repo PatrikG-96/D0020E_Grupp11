@@ -91,7 +91,7 @@ class Header:
         if not MessageTypes.has_key(type):
             raise ProtocolException("Unknown message type in Header: ", type)
 
-        self.type = MessageTypes(type)
+        self.type = MessageTypes[type]
 
     def setOptions(self, options : dict):
         """Set the header options.
@@ -192,5 +192,9 @@ class Header:
         header.setType(params_map['type'])
         header.setOptions(params_map['options'])
         return header
+
+    def __str__(self):
+        options = ', '.join([f'{key}:{value}' for key, value in self.options.items()])
+        return f'{self.version}/{str(self.type).split(".")[1]}/options[' + options + ']'
 
 

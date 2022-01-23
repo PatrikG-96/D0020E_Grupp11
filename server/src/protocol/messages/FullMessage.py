@@ -16,3 +16,13 @@ class FullMessage:
 
     def getMessage(self):
         return self.message
+
+    @staticmethod
+    def build(header, message):
+        msg = FullMessage()
+        msg.setHeader(header)
+        msg.setMessage(message)
+        return msg
+
+    def __str__(self):
+        return str(self.header) + ";" + str(self.message)

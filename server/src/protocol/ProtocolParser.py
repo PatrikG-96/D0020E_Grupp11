@@ -1,17 +1,6 @@
 
-from email import message
-from .messages.Header import  Header
-from .messages.MessageTypes import MessageTypes
-from .messages.lib.AlarmMessage import AlarmMessage
-from .messages.lib.AlarmResponse import AlarmResponse
-from .messages.lib.HistoryRequest import HistoryRequest
-from .messages.lib.HistoryResponse import HistoryResponse
-from .messages.lib.LoginMessage import LoginMessage
-from .messages.lib.LoginResponse import LoginResponse
-from .messages.lib.RegisterMessage import RegisterMessage
-from .messages.lib.RegisterResponse import RegisterResponse
-from .messages.FullMessage import FullMessage
-
+from .messages import *
+from twisted.python import log
 
 
 
@@ -20,7 +9,7 @@ class ProtocolParser:
 
     @staticmethod
     def parseProtocolString(string):
-
+        #log.msg("In parseProtocolString")
         substrings = string.split(';')
 
         header_string = substrings[0]
@@ -28,6 +17,8 @@ class ProtocolParser:
 
 
         head = ProtocolParser.__parseHeaderString(header_string)
+        #log.msg(f"Header parsed, from {header_string} to {head}")
+
         msg = ProtocolParser.__parseMessageString(message_string, head.getType())
 
         result = FullMessage()
@@ -38,7 +29,7 @@ class ProtocolParser:
 
     @staticmethod
     def __parseMessageString(string, type):
-
+        #log.msg("In parseMessageString")
         params = ProtocolParser.__parseParameters(string)
 
         switch_cases = {MessageTypes.LoginMessage : LoginMessage.fromDict,
@@ -66,9 +57,7 @@ class ProtocolParser:
 
         options = ProtocolParser.__parseParameters(options_string)
         
-        type = MessageTypes[type_string]
-
-        params_dict = {'version' : version_string, 'type' : type, 'options' : options}
+        params_dict = {'version' : version_string, 'type' : type_string, 'options' : options}
 
         header = Header.fromDict(params_dict)
 
@@ -96,4 +85,3 @@ class ProtocolParser:
             result[field] = value
 
         return result
-

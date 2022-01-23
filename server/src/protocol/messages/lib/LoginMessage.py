@@ -1,3 +1,4 @@
+from protocol.messages.lib import LoginResponse
 from ..Message import Message
 
 class LoginMessage(Message):
@@ -28,3 +29,4 @@ class LoginMessage(Message):
     @classmethod
     def fromDict(self, params):
         return super().fromDict(self, params, LoginMessage())
+

@@ -1,6 +1,8 @@
 import abc
-from .ProtocolException import ProtocolException
 
+from protocol.messages.MessageTypes import MessageTypes
+from .ProtocolException import ProtocolException
+from twisted.python import log
 class Message(object):
 
     __metaclass__= abc.ABCMeta
@@ -44,3 +46,9 @@ class Message(object):
         if ('response_typed'in params): msg.setResponseType(params['response_type'])
    
         return msg
+
+    def __str__(self):
+        s = ', '.join([f'{field}:{str(getattr(self, field))}' for field in self._fields])
+        return 'Message[' + s + ']'
+
+

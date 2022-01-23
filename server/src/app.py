@@ -1,11 +1,21 @@
-from protocol.ProtocolParser import ProtocolParser
+from network.AlarmFactory import AlarmFactory
+from network.AlarmProtocol import AlarmProtocol
+from controller.Controller import Controller
+from twisted.python import log
 
 
-string = "AP1.0/LoginMessage/options[encoding:UTF-8];Message[username:patrik, password:password]"
-AlarmString = "AP1.0/AlarmMessage/options[encoding:UTF-8];Message[device_id:1003, alarm_id:404, alarm_flag:1]"
+def main():
 
-message = ProtocolParser.parseProtocolString(string)
-secMsg = ProtocolParser.parseProtocolString(AlarmString)
+    log.startLogging(open('logs.txt', 'w'))
 
-print(message)
-print(secMsg)
+    controller = Controller()
+
+    factory = AlarmFactory(controller)
+
+    from twisted.internet import reactor
+    reactor.listenTCP(3456, factory)
+    reactor.run()
+
+
+if __name__ == "__main__":
+    main()

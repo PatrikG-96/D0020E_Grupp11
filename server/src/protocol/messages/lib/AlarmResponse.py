@@ -2,7 +2,7 @@ from ..Message import Message
 
 class AlarmResponse(Message):
 
-    _field = ['user_id', 'device_id', 'alarm_id', 'response_type']
+    _fields = ['user_id', 'device_id', 'alarm_id', 'response_type']
 
     def __init__(self):
         fields = ['user_id', 'device_id', 'alarm_id', 'response_type']
