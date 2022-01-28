@@ -15,10 +15,9 @@ announcer = Announcer.AlarmAnnouncer(2)
 
 class User:
     
-    def __init__(self, id, username, password):
-        self.id = id
-        self.username = username
-        self.password = password
+    def __init__(self, uname, pword):
+        self.uname = uname
+        self.pword = pword
     
 @app.route('/login', methods=['POST'])
 def login():
@@ -28,7 +27,7 @@ def login():
         return make_response('Login failed', 401, {'WWW-Authenticate' : 'Basic realm ="Form is fucked !!"'})
     
     # get user by username, id, email, whatever, from DB
-    user = User(1, 'user', 'password')
+    user = User(1, 'alex', '123')
     
     if not user: # Make sure user exists
         return make_response('Login failed', 401)
