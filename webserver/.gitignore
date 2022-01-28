@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-env
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -24,6 +21,3 @@ env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/client/gui/node_modules
->>>>>>> df1ed60880c7b6c3e90579dadd2c68dd113e7d8c

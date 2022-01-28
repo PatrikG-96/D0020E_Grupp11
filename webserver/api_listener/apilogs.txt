@@ -1,0 +1,238 @@
+2022-01-27 16:14:14+0100 [-] Log opened.
+2022-01-27 16:14:14+0100 [-] ApiFactory starting on 9999
+2022-01-27 16:14:14+0100 [-] Starting factory <network.ApiFactory.ApiFactory object at 0x000001ABEDF67610>
+2022-01-27 16:14:14+0100 [-] starting server
+2022-01-27 16:14:24+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=55948)
+2022-01-27 16:14:24+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:14:24+0100 [ApiProtocol,0,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:14:24+0100 [-] Add to database
+2022-01-27 16:14:24+0100 [-] Need to alert
+2022-01-27 16:14:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C04C0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:14:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 500 'text/html; charset=utf-8' unknown size>
+2022-01-27 16:14:25+0100 [ApiProtocol,0,127.0.0.1] Received data: 'hej'
+2022-01-27 16:14:25+0100 [-] Reason!
+2022-01-27 16:14:26+0100 [ApiProtocol,0,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=55948)
+2022-01-27 16:15:44+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=55966)
+2022-01-27 16:15:44+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:15:44+0100 [ApiProtocol,1,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:15:44+0100 [-] Add to database
+2022-01-27 16:15:44+0100 [-] Need to alert
+2022-01-27 16:15:44+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0F70>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:15:45+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 500 'text/html; charset=utf-8' unknown size>
+2022-01-27 16:15:45+0100 [ApiProtocol,1,127.0.0.1] Received data: 'hej'
+2022-01-27 16:15:45+0100 [-] Reason!
+2022-01-27 16:15:46+0100 [ApiProtocol,1,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=55966)
+2022-01-27 16:20:33+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=55990)
+2022-01-27 16:20:33+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:20:33+0100 [ApiProtocol,2,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:20:33+0100 [-] Add to database
+2022-01-27 16:20:33+0100 [-] Need to alert
+2022-01-27 16:20:33+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7670>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:20:34+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 500 'text/html; charset=utf-8' unknown size>
+2022-01-27 16:20:34+0100 [ApiProtocol,2,127.0.0.1] Received data: 'hej'
+2022-01-27 16:20:34+0100 [-] Reason!
+2022-01-27 16:20:35+0100 [ApiProtocol,2,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=55990)
+2022-01-27 16:23:58+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=56011)
+2022-01-27 16:23:58+0100 [ApiProtocol,3,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:23:58+0100 [ApiProtocol,3,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:23:58+0100 [-] Add to database
+2022-01-27 16:23:58+0100 [-] Need to alert
+2022-01-27 16:23:58+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0430>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:23:58+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 500 'text/html; charset=utf-8' unknown size>
+2022-01-27 16:23:59+0100 [ApiProtocol,3,127.0.0.1] Received data: 'hej'
+2022-01-27 16:23:59+0100 [-] Reason!
+2022-01-27 16:24:00+0100 [ApiProtocol,3,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=56011)
+2022-01-27 16:26:09+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=61335)
+2022-01-27 16:26:09+0100 [ApiProtocol,4,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:26:09+0100 [ApiProtocol,4,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:26:09+0100 [-] Add to database
+2022-01-27 16:26:09+0100 [-] Need to alert
+2022-01-27 16:26:09+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0E50>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:26:10+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 500 'text/html; charset=utf-8' unknown size>
+2022-01-27 16:26:10+0100 [ApiProtocol,4,127.0.0.1] Received data: 'hej'
+2022-01-27 16:26:10+0100 [-] Reason!
+2022-01-27 16:26:11+0100 [ApiProtocol,4,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=61335)
+2022-01-27 16:26:47+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=61346)
+2022-01-27 16:26:47+0100 [ApiProtocol,5,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:26:47+0100 [ApiProtocol,5,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:26:47+0100 [-] Add to database
+2022-01-27 16:26:47+0100 [-] Need to alert
+2022-01-27 16:26:47+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7D30>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:26:48+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:26:48+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7D30>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:26:48+0100 [ApiProtocol,5,127.0.0.1] Received data: 'hej'
+2022-01-27 16:26:48+0100 [-] Reason!
+2022-01-27 16:26:49+0100 [ApiProtocol,5,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=61346)
+2022-01-27 16:38:24+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=61434)
+2022-01-27 16:38:24+0100 [ApiProtocol,6,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:38:24+0100 [ApiProtocol,6,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:38:24+0100 [-] Add to database
+2022-01-27 16:38:24+0100 [-] Need to alert
+2022-01-27 16:38:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:38:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:38:25+0100 [ApiProtocol,6,127.0.0.1] Received data: 'hej'
+2022-01-27 16:38:25+0100 [-] Reason!
+2022-01-27 16:38:26+0100 [ApiProtocol,6,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=61434)
+2022-01-27 16:40:05+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=61460)
+2022-01-27 16:40:05+0100 [ApiProtocol,7,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:40:05+0100 [ApiProtocol,7,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:40:05+0100 [-] Add to database
+2022-01-27 16:40:05+0100 [-] Need to alert
+2022-01-27 16:40:05+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7310>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:40:06+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:40:06+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7310>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:40:06+0100 [ApiProtocol,7,127.0.0.1] Received data: 'hej'
+2022-01-27 16:40:06+0100 [-] Reason!
+2022-01-27 16:40:07+0100 [ApiProtocol,7,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=61460)
+2022-01-27 16:42:38+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58566)
+2022-01-27 16:42:38+0100 [ApiProtocol,8,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:42:38+0100 [ApiProtocol,8,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:42:38+0100 [-] Add to database
+2022-01-27 16:42:38+0100 [-] Need to alert
+2022-01-27 16:42:38+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7790>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:42:39+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:42:39+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7790>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:42:39+0100 [ApiProtocol,8,127.0.0.1] Received data: 'hej'
+2022-01-27 16:42:39+0100 [-] Reason!
+2022-01-27 16:42:40+0100 [ApiProtocol,8,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58566)
+2022-01-27 16:46:45+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58607)
+2022-01-27 16:46:45+0100 [ApiProtocol,9,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:46:45+0100 [ApiProtocol,9,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:46:45+0100 [-] Add to database
+2022-01-27 16:46:45+0100 [-] Need to alert
+2022-01-27 16:46:45+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C09D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:46:45+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:46:45+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C09D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:46:46+0100 [ApiProtocol,9,127.0.0.1] Received data: 'hej'
+2022-01-27 16:46:46+0100 [-] Reason!
+2022-01-27 16:46:47+0100 [ApiProtocol,9,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58607)
+2022-01-27 16:48:14+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58629)
+2022-01-27 16:48:14+0100 [ApiProtocol,10,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:48:14+0100 [ApiProtocol,10,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:48:14+0100 [-] Add to database
+2022-01-27 16:48:14+0100 [-] Need to alert
+2022-01-27 16:48:14+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0AF0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:48:15+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:48:15+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0AF0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:48:15+0100 [ApiProtocol,10,127.0.0.1] Received data: 'hej'
+2022-01-27 16:48:15+0100 [-] Reason!
+2022-01-27 16:48:16+0100 [ApiProtocol,10,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58629)
+2022-01-27 16:49:05+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58641)
+2022-01-27 16:49:05+0100 [ApiProtocol,11,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:49:05+0100 [ApiProtocol,11,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:49:05+0100 [-] Add to database
+2022-01-27 16:49:05+0100 [-] Need to alert
+2022-01-27 16:49:05+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0700>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:49:06+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:49:06+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C0700>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:49:07+0100 [ApiProtocol,11,127.0.0.1] Received data: 'hej'
+2022-01-27 16:49:07+0100 [-] Reason!
+2022-01-27 16:49:07+0100 [ApiProtocol,11,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58641)
+2022-01-27 16:53:32+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=49243)
+2022-01-27 16:53:32+0100 [ApiProtocol,12,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:53:32+0100 [ApiProtocol,12,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:53:32+0100 [-] Add to database
+2022-01-27 16:53:32+0100 [-] Need to alert
+2022-01-27 16:53:32+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7700>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:53:33+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:53:33+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7700>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:53:33+0100 [ApiProtocol,12,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2}'
+2022-01-27 16:53:33+0100 [ApiProtocol,12,127.0.0.1] Converting to json: {'type': 'fall_detected', 'device_id': 2}
+2022-01-27 16:53:33+0100 [ApiProtocol,12,127.0.0.1] Should log to db.
+2022-01-27 16:53:34+0100 [ApiProtocol,12,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3}'
+2022-01-27 16:53:34+0100 [ApiProtocol,12,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 3}
+2022-01-27 16:53:34+0100 [-] Add to database
+2022-01-27 16:53:34+0100 [-] Need to alert
+2022-01-27 16:53:34+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7280>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:53:35+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:53:35+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7280>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:53:35+0100 [ApiProtocol,12,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4}'
+2022-01-27 16:53:35+0100 [ApiProtocol,12,127.0.0.1] Converting to json: {'type': 'fall_detected', 'device_id': 4}
+2022-01-27 16:53:35+0100 [ApiProtocol,12,127.0.0.1] Should log to db.
+2022-01-27 16:53:36+0100 [ApiProtocol,12,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=49243)
+2022-01-27 16:54:28+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=49252)
+2022-01-27 16:54:28+0100 [ApiProtocol,13,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:54:28+0100 [ApiProtocol,13,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:54:28+0100 [-] Add to database
+2022-01-27 16:54:28+0100 [-] Need to alert
+2022-01-27 16:54:28+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10D0D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:54:28+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:54:28+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10D0D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:54:30+0100 [ApiProtocol,13,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2}'
+2022-01-27 16:54:30+0100 [ApiProtocol,13,127.0.0.1] Converting to json: {'type': 'fall_detected', 'device_id': 2}
+2022-01-27 16:54:30+0100 [ApiProtocol,13,127.0.0.1] Should log to db.
+2022-01-27 16:54:32+0100 [ApiProtocol,13,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3}'
+2022-01-27 16:54:32+0100 [ApiProtocol,13,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 3}
+2022-01-27 16:54:32+0100 [-] Add to database
+2022-01-27 16:54:32+0100 [-] Need to alert
+2022-01-27 16:54:32+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10DDC0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:54:32+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:54:32+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10DDC0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:54:34+0100 [ApiProtocol,13,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4}'
+2022-01-27 16:54:34+0100 [ApiProtocol,13,127.0.0.1] Converting to json: {'type': 'fall_detected', 'device_id': 4}
+2022-01-27 16:54:34+0100 [ApiProtocol,13,127.0.0.1] Should log to db.
+2022-01-27 16:54:36+0100 [ApiProtocol,13,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=49252)
+2022-01-27 16:55:01+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=49261)
+2022-01-27 16:55:01+0100 [ApiProtocol,14,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:55:01+0100 [ApiProtocol,14,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:55:01+0100 [-] Add to database
+2022-01-27 16:55:01+0100 [-] Need to alert
+2022-01-27 16:55:01+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10D8B0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:01+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:55:02+0100 [ApiProtocol,14,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2}'
+2022-01-27 16:55:02+0100 [ApiProtocol,14,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 2}
+2022-01-27 16:55:02+0100 [-] Add to database
+2022-01-27 16:55:02+0100 [-] Need to alert
+2022-01-27 16:55:02+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F73A0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:02+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:55:02+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F73A0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:04+0100 [ApiProtocol,14,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3}{"type": "fall_confirmed", "device_id": 4}'
+2022-01-27 16:55:04+0100 [-] Reason!
+2022-01-27 16:55:05+0100 [ApiProtocol,14,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=49261)
+2022-01-27 16:55:40+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=49274)
+2022-01-27 16:55:40+0100 [ApiProtocol,15,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:55:40+0100 [ApiProtocol,15,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:55:40+0100 [-] Add to database
+2022-01-27 16:55:40+0100 [-] Need to alert
+2022-01-27 16:55:40+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C04C0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:41+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:55:41+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0C04C0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:41+0100 [ApiProtocol,15,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2}'
+2022-01-27 16:55:41+0100 [ApiProtocol,15,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 2}
+2022-01-27 16:55:41+0100 [-] Add to database
+2022-01-27 16:55:41+0100 [-] Need to alert
+2022-01-27 16:55:41+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F75E0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:42+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:55:42+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F75E0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:55:43+0100 [ApiProtocol,15,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3}{"type": "fall_confirmed", "device_id": 4}'
+2022-01-27 16:55:43+0100 [-] Reason!
+2022-01-27 16:55:44+0100 [ApiProtocol,15,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=49274)
+2022-01-27 16:56:24+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=49282)
+2022-01-27 16:56:24+0100 [ApiProtocol,16,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1}'
+2022-01-27 16:56:24+0100 [ApiProtocol,16,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 1}
+2022-01-27 16:56:24+0100 [-] Add to database
+2022-01-27 16:56:24+0100 [-] Need to alert
+2022-01-27 16:56:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7550>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:56:24+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7550>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:25+0100 [ApiProtocol,16,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2}'
+2022-01-27 16:56:25+0100 [ApiProtocol,16,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 2}
+2022-01-27 16:56:25+0100 [-] Add to database
+2022-01-27 16:56:25+0100 [-] Need to alert
+2022-01-27 16:56:25+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7700>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:25+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:56:25+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE0F7700>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:26+0100 [ApiProtocol,16,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3}'
+2022-01-27 16:56:26+0100 [ApiProtocol,16,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 3}
+2022-01-27 16:56:26+0100 [-] Add to database
+2022-01-27 16:56:26+0100 [-] Need to alert
+2022-01-27 16:56:26+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10D9D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:26+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:56:26+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10D9D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:27+0100 [ApiProtocol,16,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4}'
+2022-01-27 16:56:27+0100 [ApiProtocol,16,127.0.0.1] Converting to json: {'type': 'fall_confirmed', 'device_id': 4}
+2022-01-27 16:56:27+0100 [-] Add to database
+2022-01-27 16:56:27+0100 [-] Need to alert
+2022-01-27 16:56:27+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x000001ABEE10D0D0>, <HostnameEndpoint localhost:5000>)
+2022-01-27 16:56:27+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-27 16:56:28+0100 [ApiProtocol,16,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=49282)
