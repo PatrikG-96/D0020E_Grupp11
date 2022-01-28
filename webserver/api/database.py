@@ -2,9 +2,11 @@ import sqlalchemy as db
 
 
 db_name = "d0020e_dev"
+user = "root"
+server_name = "127.0.0.1"
 
 #Connect to database
-engine = db.create_engine("mysql://root:D0020E_GRUPP11@localhost/"+db_name, echo = True) #takes database as one argument, returns an engine object
+engine = db.create_engine("mysql://"+ user + "@"+ server_name + "/" + db_name, echo = True) #takes database as one argument, returns an engine object
 connection = engine.connect() #Establish DBAPI connection to database
 
 #Get the tables
