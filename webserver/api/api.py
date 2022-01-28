@@ -7,6 +7,7 @@ import jwt
 from datetime import datetime, timedelta
 from flask import Flask, jsonify, make_response, request, Response
 from flask_cors import CORS
+import json
 
 
 app = Flask(__name__)
@@ -43,31 +44,31 @@ def token_required(func):
         return func(*args, **kwargs)    
     return decorated
 
-@app.route('/login', methods=['POST'])
+@app.route('/auth/login', methods=['POST'])
 def login():
-    form = request.form
-    
-    if not form or not form.get('username') or not form.get('password'):
-        return make_response('Login failed', 401, {'WWW-Authenticate' : 'Basic realm ="Form is fucked !!"'})
-    
-    # get user by username, id, email, whatever, from DB
-    user = User(1, 'user', 'password')
-    
+
+    data = json.loads(request.data)
+    username = data["username"]
+    password = data["password"]
+    # TODO Encryptera lösenord med hash funktion
+
+    user = User(1, 'alex', '123')
+
     if not user: # Make sure user exists
         return make_response('Login failed', 401)
-    
-    # Verify password (check_password_hash for real situations)
-    if form.get('password') == user.password:
-        
-        token = jwt.encode(
-            {'id' : user.id,
-             'expires' : (datetime.utcnow() + timedelta(minutes=30)).strftime(app.config["date_format"])},
-            app.config['key']
-        )
-        
-        return make_response(jsonify({'jwt':token}), 201)
 
-    return make_response('Login failed', 401)
+    if password == user.password:
+        token = jwt.encode(
+            {
+                'user': username,
+                'exp': (datetime.utcnow() + timedelta(seconds=60))
+            }, 
+            app.config['key'],
+            algorithm="HS256"
+        )
+        return jsonify({'accessToken': token})
+    else:
+        return make_response('Unable to verify', 403, {'WWW-Authenticate': 'Basic realm: "Authentication Failed "'})
    
    
 @app.route("/alarm/listen")  
