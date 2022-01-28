@@ -1,4 +1,5 @@
 import time
+from database import *
 from sse import Announcer
 from sse import Formatter
 from functools import wraps
@@ -69,7 +70,18 @@ def login():
         return jsonify({'accessToken': token})
     else:
         return make_response('Unable to verify', 403, {'WWW-Authenticate': 'Basic realm: "Authentication Failed "'})
-   
+
+
+@app.route("/auth/signup", methods=['POST'])
+def signup():
+    data = json.loads(request.data)
+    username = data["username"]
+    password = data["password"]
+
+    newUser(username, password)
+
+    return make_response('asd', 201)
+
    
 @app.route("/alarm/listen")  
 def listen():

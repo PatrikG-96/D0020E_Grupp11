@@ -4,16 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-pyjwt = "*"
-cryptography = "*"
-python-dotenv = "*"
-flask-sse = "*"
+twisted = "*"
 treq = "*"
-sqlalchemy = "*"
-pymysql = "*"
-mysqlclient = "*"
-flask-cors = "*"
 
 [dev-packages]
 
