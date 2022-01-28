@@ -1,6 +1,6 @@
 from network.AlarmFactory import AlarmFactory
 from network.AlarmProtocol import AlarmProtocol
-from controller.Controller import Controller
+from controller.controller import Controller
 from twisted.python import log
 
 

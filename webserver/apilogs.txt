@@ -1,0 +1,4 @@
+2022-01-26 13:05:35+0100 [-] Log opened.
+2022-01-26 13:05:35+0100 [-] ApiFactory starting on 9999
+2022-01-26 13:05:35+0100 [-] Starting factory <network.ApiFactory.ApiFactory object at 0x000002612175CE50>
+2022-01-26 13:05:35+0100 [-] starting server
