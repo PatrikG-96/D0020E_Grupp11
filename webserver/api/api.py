@@ -25,6 +25,8 @@ class User:
         self.username = username
         self.password = password
 
+
+
 def token_required(func):
     # decorator factory which invoks update_wrapper() method and passes decorated function as an argument
     @wraps(func)
@@ -44,6 +46,19 @@ def token_required(func):
 
         return func(*args, **kwargs)    
     return decorated
+
+
+@app.route('/devices/add')
+def add_device():
+    data = json.loads(request.data)
+    name = data["name"]
+    device_id = data["device_id"]
+
+@app.route('/devices/get')
+def get_devices():
+
+    return # all devices
+    
 
 @app.route('/auth/login', methods=['POST'])
 def login():
@@ -78,9 +93,20 @@ def signup():
     username = data["username"]
     password = data["password"]
 
-    newUser(username, password)
+    try:
+        newUser(username, password)
+    except:
+        return make_response('Unable to register', 400, {'WWW-Authenticate': 'Basic realm: "Registration Failed"'})
 
-    return make_response('asd', 201)
+    token = jwt.encode(
+        {
+            'user': username,
+            'exp': (datetime.utcnow() + timedelta(seconds=60))
+        }, 
+        app.config['key'],
+        algorithm="HS256"
+    )
+    return jsonify({'accessToken': token})
 
    
 @app.route("/alarm/listen")  
@@ -90,6 +116,7 @@ def listen():
     if not args.get('user_id'):
         return make_response("Fail", 401)
     user = args.get('user_id')
+
     def stream():
         q = announcer.listen(int(user))
         while True:

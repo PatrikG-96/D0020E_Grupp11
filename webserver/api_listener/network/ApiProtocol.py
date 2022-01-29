@@ -6,12 +6,14 @@ import treq
 class ApiProtocol(Protocol):
     
     def __init__(self, addr, factory):
+        log.msg("In Protocol constructor")
         self.addr = addr
         self.factory = factory
         self.d = self.makeCallbackChain()
         
         
     def makeCallbackChain(self):
+        log.msg("Adding callbacks to Protocol deferred")
         d = Deferred()
         self.factory.service.setParsingCallbacks(d)
         d.addCallback(self.alert)
@@ -29,6 +31,7 @@ class ApiProtocol(Protocol):
         log.msg(f'Connection lost from {self.addr!r}')
     
     def alert(self, msg):
+        log.msg("Alerting flask api")
         if msg != None: 
             d = treq.post(self.factory.api_url, msg)
             d.addCallback(self.print_response)
