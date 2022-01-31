@@ -1,7 +1,47 @@
 from twisted.internet.protocol import Protocol
 from twisted.internet.endpoints import TCP4ClientEndpoint, connectProtocol
 from twisted.internet import reactor
+import numpy as np
+import datetime
+from random import randrange
 import json
+
+def make_messages(n):
+    times = np.random.uniform(0.0, 120.0, n)
+    types = np.random.randint(2, size=n)
+    print(types)
+    devices = np.random.randint(0,10,n)
+    dates = random_timestamps(n)
+    coords = random_coords(n, 0, 100)
+
+    msg_list = []
+    for i in range(0,n):
+        msg_list.append(
+            (times[i], 
+            make_msg(types[i], devices[i], dates[i], coords[i]))
+        )        
+
+    return msg_list
+
+def make_msg(mtype, device, date, coords):
+    msg_type = "fall_confirmed" if mtype == 1 else "fall_detected"
+    return str({"type" : msg_type, "device_id" : device, "timestamp" : str(date), "coords" : str(coords)}).replace('\'', '"')
+
+
+def random_timestamps(iter):
+    start = datetime.datetime.now()
+    dates = []
+    for i in range(0,iter):
+        start = start + datetime.timedelta(minutes=randrange(10))
+        dates.append(start)
+    return dates
+
+def random_coords(iter, min, max):
+    coords = []
+    for i in range(0,iter):
+        coords.append((randrange(min, max), randrange(min,max)))
+    return coords
+
 
 """
 Purpose:
@@ -23,20 +63,23 @@ class Proto(Protocol):
 
     def sendMessage(self, msg):
         print("sending message")
-        self.transport.write(msg)
+        self.transport.write(msg.encode())
 
 def proto_cb(proto):
-    msg = str({"type" : "fall_confirmed", "device_id": 1}).replace('\'', '"')
-    msg1 = str({"type" : "fall_confirmed", "device_id": 2}).replace('\'', '"')
-    msg2 = str({"type" : "fall_confirmed", "device_id": 3}).replace('\'', '"')
-    msg3 = str({"type" : "fall_confirmed", "device_id": 4}).replace('\'', '"')
-    proto.sendMessage(msg.encode())
-    reactor.callLater(1, proto.sendMessage, msg1.encode())
-    reactor.callLater(2, proto.sendMessage, msg2.encode())
-    reactor.callLater(3, proto.sendMessage, msg3.encode())
-    reactor.callLater(4, proto.transport.loseConnection)
+    
+    messages = make_messages(100)
+
+    for msg in messages:
+        reactor.callLater(msg[0], proto.sendMessage, msg[1])
+    
+    reactor.callLater(130, proto.transport.loseConnection)
+
 
 point = TCP4ClientEndpoint(reactor, "localhost", 9999)
 d = connectProtocol(point, Proto())
 d.addCallback(proto_cb)
 reactor.run()
+
+
+
+

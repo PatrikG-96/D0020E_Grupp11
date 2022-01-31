@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 twisted = "*"
 sseclient = "*"
+numpy = "*"
 
 [dev-packages]
 

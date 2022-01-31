@@ -1,3 +1,5 @@
+
+from msilib.schema import ODBCAttribute
 import sqlalchemy as db
 
 
@@ -46,6 +48,26 @@ def newAction(alarmID): #Takes one int value as argument
         connection.execute(query) #Execute the query
     except db.exc.IntegrityError:
         print("Foreign key constraint: alarmID do not exist")
+
+def get_user(user_id = None, username = None):
+
+    print("in get user")
+    if user_id is None and username is None:
+        raise Exception()
+
+    if user_id is None:
+
+        query = db.select(user).where(user.columns.username == username)
+        return connection.execute(query).fetchall()[0]
+
+    if username is None:
+
+        query = db.select(user).where(user.columns.user_id == user_id)
+        return connection.execute(query).fetchall()[0]
+
+    query = db.select(user).where(user.columns.username == username, user.columns.user_id == user_id)
+    return connection.execute(query).fetchall()[0]
+
 
 def updateAction(column, actionID): #Updates the Action table, either 'hasRead' or 'solved'. Takes one string as argument. Not finished
     if(CheckIfExist(actionID, action) != 1):
