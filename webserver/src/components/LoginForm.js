@@ -74,12 +74,7 @@ function LoginForm() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box
-            component="form"
-            onsubmit="return false"
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required

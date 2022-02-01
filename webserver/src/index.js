@@ -13,6 +13,7 @@ import Alarm from "./pages/Alarm.js";
 import Elders from "./pages/Elders.js";
 import LoginForm from "./components/LoginForm.js";
 import SignupForm from "./components/SignupForm.js";
+import Logout from "./components/Logout.js";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="forgot" element={<></>} />
             </Route>
             <Route path="signup" element={<SignupForm />} />
+            <Route path="logout" element={<Logout/>} />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </BrowserRouter>

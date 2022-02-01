@@ -111,31 +111,33 @@ export function MainListItems(props) {
   );
 }
 
-export const SecondaryListItems = ({ open }) => (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <CircleNotifications color="disabled" style={styles.largeIcon} />
-      </ListItemIcon>
-      <Fade in={open} {...(open ? { timeout: fadeInTime * 1 } : {})}>
-        <ListItemText primary="Notifikationer" />
-      </Fade>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <SettingsApplications color="disabled" style={styles.largeIcon} />
-      </ListItemIcon>
-      <Fade in={open} {...(open ? { timeout: fadeInTime * 2 } : {})}>
-        <ListItemText primary="Inställningar" />
-      </Fade>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <Logout style={styles.largeIcon} />
-      </ListItemIcon>
-      <Fade in={open} {...(open ? { timeout: fadeInTime * 3 } : {})}>
-        <ListItemText primary="Logga ut" />
-      </Fade>
-    </ListItem>
-  </div>
-);
+export function SecondaryListItems({ open }) {
+  return (
+    <div>
+      <ListItem button>
+        <ListItemIcon>
+          <CircleNotifications color="disabled" style={styles.largeIcon} />
+        </ListItemIcon>
+        <Fade in={open} {...(open ? { timeout: fadeInTime * 1 } : {})}>
+          <ListItemText primary="Notifikationer" />
+        </Fade>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <SettingsApplications color="disabled" style={styles.largeIcon} />
+        </ListItemIcon>
+        <Fade in={open} {...(open ? { timeout: fadeInTime * 2 } : {})}>
+          <ListItemText primary="Inställningar" />
+        </Fade>
+      </ListItem>
+      <ListItem button component={Link} to={"/logout"} onClick={() => {}}>
+        <ListItemIcon>
+          <Logout style={styles.largeIcon} />
+        </ListItemIcon>
+        <Fade in={open} {...(open ? { timeout: fadeInTime * 3 } : {})}>
+          <ListItemText primary="Logga ut" />
+        </Fade>
+      </ListItem>
+    </div>
+  );
+}
