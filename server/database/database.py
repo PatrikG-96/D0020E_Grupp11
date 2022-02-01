@@ -1,75 +1,88 @@
-import sqlalchemy as db
+from sqlalchemy import *
+import sqlalchemy
+import generalFunc as func
+
+
 
 def test(): #Database from database-course
-    engine2 = db.create_engine("mysql://root@localhost/sportscar", echo = True) #takes database as one argument, returns an engine object
-    connection2 = engine2.connect() #Establish DBAPI connection to database
-    metadata2 = db.MetaData() #Get the tables from the database
-    users = db.Table('users', metadata2, autoload=True, autoload_with=engine2) #Get information on table
-
+    
+    engine2 = create_engine("mysql://root@localhost/sportscar", echo = True) #takes database as one argument, returns an engine object
+    connection = engine2.connect() #Establish DBAPI connection to database
+    metadata2 = MetaData() #Get the tables from the database
+    users = Table('users', metadata2, autoload=True, autoload_with=engine2) #Get information on table
+    basket = Table('basket', metadata2, autoload=True, autoload_with=engine2) #Get information on table
     #print(users.columns.keys()) #Print the column-names
-    #print(repr(metadata.tables['users'])) #Print full table
-    queryP = db.select([users]) # SELECT * FROM users
-    result2 = connection2.execute(queryP) #Execute the query
-    resultSet2 = result2.fetchall() #Data of executed query is put in a list of tuples
-    print(resultSet2)
+    #print(repr(metadata2.tables['users'])) #Print full table
+    #queryP = select(users) # SELECT * FROM users
+    #result2 = connection2.execute(queryP) #Execute the query
+    #resultSet2 = result2.fetchall() #Data of executed query is put in a list of tuples
+    #print(resultSet2)
+    #print(func.CheckIfExist(connection, users, 'usersID', 66))
+    #print(func.getSpecifiedData(connection, users, 'usersUID', 'usersID', '1'))
+    #print(func.updateTable(connection, users, 'usersID', 2, 'usersUID', 'testu66'))
+
 
 
 #Connect to database
-engine = db.create_engine("mysql://root@localhost/d0020e_g11", echo = True) #takes database as one argument, returns an engine object
-connection = engine.connect() #Establish DBAPI connection to database
+try:
+    engine = create_engine("mysql://root@localhost/d0020e_g11", echo = True) #takes database as one argument, returns an engine object
+    connection = engine.connect() #Establish DBAPI connection to database
+except sqlalchemy.exc.OperationalError:
+    print("Can't connect to database")
 
 #Get the tables
-metadata = db.MetaData() #Get the tables from the database
-elderly = db.Table('elderly', metadata, autoload=True, autoload_with=engine) #Get information on table
-sensor = db.Table('sensor', metadata, autoload=True, autoload_with=engine) 
-user = db.Table('user', metadata, autoload=True, autoload_with=engine) 
-subscription = db.Table('subscription', metadata, autoload=True, autoload_with=engine) 
-alarm = db.Table('alarm', metadata, autoload=True, autoload_with=engine) 
-action = db.Table('action', metadata, autoload=True, autoload_with=engine) 
+metadata = MetaData() #Get the tables from the database
+elderly = Table('elderly', metadata, autoload=True, autoload_with=engine) #Get information on table
+sensor = Table('sensor', metadata, autoload=True, autoload_with=engine) 
+user = Table('user', metadata, autoload=True, autoload_with=engine) 
+subscription = Table('subscription', metadata, autoload=True, autoload_with=engine) 
+alarm = Table('alarm', metadata, autoload=True, autoload_with=engine) 
+action = Table('action', metadata, autoload=True, autoload_with=engine) 
 
 #The functions
-def newElderly(name): #Takes one string values as argument
-    query = db.insert(elderly).values(name=name) #Insert operation
+def setNewElderly(name): #Takes one string values as argument
+    query = insert(elderly).values(name=name) #Insert operation
     connection.execute(query) #Execute the query
 
-def newUser(username, password): #Takes two string values as argument
-    query = db.insert(user).values(username=username, password=password)
+def setNewUser(username, password): #Takes two string values as argument
+    query = insert(user).values(username=username, password=password)
     connection.execute(query) #Execute the query
 
-def newSubscription(userID, machineID): #Takes two int values as argument
+def setNewSubscription(userID, machineID): #Takes two int values as argument
     try:
-        query = db.insert(alarm).values(userID=userID, machineID=machineID) #Insert operation
+        query = insert(alarm).values(userID=userID, machineID=machineID) #Insert operation
         connection.execute(query) #Execute the query
-    except db.exc.IntegrityError:
-        print("Foreign key constraint: machineID and/or userID do not exist")
+    except sqlalchemy.exc.IntegrityError:
+        print("Foreign key constraint: value of value of machineID and/or userID do not exist")
 
-def newAlarm(alarmFag, machineID): #Takes one string and one int value as argument
+def setNewAlarm(alarmFag, machineID): #Takes one string and one int value as argument
     try:
-        query = db.insert(alarm).values(alarmFlag=alarmFag, machineID=machineID) #Insert operation
+        query = insert(alarm).values(alarmFlag=alarmFag, machineID=machineID) #Insert operation
         connection.execute(query) #Execute the query
-    except db.exc.IntegrityError:
+    except sqlalchemy.exc.IntegrityError:
         print("Foreign key constraint: machineID do not exist")
 
-def newAction(alarmID): #Takes one int value as argument
+def setNewAction(alarmID): #Takes one int value as argument
     try:
-        query = db.insert(action).values(alarmID=alarmID, hasRead=0, solved=0) #Insert operation
+        query = insert(action).values(alarmID=alarmID, hasRead=0, solved=0) #Insert operation
         connection.execute(query) #Execute the query
-    except db.exc.IntegrityError:
-        print("Foreign key constraint: alarmID do not exist")
+    except sqlalchemy.exc.IntegrityError:
+        print("Foreign key constraint: value of alarmID do not exist")
 
-def updateAction(column, actionID): #Updates the Action table, either 'hasRead' or 'solved'. Takes one string as argument. Not finished
-    if(CheckIfExist(actionID, action) != 1):
-        return "Does not exist"
-    db.update(action).values(column=1).where(actionID=actionID)
+def logIn(username, password): #Checks if the username and password exist in the table. Takes two string as argument
+    if(func.CheckIfExist(connection, user, 'username', username) == True and func.CheckIfExist(connection, user, 'password', password) == True):
+        return True
+    return False    
 
-#Error handling
-def CheckIfExist(value, table): #See if the value exist in the parent table
-    query = db.select([table]) # SELECT * FROM *table*
-    result = connection.execute(query) #Execute the query
-    resultSet = result.fetchall() #Data of executed query is put in a list of tuples
-    for x in resultSet: #check the tuples 
-        for y in x: #check the elements in the tuple
-            if value == y:
-                return 1
+def getSubscribers(machineID): #Gets all the users that are subscripted to machineID. Takes an int as argument.
+    return func.getSpecifiedData(connection, subscription, 'userID', 'machineID', machineID)
+ 
 
+
+
+
+#name='testu6666555'
+#passWord='passpass66665'
+#setNewUser(name, passWord)
+test()
 
