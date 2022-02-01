@@ -9,19 +9,20 @@ class ApiControllerService:
         pass
     
     def setParsingCallbacks(self, deferred):
+        log.msg("Adding parsing callbacks")
         deferred.addCallback(self.toJson)
         deferred.addCallback(self.decide)
         deferred.addErrback(self.typeError)
         
     # incase other formats are needed, this could be for finding the right type
     def toJson(self, data):
+        log.msg(f'Attempting to convert to json')
         json_data = json.loads(data)
-        log.msg(f'Converting to json: {str(json_data)}')
         return json_data
         
     def decide(self, json_data):
-        
         type = json_data["type"]
+        log.msg(f'Deciding action on message of type: {type}')
         if type == "fall_detected":
             return self.actOnFallDetected(json_data)
         elif type == "fall_confirmed":

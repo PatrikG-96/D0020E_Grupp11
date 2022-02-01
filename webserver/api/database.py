@@ -23,6 +23,7 @@ def newElderly(name): #Takes one string values as argument
     query = db.insert(elderly).values(name=name) #Insert operation
     connection.execute(query) #Execute the query
 
+
 def newUser(username, password): #Takes two string values as argument
     query = db.insert(user).values(username=username, password=password)
     connection.execute(query) #Execute the query

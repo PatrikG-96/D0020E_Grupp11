@@ -35,7 +35,6 @@ def proto_cb(proto):
     reactor.callLater(2, proto.sendMessage, msg2.encode())
     reactor.callLater(3, proto.sendMessage, msg3.encode())
     reactor.callLater(4, proto.transport.loseConnection)
-    reactor.callLater(5, reactor.stop())
 
 point = TCP4ClientEndpoint(reactor, "localhost", 9999)
 d = connectProtocol(point, Proto())
