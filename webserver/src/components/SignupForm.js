@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
-import { useAuth } from "./auth/useAuth";
+import { useAuth } from "../hooks/useAuth";
 
 function SignupForm() {
   let navigate = useNavigate();

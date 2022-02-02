@@ -3,14 +3,15 @@ import sqlalchemy as db
 
 db_name = "d0020e_dev"
 user = "root"
-server_name = "127.0.0.1"
+password = "D0020E_GRUPP11"
+server_name = "localhost"
 
 #Connect to database
-engine = db.create_engine("mysql://"+ user + "@"+ server_name + "/" + db_name, echo = True) #takes database as one argument, returns an engine object
+engine = db.create_engine("mysql://"+ user + ":" + password + "@"+ server_name + "/" + db_name, echo = True) #takes database as one argument, returns an engine object
 connection = engine.connect() #Establish DBAPI connection to database
 
 #Get the tables
-metadata = db.MetaData() #Get the tables from the database
+metadata = db.MetaData() #Get the tables from the databases
 elderly = db.Table('elderly', metadata, autoload=True, autoload_with=engine) #Get information on table
 sensor = db.Table('sensor', metadata, autoload=True, autoload_with=engine) 
 user = db.Table('user', metadata, autoload=True, autoload_with=engine) 

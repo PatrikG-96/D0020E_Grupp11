@@ -14,7 +14,7 @@ import {
 import LoadingButton from "@mui/lab/LoadingButton";
 import { ArrowRight } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "./auth/useAuth";
+import { useAuth } from "../hooks/useAuth";
 
 const styles = {
   modal: {

@@ -13,7 +13,7 @@ import {
 import { LockOutlined } from "@mui/icons-material";
 import React, { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { useAuth } from "./auth/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import BasicModal from "./Modal";
 import AuthService from "../services/auth.service";
 

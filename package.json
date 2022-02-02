@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-hooks-sse": "^2.0.0"
+  }
+}

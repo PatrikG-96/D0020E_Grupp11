@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../components/auth/useAuth";
+import { useNotification } from "../hooks/useNotification";
 import AlarmService from "../services/alarm.service";
-import AuthService from "../services/auth.service";
 
 export default function Alarm() {
-  let auth = useAuth();
-  let navigate = useNavigate();
+  const notification = useNotification();
+  const alarms = AlarmService.SetListener("","1")
 
-  const [alarms, setAlarms] = useState([]);
   useEffect(() => {
-    AlarmService.getAllPrivateAlarms().then(
-      (response) => {
-        setAlarms(response.data);
-      },
-      (error) => {
-        console.log("Alarm", error.response);
-
-        if (error.response && error.response.status === 403) {
-          console.log("[Remove token]");
-          AuthService.logout();
-          auth.signout(() => {
-            navigate("/login");
-          });
-        }
-      }
-    );
-  }, []);
+    notification.showNotification("Alarm test")
+  }, [alarms]);
+  
 
   return (
     <div>
-      <h3> {alarms.map((alarm) => alarm.content)}</h3>
+      {alarms.length > 0 ? (
+        <div>
+          <h1>Alarms</h1>
+          {alarms.map((alarm) => (
+            <h3>
+              The device id: {alarm.device_id}. Type of alarm: {alarm.type}
+            </h3>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <h1>No alert received</h1>
+        </div>
+      )}
     </div>
   );
 }
