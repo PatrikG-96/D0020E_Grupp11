@@ -87,12 +87,12 @@ def getUser(userValue): #Returns a user with id, name and password. Takes a int 
         result = connection.execute(query) #Execute the query
         return func.changeToList(result.fetchall())
 
-def getAllAlarmNotRead():
+def getAllAlarmNotRead(): #Returns all alarms that are not read
     query = select(action).where(action.columns.hasRead == 0)
     result = connection.execute(query) #Execute the query
     return result.fetchall()
 
-def getAllAlarmNotReadSpecified(user_id):  #Returns a list of alarmID of alarms that are not read. Takes an int as argument.
+def getAllAlarmNotReadSpecified(user_id):  #Returns a list of alarmID of alarms that are not read of a user. Takes an int as argument.
     if(func.CheckIfExist(connection, subscription, 'userID', user_id) == True):
         allMachineID = func.getSpecifiedData(connection, subscription, 'machineID', 'userID', user_id) # A list of the machineID that use is subscribed to
         
@@ -111,7 +111,7 @@ def getAllAlarmNotReadSpecified(user_id):  #Returns a list of alarmID of alarms 
 
     return "UserID do not exist"
 
-print(getAllAlarmNotReadSpecified(6))
+
 
  
 
