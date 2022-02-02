@@ -77,7 +77,7 @@ def login():
         token = jwt.encode(
             {
                 'user': username,
-                'exp': (datetime.utcnow() + timedelta(seconds=60))
+                'exp': str(datetime.utcnow() + timedelta(minutes=60))
             }, 
             app.config['key'],
             algorithm="HS256"
@@ -101,7 +101,7 @@ def signup():
     token = jwt.encode(
         {
             'user': username,
-            'exp': (datetime.utcnow() + timedelta(seconds=60))
+            'exp': str(datetime.utcnow() + timedelta(minutes=60))
         }, 
         app.config['key'],
         algorithm="HS256"
