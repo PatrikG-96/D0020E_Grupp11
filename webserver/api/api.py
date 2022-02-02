@@ -1,6 +1,6 @@
 from re import M
 import bcrypt
-from database import *
+from database.database import *
 from sse import Announcer
 from sse import Formatter
 from functools import wraps
@@ -37,7 +37,7 @@ def token_required(func):
             return jsonify({'Alert!': 'Token is missing!'}), 401
         try:
             data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
-            expireTime = datetime.fromtimestamp(data['exp'])
+            expireTime = datetime.fromtimestamp(data['expires'])
             print(expireTime)
         except jwt.exceptions.ExpiredSignatureError:
             return jsonify({'Message': 'Signature has expired'}), 403
@@ -68,12 +68,19 @@ def token_required(func):
 
 @app.route('/auth/login', methods=['POST'])
 def login():
+    """
+    Verifies user credentials and returns a JWT for further verification
+    Loads data from request.data and converts it to JSON format.
 
+    Returns
+    -------
+        A JSON with the 'accessToken' tag which contains a JWT. JWT contains field 'user_id' and 'expires'
+    """
     data = json.loads(request.data)
     username = data["username"]
     password = data["password"]
     
-    user = get_user(username = username)
+    user = getUser(username)
     
     if not user: # Make sure user exists
         return make_response('Login failed', 401)
@@ -81,8 +88,8 @@ def login():
     if bcrypt.checkpw(password.encode(), user[2].encode()):
         token = jwt.encode(
             {
-                'user': username,
-                'exp': (datetime.utcnow() + timedelta(seconds=60))
+                'user_id': user[0],
+                'expires': (datetime.utcnow() + timedelta(minutes=60))
             }, 
             app.config['key'],
             algorithm="HS256"
@@ -97,11 +104,10 @@ def signup():
     data = json.loads(request.data)
     username = data["username"]
     password = data["password"]
-    print(f"trying to make user: {username}, {password}")
+
     try:
         hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt(14))
-        print("inbetween")
-        newUser(username, hashed_pw)
+        setNewUser(username, hashed_pw)
     except:
         return make_response('Unable to register', 403, {'WWW-Authenticate': 'Basic realm: "Registration Failed"'})
 
@@ -133,7 +139,13 @@ def listen():
     
     return Response(stream(), mimetype='text/event-stream')
     
-   
+
+@app.route("/alarm/response")
+def alarm_response():
+    data = json.loads(request.data)
+
+    
+    
     
 # Idea: For future use, having user id in JWT token encrypted with server secret key,
 # it can be verified
