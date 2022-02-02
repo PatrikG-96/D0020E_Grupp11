@@ -18,7 +18,7 @@ def test(): #Database from database-course
     resultSet2 = result2.fetchall() #Data of executed query is put in a list of tuples
     print(resultSet2)
     #print(func.CheckIfExist(connection, users, 'usersID', 66))
-    #print(func.getSpecifiedData(connection, users, 'usersUID', 'usersID', '1'))
+    print(func.getSpecifiedData(connection2, users, 'usersUID', 'usersID', '1'))
     #print(func.updateTable(connection, users, 'usersID', 2, 'usersUID', 'testu66'))
 
 
@@ -77,15 +77,41 @@ def logIn(username, password): #Checks if the username and password exist in the
 def getSubscribers(machineID): #Gets all the users that are subscripted to machineID. Takes an int as argument.
     return func.getSpecifiedData(connection, subscription, 'userID', 'machineID', machineID)
 
+def getUser(userValue): #Returns a user with id, name and password. Takes a int or string
+    if (isinstance(userValue, int) == True):
+        query = select(user).where(user.columns.userID == userValue)
+        result = connection.execute(query) #Execute the query
+        return func.changeToList(result.fetchall())
+    else:
+        query = select(user).where(user.columns.username == userValue)
+        result = connection.execute(query) #Execute the query
+        return func.changeToList(result.fetchall())
 
+def getAllAlarmNotRead():
+    query = select(action).where(action.columns.hasRead == 0)
+    result = connection.execute(query) #Execute the query
+    return result.fetchall()
+
+def getAllAlarmNotReadSpecified(user_id):  #Returns a list of alarmID of alarms that are not read. Takes an int as argument.
+    if(func.CheckIfExist(connection, subscription, 'userID', user_id) == True):
+        allMachineID = func.getSpecifiedData(connection, subscription, 'machineID', 'userID', user_id) # A list of the machineID that use is subscribed to
+        
+        allAlarmID = []
+        for x in allMachineID:
+            allAlarmID += func.getSpecifiedData(connection, alarm, 'alarmID', 'machineID', x)
+
+        
+        notRead = [] #A list of alarmID of alarms that are not read
+        
+        for x in allAlarmID:
+            query = select(action.columns.alarmID).where(and_(action.columns.alarmID == x, action.columns.hasRead == 0)) 
+            result = connection.execute(query) #Execute the query
+            notRead += result.fetchall()
+        return func.changeToList(notRead)
+
+    return "UserID do not exist"
+
+print(getAllAlarmNotReadSpecified(6))
 
  
-
-
-
-
-#name='testu6666555'
-#passWord='passpass66665'
-#setNewUser(name, passWord)
-print(setNewAlarmAndAction('low', 1))
 
