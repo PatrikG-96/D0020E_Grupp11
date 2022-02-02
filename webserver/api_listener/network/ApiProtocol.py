@@ -31,8 +31,8 @@ class ApiProtocol(Protocol):
         log.msg(f'Connection lost from {self.addr!r}')
     
     def alert(self, msg):
-        log.msg("Alerting flask api")
         if msg != None: 
+            log.msg("Alerting flask api")
             d = treq.post(self.factory.api_url, msg)
             d.addCallback(self.print_response)
     

@@ -1,9 +1,1823 @@
-2022-01-29 14:13:28+0100 [-] Log opened.
-2022-01-29 14:13:28+0100 [-] ApiFactory starting on 9999
-2022-01-29 14:13:28+0100 [-] Starting factory <network.ApiFactory.ApiFactory object at 0x000001D81D6EF790>
-2022-01-29 14:13:28+0100 [-] starting server
-2022-01-29 14:14:02+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
-2022-01-29 14:14:02+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
-2022-01-29 14:14:02+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
-2022-01-29 14:14:02+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=59529)
-2022-01-29 14:14:02+0100 [ApiProtocol,0,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=59529)
+2022-01-31 18:17:30+0100 [-] Log opened.
+2022-01-31 18:17:30+0100 [-] ApiFactory starting on 9999
+2022-01-31 18:17:30+0100 [-] Starting factory <network.ApiFactory.ApiFactory object at 0x0000027CC3CBDC70>
+2022-01-31 18:17:30+0100 [-] starting server
+2022-01-31 18:17:33+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-01-31 18:17:33+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-01-31 18:17:33+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-01-31 18:17:33+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=63970)
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 21:42:33.972702", "coords": "(43, 47)"}'
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 19:05:33.972702", "coords": "(4, 30)"}'
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:35+0100 [-] Add to database
+2022-01-31 18:17:35+0100 [-] Need to alert
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:35+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:35+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19550>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:35+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:35+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19550>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 21:12:33.972702", "coords": "(9, 14)"}'
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-01-31 21:00:33.972702", "coords": "(7, 40)"}'
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:36+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:37+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-02-01 00:56:33.972702", "coords": "(95, 4)"}'
+2022-01-31 18:17:37+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:37+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:37+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:37+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:37+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:39+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 22:13:33.972702", "coords": "(40, 36)"}'
+2022-01-31 18:17:39+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:39+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:39+0100 [-] Add to database
+2022-01-31 18:17:39+0100 [-] Need to alert
+2022-01-31 18:17:39+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:39+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:39+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:39+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:39+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:39+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:40+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 19:32:33.972702", "coords": "(64, 8)"}'
+2022-01-31 18:17:40+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:40+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:40+0100 [-] Add to database
+2022-01-31 18:17:40+0100 [-] Need to alert
+2022-01-31 18:17:40+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:40+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:40+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:40+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:40+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:40+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:41+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 21:14:33.972702", "coords": "(43, 50)"}'
+2022-01-31 18:17:41+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:41+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:41+0100 [-] Add to database
+2022-01-31 18:17:41+0100 [-] Need to alert
+2022-01-31 18:17:41+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:41+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:41+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:41+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55D30>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:41+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:41+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55D30>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:42+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-01-31 19:32:33.972702", "coords": "(37, 68)"}'
+2022-01-31 18:17:42+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:42+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:42+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:42+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:42+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 21:14:33.972702", "coords": "(81, 47)"}'
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-02-01 00:31:33.972702", "coords": "(13, 34)"}'
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-01-31 21:19:33.972702", "coords": "(57, 51)"}'
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:43+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:46+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 23:00:33.972702", "coords": "(7, 27)"}'
+2022-01-31 18:17:46+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:46+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:46+0100 [-] Add to database
+2022-01-31 18:17:46+0100 [-] Need to alert
+2022-01-31 18:17:46+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:46+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:46+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:46+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19E50>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:46+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:48+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 23:50:33.972702", "coords": "(62, 31)"}'
+2022-01-31 18:17:48+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:48+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:48+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:48+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:48+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 22:13:33.972702", "coords": "(3, 94)"}'
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 18:37:33.972702", "coords": "(85, 59)"}'
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:49+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:50+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 20:15:33.972702", "coords": "(85, 60)"}'
+2022-01-31 18:17:50+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:50+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:50+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:50+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:50+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:51+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 20:53:33.972702", "coords": "(47, 76)"}'
+2022-01-31 18:17:51+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:51+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:51+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:51+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:51+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 19:37:33.972702", "coords": "(98, 11)"}'
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 18:54:33.972702", "coords": "(92, 10)"}'
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:53+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-01-31 22:55:33.972702", "coords": "(98, 75)"}'
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:55+0100 [-] Add to database
+2022-01-31 18:17:55+0100 [-] Need to alert
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:55+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:55+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:55+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-01-31 18:54:33.972702", "coords": "(13, 43)"}'
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:17:55+0100 [-] Add to database
+2022-01-31 18:17:55+0100 [-] Need to alert
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:55+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:17:55+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:56+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:17:56+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:17:58+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-01-31 18:46:33.972702", "coords": "(28, 60)"}'
+2022-01-31 18:17:58+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:17:58+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:17:58+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:17:58+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:17:58+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:01+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 23:55:33.972702", "coords": "(61, 3)"}'
+2022-01-31 18:18:01+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:01+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:01+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:01+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:01+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-01-31 20:44:33.972702", "coords": "(31, 32)"}'
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:18:02+0100 [-] Add to database
+2022-01-31 18:18:02+0100 [-] Need to alert
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:02+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E669D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 22:41:33.972702", "coords": "(44, 49)"}'
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 22:32:33.972702", "coords": "(51, 10)"}'
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 23:27:33.972702", "coords": "(0, 4)"}'
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:02+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:02+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:18:02+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E669D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:04+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 19:03:33.972702", "coords": "(0, 92)"}'
+2022-01-31 18:18:04+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:04+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:04+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:04+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:04+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:06+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 18:32:33.972702", "coords": "(95, 90)"}'
+2022-01-31 18:18:06+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:06+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:06+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:06+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:06+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-02-01 00:03:33.972702", "coords": "(62, 80)"}'
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:18:07+0100 [-] Add to database
+2022-01-31 18:18:07+0100 [-] Need to alert
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:07+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:07+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:18:07+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 21:57:33.972702", "coords": "(79, 8)"}'
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:18:07+0100 [-] Add to database
+2022-01-31 18:18:07+0100 [-] Need to alert
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:07+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-01-31 23:35:33.972702", "coords": "(30, 69)"}'
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:07+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-01-31 20:15:33.972702", "coords": "(77, 67)"}'
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:18:08+0100 [-] Add to database
+2022-01-31 18:18:08+0100 [-] Need to alert
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-01-31 19:24:33.972702", "coords": "(12, 56)"}'
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:18:08+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-02-01 00:37:33.972702", "coords": "(69, 32)"}'
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:18:08+0100 [-] Add to database
+2022-01-31 18:18:08+0100 [-] Need to alert
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:08+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:09+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:18:09+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 22:05:33.972702", "coords": "(58, 66)"}'
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:18:10+0100 [-] Add to database
+2022-01-31 18:18:10+0100 [-] Need to alert
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Alerting flask api
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:10+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:10+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:18:10+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 22:50:33.972702", "coords": "(53, 59)"}'
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:10+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:11+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 18:46:33.972702", "coords": "(14, 79)"}'
+2022-01-31 18:18:11+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:11+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:11+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:11+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:11+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:12+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 20:22:33.972702", "coords": "(90, 6)"}'
+2022-01-31 18:18:12+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-01-31 18:18:12+0100 [ApiProtocol,0,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:18:12+0100 [ApiProtocol,0,127.0.0.1] Should log to db.
+2022-01-31 18:18:12+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:18:12+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:18:13+0100 [ApiProtocol,0,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=63970)
+2022-01-31 18:23:47+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-01-31 18:23:47+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-01-31 18:23:47+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-01-31 18:23:47+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=64060)
+2022-01-31 18:23:49+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 23:15:47.664314", "coords": "(56, 36)"}'
+2022-01-31 18:23:49+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:49+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:23:49+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:23:49+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:49+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:51+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-01-31 18:50:47.664314", "coords": "(0, 56)"}'
+2022-01-31 18:23:51+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:51+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:23:51+0100 [-] Add to database
+2022-01-31 18:23:51+0100 [-] Need to alert
+2022-01-31 18:23:51+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:23:51+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:51+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:51+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E664C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:51+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:23:51+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E664C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 18:38:47.664314", "coords": "(63, 34)"}'
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:23:54+0100 [-] Add to database
+2022-01-31 18:23:54+0100 [-] Need to alert
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:54+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 20:51:47.664314", "coords": "(68, 87)"}'
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:23:54+0100 [-] Add to database
+2022-01-31 18:23:54+0100 [-] Need to alert
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:54+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:54+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:55+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:23:55+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:23:55+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:55+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 23:01:47.664314", "coords": "(28, 15)"}'
+2022-01-31 18:23:55+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:55+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:23:55+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:23:55+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:55+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-01-31 19:53:47.664314", "coords": "(20, 78)"}'
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:23:56+0100 [-] Add to database
+2022-01-31 18:23:56+0100 [-] Need to alert
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:56+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-02-01 01:33:47.664314", "coords": "(14, 82)"}'
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:56+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:23:56+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-02-01 01:27:47.664314", "coords": "(30, 25)"}'
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:23:56+0100 [-] Add to database
+2022-01-31 18:23:56+0100 [-] Need to alert
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:56+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:56+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:23:57+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-01-31 21:49:47.664314", "coords": "(55, 75)"}'
+2022-01-31 18:23:57+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:57+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:23:57+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:23:57+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:57+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:23:57+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:23:59+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-02-01 00:50:47.664314", "coords": "(55, 74)"}'
+2022-01-31 18:23:59+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:23:59+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:23:59+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:23:59+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:23:59+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:00+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 21:26:47.664314", "coords": "(42, 91)"}'
+2022-01-31 18:24:00+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:00+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:00+0100 [-] Add to database
+2022-01-31 18:24:00+0100 [-] Need to alert
+2022-01-31 18:24:00+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:00+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:00+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:00+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:00+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:02+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-02-01 00:04:47.664314", "coords": "(67, 27)"}'
+2022-01-31 18:24:02+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:02+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:02+0100 [-] Add to database
+2022-01-31 18:24:02+0100 [-] Need to alert
+2022-01-31 18:24:02+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:02+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:02+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:02+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:02+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:06+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-02-01 00:08:47.664314", "coords": "(42, 37)"}'
+2022-01-31 18:24:06+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:06+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:06+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:06+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:06+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:09+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 20:46:47.664314", "coords": "(80, 76)"}'
+2022-01-31 18:24:09+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:09+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:09+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:09+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:09+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:10+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 23:44:47.664314", "coords": "(14, 20)"}'
+2022-01-31 18:24:10+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:10+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:10+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:10+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:10+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:11+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 22:24:47.664314", "coords": "(72, 77)"}'
+2022-01-31 18:24:11+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:11+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:11+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:11+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:11+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:12+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 19:46:47.664314", "coords": "(82, 47)"}'
+2022-01-31 18:24:12+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:12+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:12+0100 [-] Add to database
+2022-01-31 18:24:12+0100 [-] Need to alert
+2022-01-31 18:24:12+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:12+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:12+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:12+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66D30>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:12+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:12+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66D30>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:13+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-01-31 20:43:47.664314", "coords": "(4, 48)"}'
+2022-01-31 18:24:13+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:13+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:13+0100 [-] Add to database
+2022-01-31 18:24:13+0100 [-] Need to alert
+2022-01-31 18:24:13+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:13+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:13+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:13+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E665E0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:13+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:13+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E665E0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:14+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-02-01 00:01:47.664314", "coords": "(15, 6)"}'
+2022-01-31 18:24:14+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:14+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:14+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:14+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:14+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:15+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 22:56:47.664314", "coords": "(89, 13)"}'
+2022-01-31 18:24:15+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:15+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:15+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:15+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:15+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:18+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 23:19:47.664314", "coords": "(39, 18)"}'
+2022-01-31 18:24:18+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:18+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:18+0100 [-] Add to database
+2022-01-31 18:24:18+0100 [-] Need to alert
+2022-01-31 18:24:18+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:18+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:18+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:18+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66A60>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:18+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-02-01 01:57:47.664314", "coords": "(9, 9)"}'
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:23+0100 [-] Add to database
+2022-01-31 18:24:23+0100 [-] Need to alert
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:23+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 23:45:47.664314", "coords": "(91, 65)"}'
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:23+0100 [-] Add to database
+2022-01-31 18:24:23+0100 [-] Need to alert
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:23+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-02-01 01:59:47.664314", "coords": "(37, 52)"}'
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:23+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:23+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-02-01 00:44:47.664314", "coords": "(85, 28)"}'
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:23+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:23+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-02-01 01:26:47.664314", "coords": "(27, 6)"}'
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:23+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:24+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 23:52:47.664314", "coords": "(40, 15)"}'
+2022-01-31 18:24:24+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:24+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:24+0100 [-] Add to database
+2022-01-31 18:24:24+0100 [-] Need to alert
+2022-01-31 18:24:24+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:24+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:24+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E748B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:24+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E748B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-01-31 23:17:47.664314", "coords": "(41, 88)"}'
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:25+0100 [-] Add to database
+2022-01-31 18:24:25+0100 [-] Need to alert
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:25+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74D30>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-02-01 00:31:47.664314", "coords": "(90, 4)"}'
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:25+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:25+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:25+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74D30>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:26+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-02-01 01:22:47.664314", "coords": "(58, 28)"}'
+2022-01-31 18:24:26+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:26+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:26+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:26+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:26+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:28+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 19:26:47.664314", "coords": "(59, 34)"}'
+2022-01-31 18:24:28+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:28+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:28+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:28+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:28+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:30+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 23:06:47.664314", "coords": "(7, 71)"}'
+2022-01-31 18:24:30+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:30+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:30+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:30+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:30+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:32+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-01-31 23:11:47.664314", "coords": "(45, 0)"}'
+2022-01-31 18:24:32+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:32+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:32+0100 [-] Add to database
+2022-01-31 18:24:32+0100 [-] Need to alert
+2022-01-31 18:24:32+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:32+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:32+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:32+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:33+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:33+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-02-01 01:38:47.664314", "coords": "(43, 21)"}'
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:34+0100 [-] Add to database
+2022-01-31 18:24:34+0100 [-] Need to alert
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:34+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19A60>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:34+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 18:41:47.664314", "coords": "(65, 88)"}'
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:34+0100 [-] Add to database
+2022-01-31 18:24:34+0100 [-] Need to alert
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:34+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:34+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66F70>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:35+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:35+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 21:42:47.664314", "coords": "(76, 45)"}'
+2022-01-31 18:24:35+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:35+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:35+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:35+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:35+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:39+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-01-31 19:33:47.664314", "coords": "(2, 32)"}'
+2022-01-31 18:24:39+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:39+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:39+0100 [-] Add to database
+2022-01-31 18:24:39+0100 [-] Need to alert
+2022-01-31 18:24:39+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:39+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:39+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:39+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66940>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:39+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:39+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66940>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-02-01 00:17:47.664314", "coords": "(75, 1)"}'
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 22:48:47.664314", "coords": "(63, 31)"}'
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-02-01 01:45:47.664314", "coords": "(95, 42)"}'
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:40+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:41+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 19:10:47.664314", "coords": "(20, 1)"}'
+2022-01-31 18:24:41+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:41+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:41+0100 [-] Add to database
+2022-01-31 18:24:41+0100 [-] Need to alert
+2022-01-31 18:24:41+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:41+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:41+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:41+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:41+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:41+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 21:15:47.664314", "coords": "(18, 34)"}'
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:42+0100 [-] Add to database
+2022-01-31 18:24:42+0100 [-] Need to alert
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:42+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E554C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 20:46:47.664314", "coords": "(7, 22)"}'
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:42+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:42+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:42+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E554C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:43+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-02-01 01:15:47.664314", "coords": "(99, 52)"}'
+2022-01-31 18:24:43+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:43+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:43+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:43+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:43+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:47+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 21:00:47.664314", "coords": "(81, 22)"}'
+2022-01-31 18:24:47+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:47+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:47+0100 [-] Add to database
+2022-01-31 18:24:47+0100 [-] Need to alert
+2022-01-31 18:24:47+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:47+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:47+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:47+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:48+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-01-31 21:33:47.664314", "coords": "(76, 31)"}'
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-02-01 02:16:47.664314", "coords": "(96, 73)"}'
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:48+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 22:48:47.664314", "coords": "(98, 92)"}'
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-02-01 02:03:47.664314", "coords": "(36, 75)"}'
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 19:17:47.664314", "coords": "(93, 79)"}'
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:50+0100 [-] Add to database
+2022-01-31 18:24:50+0100 [-] Need to alert
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:50+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:50+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:51+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:51+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 20:38:47.664314", "coords": "(96, 55)"}'
+2022-01-31 18:24:51+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:51+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:51+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:51+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:51+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:52+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-02-01 00:08:47.664314", "coords": "(22, 56)"}'
+2022-01-31 18:24:52+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:52+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:52+0100 [-] Add to database
+2022-01-31 18:24:52+0100 [-] Need to alert
+2022-01-31 18:24:52+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:52+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:52+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:52+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:52+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:52+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:53+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-01-31 20:13:47.664314", "coords": "(86, 1)"}'
+2022-01-31 18:24:53+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:53+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:53+0100 [-] Add to database
+2022-01-31 18:24:53+0100 [-] Need to alert
+2022-01-31 18:24:53+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:53+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:53+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:53+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55940>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:54+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-02-01 00:22:47.664314", "coords": "(15, 54)"}'
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 20:08:47.664314", "coords": "(34, 69)"}'
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:55+0100 [-] Add to database
+2022-01-31 18:24:55+0100 [-] Need to alert
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:55+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:55+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E559D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:24:55+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:24:58+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 21:55:47.664314", "coords": "(49, 34)"}'
+2022-01-31 18:24:58+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:58+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:58+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:58+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:58+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 18:53:47.664314", "coords": "(32, 45)"}'
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 22:09:47.664314", "coords": "(62, 80)"}'
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:24:59+0100 [-] Add to database
+2022-01-31 18:24:59+0100 [-] Need to alert
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:24:59+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:24:59+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66F70>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 20:22:47.664314", "coords": "(34, 36)"}'
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:00+0100 [-] Add to database
+2022-01-31 18:25:00+0100 [-] Need to alert
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:00+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:00+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:00+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66F70>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:00+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:00+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-01-31 19:17:47.664314", "coords": "(19, 35)"}'
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:00+0100 [-] Add to database
+2022-01-31 18:25:00+0100 [-] Need to alert
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:00+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:00+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 18:36:47.664314", "coords": "(91, 99)"}'
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:01+0100 [-] Add to database
+2022-01-31 18:25:01+0100 [-] Need to alert
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:01+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E55670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:01+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:01+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:01+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-01-31 23:15:47.664314", "coords": "(0, 38)"}'
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:01+0100 [-] Add to database
+2022-01-31 18:25:01+0100 [-] Need to alert
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:01+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:01+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:02+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-02-01 01:27:47.664314", "coords": "(80, 47)"}'
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:02+0100 [-] Add to database
+2022-01-31 18:25:02+0100 [-] Need to alert
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:02+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E748B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 20:32:47.664314", "coords": "(7, 44)"}'
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:02+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:02+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E748B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 21:08:47.664314", "coords": "(55, 42)"}'
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:02+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:04+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 18:32:47.664314", "coords": "(8, 27)"}'
+2022-01-31 18:25:04+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:04+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:04+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:04+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:04+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:05+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 19:02:47.664314", "coords": "(1, 28)"}'
+2022-01-31 18:25:05+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:05+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:05+0100 [-] Add to database
+2022-01-31 18:25:05+0100 [-] Need to alert
+2022-01-31 18:25:05+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:05+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:05+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:05+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E553A0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:05+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:05+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E553A0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 20:28:47.664314", "coords": "(91, 73)"}'
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:08+0100 [-] Add to database
+2022-01-31 18:25:08+0100 [-] Need to alert
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E554C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 23:35:47.664314", "coords": "(19, 82)"}'
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:08+0100 [-] Add to database
+2022-01-31 18:25:08+0100 [-] Need to alert
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:08+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66820>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:09+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:09+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E554C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:09+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:09+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66820>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:10+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 21:23:47.664314", "coords": "(33, 6)"}'
+2022-01-31 18:25:10+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:10+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:10+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:10+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:10+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:13+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-01-31 23:17:47.664314", "coords": "(87, 55)"}{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 20:43:47.664314", "coords": "(56, 16)"}'
+2022-01-31 18:25:13+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:13+0100 [-] Reason!
+2022-01-31 18:25:13+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:13+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:15+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 19:11:47.664314", "coords": "(64, 25)"}'
+2022-01-31 18:25:15+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:15+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:15+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:15+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:15+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:16+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 19:31:47.664314", "coords": "(73, 62)"}'
+2022-01-31 18:25:16+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:16+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:16+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:16+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:16+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 20:46:47.664314", "coords": "(95, 38)"}'
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:19+0100 [-] Add to database
+2022-01-31 18:25:19+0100 [-] Need to alert
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:19+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:19+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:19+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 22:39:47.664314", "coords": "(62, 3)"}'
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:19+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 18:31:47.664314", "coords": "(57, 3)"}'
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:21+0100 [-] Add to database
+2022-01-31 18:25:21+0100 [-] Need to alert
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:21+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-02-01 02:15:47.664314", "coords": "(85, 6)"}'
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:21+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:21+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:22+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 22:56:47.664314", "coords": "(71, 76)"}{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 20:27:47.664314", "coords": "(83, 24)"}'
+2022-01-31 18:25:22+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:22+0100 [-] Reason!
+2022-01-31 18:25:22+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:22+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:24+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-02-01 01:04:47.664314", "coords": "(8, 71)"}'
+2022-01-31 18:25:24+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:24+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:25:24+0100 [-] Add to database
+2022-01-31 18:25:24+0100 [-] Need to alert
+2022-01-31 18:25:24+0100 [ApiProtocol,1,127.0.0.1] Alerting flask api
+2022-01-31 18:25:24+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:24+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:25:24+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:25:26+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 22:17:47.664314", "coords": "(9, 95)"}'
+2022-01-31 18:25:26+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:26+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:26+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:26+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:26+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 23:28:47.664314", "coords": "(82, 80)"}'
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Should log to db.
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:25:27+0100 [ApiProtocol,1,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=64060)
+2022-01-31 18:28:04+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-01-31 18:28:04+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-01-31 18:28:04+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-01-31 18:28:04+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=64221)
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-01-31 19:58:04.033865", "coords": "(6, 79)"}'
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:04+0100 [-] Add to database
+2022-01-31 18:28:04+0100 [-] Need to alert
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:04+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E665E0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-01-31 19:06:04.033865", "coords": "(48, 2)"}'
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:04+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:04+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:06+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 19:10:04.033865", "coords": "(54, 50)"}'
+2022-01-31 18:28:06+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:06+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:06+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:06+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:06+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 18:51:04.033865", "coords": "(75, 86)"}'
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:07+0100 [-] Add to database
+2022-01-31 18:28:07+0100 [-] Need to alert
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:07+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E559D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:07+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-02-01 01:06:04.033865", "coords": "(37, 61)"}'
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:07+0100 [-] Add to database
+2022-01-31 18:28:07+0100 [-] Need to alert
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:07+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:07+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E748B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 19:22:04.033865", "coords": "(52, 27)"}'
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:08+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E748B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-01-31 18:57:04.033865", "coords": "(96, 54)"}'
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:08+0100 [-] Add to database
+2022-01-31 18:28:08+0100 [-] Need to alert
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 22:39:04.033865", "coords": "(52, 76)"}'
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:08+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-02-01 00:13:04.033865", "coords": "(30, 9)"}'
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:14+0100 [-] Add to database
+2022-01-31 18:28:14+0100 [-] Need to alert
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:14+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E801F0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 23:31:04.033865", "coords": "(36, 0)"}'
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:14+0100 [-] Add to database
+2022-01-31 18:28:14+0100 [-] Need to alert
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:14+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:14+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74E50>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:14+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:14+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:15+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 21:07:04.033865", "coords": "(46, 45)"}'
+2022-01-31 18:28:15+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:15+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:15+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:15+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:15+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:17+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 22:42:04.033865", "coords": "(86, 5)"}'
+2022-01-31 18:28:17+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:17+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:17+0100 [-] Add to database
+2022-01-31 18:28:17+0100 [-] Need to alert
+2022-01-31 18:28:17+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:17+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:17+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:17+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:18+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:19+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-01-31 22:29:04.033865", "coords": "(7, 83)"}'
+2022-01-31 18:28:19+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:19+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:19+0100 [-] Add to database
+2022-01-31 18:28:19+0100 [-] Need to alert
+2022-01-31 18:28:19+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:19+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:19+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:19+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:19+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:20+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 22:56:04.033865", "coords": "(68, 17)"}'
+2022-01-31 18:28:20+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:20+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:20+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:20+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:20+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:23+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-02-01 02:09:04.033865", "coords": "(16, 82)"}'
+2022-01-31 18:28:23+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:23+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:23+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:23+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:23+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:24+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 19:50:04.033865", "coords": "(96, 93)"}'
+2022-01-31 18:28:24+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:24+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:24+0100 [-] Add to database
+2022-01-31 18:28:24+0100 [-] Need to alert
+2022-01-31 18:28:24+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:24+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:24+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:24+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:28+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 19:31:04.033865", "coords": "(67, 98)"}'
+2022-01-31 18:28:28+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:28+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:28+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:28+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:28+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:30+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 23:17:04.033865", "coords": "(44, 65)"}'
+2022-01-31 18:28:30+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:30+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:30+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:30+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:30+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-02-01 01:19:04.033865", "coords": "(95, 26)"}'
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-02-01 00:49:04.033865", "coords": "(98, 11)"}'
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:31+0100 [-] Add to database
+2022-01-31 18:28:31+0100 [-] Need to alert
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:31+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:31+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74DC0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:31+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 23:45:04.033865", "coords": "(3, 63)"}'
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:32+0100 [-] Add to database
+2022-01-31 18:28:32+0100 [-] Need to alert
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:32+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:32+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-02-01 01:28:04.033865", "coords": "(27, 14)"}'
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:32+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:34+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-02-01 01:49:04.033865", "coords": "(2, 28)"}'
+2022-01-31 18:28:34+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:34+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:34+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:34+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:34+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-02-01 01:15:04.033865", "coords": "(85, 16)"}'
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:35+0100 [-] Add to database
+2022-01-31 18:28:35+0100 [-] Need to alert
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:35+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-01-31 23:25:04.033865", "coords": "(12, 28)"}{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-02-01 02:06:04.033865", "coords": "(47, 12)"}'
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:35+0100 [-] Reason!
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:35+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:35+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 2, "timestamp": "2022-01-31 22:13:04.033865", "coords": "(28, 77)"}'
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-01-31 18:57:04.033865", "coords": "(35, 94)"}'
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:38+0100 [-] Add to database
+2022-01-31 18:28:38+0100 [-] Need to alert
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:38+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:38+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:38+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 20:59:04.033865", "coords": "(65, 97)"}'
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:44+0100 [-] Add to database
+2022-01-31 18:28:44+0100 [-] Need to alert
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:44+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-02-01 01:41:04.033865", "coords": "(2, 53)"}'
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:44+0100 [-] Add to database
+2022-01-31 18:28:44+0100 [-] Need to alert
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:44+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:44+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:44+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:44+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:44+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74C10>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 23:52:04.033865", "coords": "(39, 58)"}'
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:44+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 23:21:04.033865", "coords": "(90, 11)"}'
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:46+0100 [-] Add to database
+2022-01-31 18:28:46+0100 [-] Need to alert
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:46+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74430>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-02-01 01:13:04.033865", "coords": "(54, 50)"}'
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:46+0100 [-] Add to database
+2022-01-31 18:28:46+0100 [-] Need to alert
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:46+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:46+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:46+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74430>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:46+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:46+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 19:44:04.033865", "coords": "(60, 40)"}'
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:46+0100 [-] Add to database
+2022-01-31 18:28:46+0100 [-] Need to alert
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:46+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-01-31 21:02:04.033865", "coords": "(69, 39)"}'
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:46+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:47+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:52+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 1, "timestamp": "2022-01-31 22:08:04.033865", "coords": "(94, 41)"}'
+2022-01-31 18:28:52+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:52+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:52+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:52+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:52+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:53+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-02-01 00:37:04.033865", "coords": "(93, 43)"}'
+2022-01-31 18:28:53+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:53+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:53+0100 [-] Add to database
+2022-01-31 18:28:53+0100 [-] Need to alert
+2022-01-31 18:28:53+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:53+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:53+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:53+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74040>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:53+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:54+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-01-31 21:34:04.033865", "coords": "(98, 2)"}'
+2022-01-31 18:28:54+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:54+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:54+0100 [-] Add to database
+2022-01-31 18:28:54+0100 [-] Need to alert
+2022-01-31 18:28:54+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:54+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:54+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:54+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:54+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:54+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80310>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-02-01 01:50:04.033865", "coords": "(64, 28)"}'
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:55+0100 [-] Add to database
+2022-01-31 18:28:55+0100 [-] Need to alert
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:55+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66E50>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-01-31 23:17:04.033865", "coords": "(89, 8)"}'
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:55+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:56+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-02-01 02:10:04.033865", "coords": "(67, 72)"}'
+2022-01-31 18:28:56+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:56+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:56+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:56+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:56+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:56+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:56+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66E50>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-01-31 23:09:04.033865", "coords": "(4, 84)"}'
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:57+0100 [-] Add to database
+2022-01-31 18:28:57+0100 [-] Need to alert
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:57+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:57+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:57+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 0, "timestamp": "2022-01-31 23:39:04.033865", "coords": "(78, 67)"}'
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:57+0100 [-] Add to database
+2022-01-31 18:28:57+0100 [-] Need to alert
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:57+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:57+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66430>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 21:17:04.033865", "coords": "(32, 84)"}'
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:58+0100 [-] Add to database
+2022-01-31 18:28:58+0100 [-] Need to alert
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:58+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E744C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:58+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:58+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66430>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-02-01 01:26:04.033865", "coords": "(33, 6)"}'
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:58+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:58+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:58+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E744C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:59+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-01-31 23:52:04.033865", "coords": "(63, 85)"}'
+2022-01-31 18:28:59+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:28:59+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:28:59+0100 [-] Add to database
+2022-01-31 18:28:59+0100 [-] Need to alert
+2022-01-31 18:28:59+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:28:59+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:28:59+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:28:59+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:28:59+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:28:59+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80280>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:00+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 21:58:04.033865", "coords": "(98, 56)"}'
+2022-01-31 18:29:00+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:00+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:00+0100 [-] Add to database
+2022-01-31 18:29:00+0100 [-] Need to alert
+2022-01-31 18:29:00+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:00+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:00+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:00+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:00+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:02+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-02-01 00:31:04.033865", "coords": "(78, 3)"}'
+2022-01-31 18:29:02+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:02+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:02+0100 [-] Add to database
+2022-01-31 18:29:02+0100 [-] Need to alert
+2022-01-31 18:29:02+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:02+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:02+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:02+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66DC0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-02-01 00:56:04.033865", "coords": "(86, 7)"}'
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:03+0100 [-] Add to database
+2022-01-31 18:29:03+0100 [-] Need to alert
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:03+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80F70>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:03+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:03+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66DC0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:03+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:03+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80F70>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 8, "timestamp": "2022-01-31 21:23:04.033865", "coords": "(0, 45)"}'
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:03+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:05+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 23:25:04.033865", "coords": "(65, 16)"}'
+2022-01-31 18:29:05+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:05+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:05+0100 [-] Add to database
+2022-01-31 18:29:05+0100 [-] Need to alert
+2022-01-31 18:29:05+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:05+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:05+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:05+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:05+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:05+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 23:04:04.033865", "coords": "(81, 70)"}'
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:07+0100 [-] Add to database
+2022-01-31 18:29:07+0100 [-] Need to alert
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:07+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 23:58:04.033865", "coords": "(59, 30)"}'
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:07+0100 [-] Add to database
+2022-01-31 18:29:07+0100 [-] Need to alert
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:07+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:07+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E7D5E0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:08+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:08+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E7D5E0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-02-01 00:30:04.033865", "coords": "(87, 10)"}'
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:08+0100 [-] Add to database
+2022-01-31 18:29:08+0100 [-] Need to alert
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 20:33:04.033865", "coords": "(2, 71)"}'
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:08+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:08+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 20:26:04.033865", "coords": "(9, 80)"}'
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:08+0100 [-] Add to database
+2022-01-31 18:29:08+0100 [-] Need to alert
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:08+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:08+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:09+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:09+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74EE0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:09+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-02-01 00:59:04.033865", "coords": "(43, 50)"}'
+2022-01-31 18:29:09+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:09+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:09+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:09+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:09+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:11+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 21:16:04.033865", "coords": "(47, 52)"}'
+2022-01-31 18:29:11+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:11+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:11+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:11+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:11+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:12+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 22:39:04.033865", "coords": "(30, 5)"}'
+2022-01-31 18:29:12+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:12+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:12+0100 [-] Add to database
+2022-01-31 18:29:12+0100 [-] Need to alert
+2022-01-31 18:29:12+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:12+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:12+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:12+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:13+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 22:48:04.033865", "coords": "(84, 23)"}'
+2022-01-31 18:29:13+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:13+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:13+0100 [-] Add to database
+2022-01-31 18:29:13+0100 [-] Need to alert
+2022-01-31 18:29:13+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:13+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:13+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:13+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E668B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:13+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:13+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:13+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:14+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-02-01 00:31:04.033865", "coords": "(71, 64)"}'
+2022-01-31 18:29:14+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:14+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:14+0100 [-] Add to database
+2022-01-31 18:29:14+0100 [-] Need to alert
+2022-01-31 18:29:14+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:14+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:14+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:14+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E800D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:14+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:14+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E800D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-01-31 19:13:04.033865", "coords": "(61, 8)"}'
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-01-31 20:42:04.033865", "coords": "(63, 47)"}'
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:19+0100 [-] Add to database
+2022-01-31 18:29:19+0100 [-] Need to alert
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:19+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:19+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74AF0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:20+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 2, "timestamp": "2022-01-31 21:12:04.033865", "coords": "(36, 11)"}'
+2022-01-31 18:29:20+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:20+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:20+0100 [-] Add to database
+2022-01-31 18:29:20+0100 [-] Need to alert
+2022-01-31 18:29:20+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:20+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:20+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:20+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:20+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:20+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74AF0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:20+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:20+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:23+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 23:10:04.033865", "coords": "(72, 31)"}'
+2022-01-31 18:29:23+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:23+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:23+0100 [-] Add to database
+2022-01-31 18:29:23+0100 [-] Need to alert
+2022-01-31 18:29:23+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:23+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:23+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:23+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:24+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:24+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:24+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-02-01 01:47:04.033865", "coords": "(85, 73)"}'
+2022-01-31 18:29:24+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:24+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:24+0100 [-] Add to database
+2022-01-31 18:29:24+0100 [-] Need to alert
+2022-01-31 18:29:24+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:24+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:24+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:24+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66DC0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:25+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:28+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-02-01 00:56:04.033865", "coords": "(65, 1)"}'
+2022-01-31 18:29:28+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:28+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:28+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:28+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:28+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:31+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-02-01 00:43:04.033865", "coords": "(89, 91)"}'
+2022-01-31 18:29:31+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:31+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:31+0100 [-] Add to database
+2022-01-31 18:29:31+0100 [-] Need to alert
+2022-01-31 18:29:31+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:31+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:31+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:31+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19790>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:31+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-01-31 23:13:04.033865", "coords": "(16, 40)"}'
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:32+0100 [-] Add to database
+2022-01-31 18:29:32+0100 [-] Need to alert
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:32+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 1, "timestamp": "2022-02-01 01:59:04.033865", "coords": "(6, 3)"}'
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:32+0100 [-] Add to database
+2022-01-31 18:29:32+0100 [-] Need to alert
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:32+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:32+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:33+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:33+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74CA0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:33+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:33+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80B80>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-01-31 22:36:04.033865", "coords": "(97, 63)"}'
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 21:43:04.033865", "coords": "(49, 50)"}'
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:35+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-02-01 00:07:04.033865", "coords": "(94, 36)"}'
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-02-01 01:15:04.033865", "coords": "(88, 96)"}'
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:36+0100 [-] Add to database
+2022-01-31 18:29:36+0100 [-] Need to alert
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:36+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E803A0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 22:26:04.033865", "coords": "(21, 13)"}'
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:36+0100 [-] Add to database
+2022-01-31 18:29:36+0100 [-] Need to alert
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:36+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:36+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:37+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:37+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:37+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:37+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 18:57:04.033865", "coords": "(79, 35)"}'
+2022-01-31 18:29:37+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:37+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:37+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:37+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:37+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-01-31 22:02:04.033865", "coords": "(63, 99)"}'
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:38+0100 [-] Add to database
+2022-01-31 18:29:38+0100 [-] Need to alert
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:38+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E800D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 18:36:04.033865", "coords": "(88, 46)"}'
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:38+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:38+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:38+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E800D0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 9, "timestamp": "2022-01-31 19:32:04.033865", "coords": "(40, 86)"}'
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:40+0100 [-] Add to database
+2022-01-31 18:29:40+0100 [-] Need to alert
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:40+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80A60>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:40+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:40+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80A60>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 18:57:04.033865", "coords": "(11, 1)"}'
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 9, "timestamp": "2022-01-31 18:43:04.033865", "coords": "(44, 12)"}'
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:40+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 21:26:04.033865", "coords": "(38, 1)"}'
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:41+0100 [-] Add to database
+2022-01-31 18:29:41+0100 [-] Need to alert
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:41+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 20:17:04.033865", "coords": "(73, 23)"}'
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:41+0100 [-] Add to database
+2022-01-31 18:29:41+0100 [-] Need to alert
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:41+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E7D4C0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:41+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:41+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74670>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 20:51:04.033865", "coords": "(82, 47)"}'
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:41+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-01-31 22:45:04.033865", "coords": "(82, 30)"}'
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:41+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 7, "timestamp": "2022-01-31 22:56:04.033865", "coords": "(4, 50)"}'
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 20:10:04.033865", "coords": "(30, 86)"}'
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-01-31 22:22:04.033865", "coords": "(34, 72)"}'
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 3, "timestamp": "2022-02-01 00:07:04.033865", "coords": "(51, 10)"}'
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:42+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:44+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 7, "timestamp": "2022-01-31 19:35:04.033865", "coords": "(59, 4)"}'
+2022-01-31 18:29:44+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:44+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:44+0100 [-] Add to database
+2022-01-31 18:29:44+0100 [-] Need to alert
+2022-01-31 18:29:44+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:44+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:44+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:44+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:44+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:44+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E19700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 5, "timestamp": "2022-02-01 00:49:04.033865", "coords": "(37, 8)"}'
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:50+0100 [-] Add to database
+2022-01-31 18:29:50+0100 [-] Need to alert
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:50+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74A60>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:50+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:50+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E74A60>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 6, "timestamp": "2022-02-01 00:31:04.033865", "coords": "(61, 34)"}'
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:50+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:51+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 4, "timestamp": "2022-01-31 20:23:04.033865", "coords": "(55, 29)"}'
+2022-01-31 18:29:51+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:51+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:51+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:51+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:51+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:53+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 8, "timestamp": "2022-01-31 20:28:04.033865", "coords": "(46, 37)"}'
+2022-01-31 18:29:53+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:53+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:53+0100 [-] Add to database
+2022-01-31 18:29:53+0100 [-] Need to alert
+2022-01-31 18:29:53+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:53+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:53+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:53+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E66160>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:53+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 5, "timestamp": "2022-01-31 21:33:04.033865", "coords": "(11, 90)"}'
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 3, "timestamp": "2022-02-01 00:21:04.033865", "coords": "(32, 36)"}'
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:56+0100 [-] Add to database
+2022-01-31 18:29:56+0100 [-] Need to alert
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:56+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E80700>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 19:46:04.033865", "coords": "(33, 51)"}'
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:56+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:57+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:57+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 6, "timestamp": "2022-02-01 01:33:04.033865", "coords": "(36, 74)"}'
+2022-01-31 18:29:57+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:29:57+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:29:57+0100 [-] Add to database
+2022-01-31 18:29:57+0100 [-] Need to alert
+2022-01-31 18:29:57+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:29:57+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:29:57+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:29:57+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E7D8B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:29:57+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:29:57+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E7D8B0>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:30:00+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_detected", "device_id": 0, "timestamp": "2022-01-31 21:50:04.033865", "coords": "(95, 43)"}'
+2022-01-31 18:30:00+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:30:00+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_detected
+2022-01-31 18:30:00+0100 [ApiProtocol,2,127.0.0.1] Should log to db.
+2022-01-31 18:30:00+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:30:00+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:30:01+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"type": "fall_confirmed", "device_id": 4, "timestamp": "2022-01-31 20:06:04.033865", "coords": "(21, 57)"}'
+2022-01-31 18:30:01+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-01-31 18:30:01+0100 [ApiProtocol,2,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-01-31 18:30:01+0100 [-] Add to database
+2022-01-31 18:30:01+0100 [-] Need to alert
+2022-01-31 18:30:01+0100 [ApiProtocol,2,127.0.0.1] Alerting flask api
+2022-01-31 18:30:01+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-01-31 18:30:01+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-01-31 18:30:01+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000027CC3E7DE50>, <HostnameEndpoint localhost:5000>)
+2022-01-31 18:30:02+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-01-31 18:30:14+0100 [ApiProtocol,2,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=64221)
