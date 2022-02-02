@@ -70,11 +70,12 @@ def token_required(func):
 def login():
     """
     Verifies user credentials and returns a JWT for further verification
-    Loads data from request.data and converts it to JSON format.
+    Loads data from request.data and converts it to JSON format. Expects fields 'username' and 'password'
 
     Returns
     -------
-        A JSON with the 'accessToken' tag which contains a JWT. JWT contains field 'user_id' and 'expires'
+        If login succeeds, JSON with the 'accessToken' tag which contains a JWT. JWT contains field 'user_id' and 'expires'
+        If login failes, HTTP header response code 403
     """
     data = json.loads(request.data)
     username = data["username"]
@@ -103,6 +104,15 @@ def login():
 
 @app.route("/auth/signup", methods=['POST'])
 def signup():
+    """
+    Registers a new user
+    Loads data from request.data and converts it to JSON format. Expects fields 'username' and 'password'.
+
+    Returns
+    -------
+        If register succeeds, JSON with the 'accessToken' tag which contains a JWT. JWT contains field 'user_id' and 'expires'
+        If register failes, HTTP header response code 403
+    """
     data = json.loads(request.data)
     username = data["username"]
     password = data["password"]
