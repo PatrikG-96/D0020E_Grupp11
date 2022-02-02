@@ -11,8 +11,9 @@ Usage:
     Start API listener, start Flask API, start this script, then run the api_sim
     script. This script should print messages if it's working
 """
+uid = input("What uid to use? : ")
 
-messages = sseclient.SSEClient("http://localhost:5000/alarm/listen?user_id=1")
+messages = sseclient.SSEClient("http://localhost:5000/alarm/listen?user_id="+uid)
 
 for msg in messages:
     print(msg)
