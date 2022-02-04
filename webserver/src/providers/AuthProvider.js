@@ -4,9 +4,10 @@ import { AuthContext } from "../contexts/AuthContext";
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  let signin = (username, token, callback) => {
+  let signin = (username, userID, token, callback) => {
     setUser({
       username: username,
+      userID: userID,
       //Add user details insted of token as it is in localStorage
       userToken: token,
     });

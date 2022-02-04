@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && type ..\\src\\services\\sw.js >> \\build\\service-worker.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

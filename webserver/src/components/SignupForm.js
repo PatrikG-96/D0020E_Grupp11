@@ -13,10 +13,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import { useAuth } from "../hooks/useAuth";
+import eventBus from "../EventBus";
+import { useNotification } from "../hooks/useNotification";
 
 function SignupForm() {
   let navigate = useNavigate();
   let auth = useAuth();
+  let notification = useNotification();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -53,9 +56,16 @@ function SignupForm() {
     try {
       await AuthService.login(form.username, form.password).then(
         (response) => {
-          auth.signin(form.username, response.accessToken, () => {
-            navigate("/", { replace: true });
-          });
+          auth.signin(
+            form.username,
+            response.userID,
+            response.accessToken,
+            () => {
+              notification.RequestPermission();
+              navigate("/", { replace: true });
+              eventBus.dispatch("login", {});
+            }
+          );
         },
         (error) => {
           console.log(error);

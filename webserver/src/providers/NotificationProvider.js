@@ -1,38 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NotificationContext } from "../contexts/NotificationContext";
 
 function NotificationProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [userPermission, setPermission] = useState(null);
 
-  useEffect(() => {
-    if(!("Notification" in window)) {
-        console.log("This browser does not support desktop notification");
-    }else {
-        console.log("Notifications are supported");
-        Notification.requestPermission();
+  let RequestPermission = () => {
+    if (!("Notification" in window)) {
+      console.log("This browser does not support desktop notification");
+    } else {
+      checkPermission();
     }
-  }, []);
-
-  let showNotification = (message) => {
-      new Notification(message)
-  }
-
-  let signin = (username, token, callback) => {
-    setUser({
-      username: username,
-      //Add user details insted of token as it is in localStorage
-      userToken: token,
-    });
-
-    callback();
   };
 
-  let signout = (callback) => {
-    setUser(null);
-    callback();
+  let checkPermission = () => {
+    if (Notification.permission === "granted") {
+      setPermission(true);
+    }
+    if (Notification.permission === "default") {
+      Notification.requestPermission(function (perm) {
+        if (perm === "granted") {
+          setPermission(true);
+        }
+      });
+    }
+    if (Notification.permission === "denied") {
+      setPermission(false);      
+    }
   };
 
-  let value = { user, signin, signout, showNotification };
+  let value = { userPermission, RequestPermission, checkPermission };
 
   return (
     <NotificationContext.Provider value={value}>

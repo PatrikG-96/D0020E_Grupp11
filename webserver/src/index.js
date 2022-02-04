@@ -14,6 +14,7 @@ import LoginForm from "./components/LoginForm.js";
 import SignupForm from "./components/SignupForm.js";
 import Logout from "./components/Logout.js";
 import NotificationProvider from "./providers/NotificationProvider.js";
+import Dashboard from "./pages/Dashboard.js";
 
 const App = () => {
   return (
@@ -26,10 +27,11 @@ const App = () => {
                 path="/"
                 element={
                   <RequireAuth>
-                    <Home />
+                    <Dashboard />
                   </RequireAuth>
                 }
               >
+                <Route path="" element={<Home />} />
                 <Route path="log" element={<Log />} />
                 <Route path="alarm" element={<Alarm />} />
                 <Route path="elders" element={<Elders />} />

@@ -16,11 +16,14 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import BasicModal from "./Modal";
 import AuthService from "../services/auth.service";
+import { useNotification } from "../hooks/useNotification";
+import eventBus from "../EventBus";
 
 function LoginForm() {
   let navigate = useNavigate();
   let location = useLocation();
   let auth = useAuth();
+  let notification = useNotification();
   let from = location.state?.from?.pathname || "/";
 
   const [form, setForm] = useState({ username: "", password: "" });
@@ -38,8 +41,10 @@ function LoginForm() {
     try {
       await AuthService.login(form.username, form.password).then(
         (response) => {
-          auth.signin(form.username, response.accessToken, () => {
+          auth.signin(form.username, response.userID, response.accessToken, () => {
+            notification.RequestPermission();
             navigate(from, { replace: true });
+            eventBus.dispatch("login", {}); 
           });
         },
         (error) => {

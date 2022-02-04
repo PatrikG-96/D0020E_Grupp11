@@ -17,6 +17,7 @@ import { useState } from "react";
 import { ChevronLeft, Menu, Notifications } from "@mui/icons-material";
 import { MainListItems, SecondaryListItems } from "../components/ListItems";
 import { Outlet } from "react-router-dom";
+import NotificationsModal from "../components/NotificationModal";
 
 const drawerWidth = 250;
 
@@ -88,7 +89,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-function DashboardContent() {
+function DashboardContent(props) {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState("Dashboard");
   const toggleDrawer = () => {
@@ -182,7 +183,10 @@ function DashboardContent() {
           </List>
           <Divider />
           <List>
-            <SecondaryListItems open={open} />
+            <SecondaryListItems
+              open={open}
+              openNotif={()=> {props.handleOpenNotif()}}
+            />
           </List>
         </Drawer>
         <Box
@@ -210,5 +214,15 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
-  return <DashboardContent />;
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
+
+  return (
+    <div>
+      <NotificationsModal open={openModal} handleClose={handleClose} />
+      <DashboardContent handleOpenNotif={handleOpen} />
+    </div>
+  );
 }
