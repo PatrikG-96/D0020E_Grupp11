@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 env
 =======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -27,3 +28,7 @@ yarn-error.log*
 
 /client/gui/node_modules
 >>>>>>> df1ed60880c7b6c3e90579dadd2c68dd113e7d8c
+=======
+env
+webserver
+>>>>>>> 92b2352a81f756e0e8745440b980190f31fea834
