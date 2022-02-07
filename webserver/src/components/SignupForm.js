@@ -12,9 +12,14 @@ import {
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
+import { useAuth } from "../hooks/useAuth";
+import eventBus from "../EventBus";
+import { useNotification } from "../hooks/useNotification";
 
 function SignupForm() {
   let navigate = useNavigate();
+  let auth = useAuth();
+  let notification = useNotification();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -31,14 +36,36 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Sign up");
     try {
       await AuthService.signup(form.username, form.password).then(
         (response) => {
           // check for token and user already exists with 200
           console.log("Sign up successfully", response);
-          navigate("/");
-          //window.location.reload();
+          doLogin();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const doLogin = async () => {
+    try {
+      await AuthService.login(form.username, form.password).then(
+        (response) => {
+          auth.signin(
+            form.username,
+            response.userID,
+            response.accessToken,
+            () => {
+              notification.RequestPermission();
+              navigate("/", { replace: true });
+              eventBus.dispatch("login", {});
+            }
+          );
         },
         (error) => {
           console.log(error);
@@ -66,7 +93,7 @@ function SignupForm() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Box component="form" onSubmit="return false" noValidate sx={{ mt: 3 }}>
+        <Box component="form" noValidate sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField

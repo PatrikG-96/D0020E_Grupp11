@@ -1,4 +1,5 @@
 import json
+from .database.database import *
 from xml.dom import NotSupportedErr
 from twisted.internet.defer import Deferred
 from twisted.python import log
@@ -31,14 +32,27 @@ class ApiControllerService:
             raise NotSupportedErr('Unsupported alarm type')
         
     def actOnFallDetected(self, json_data):
-        log.msg("Should log to db.")
+        device_id = json_data['device_id']
+        alarm_flag = json_data['type']
+        try:
+            setNewAlarm(alarm_flag, device_id)
+        except Exception as e:
+            log.msg(f'Pushing to database failed, message: {str(json_data)}')
+            print(e)
+            return None
         return None
         
     def actOnFallConfirmed(self, json_data):
-        print("Add to database")
-        print("Need to alert")
+        device_id = json_data['device_id']
+        alarm_flag = json_data['type']
+        try:
+            setNewAlarm(alarm_flag, device_id)
+        except Exception as e:
+            log.msg(f'Pushing to database failed, message: {str(json_data)}')
+            print(e)
+            return None
         return json_data
         
     def typeError(self, reason):
-        print('Reason!')
+        print(f'Reason: {reason}')
         return None

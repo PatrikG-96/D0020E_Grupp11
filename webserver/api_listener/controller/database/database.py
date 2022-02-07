@@ -4,7 +4,6 @@ import os
 from dotenv import load_dotenv
 import sqlalchemy
 from sqlalchemy import *
-import json
 
 load_dotenv()
 
@@ -21,8 +20,6 @@ except sqlalchemy.exc.OperationalError:
 
 #Get the tables
 metadata = MetaData() #Get the tables from the database
-endpoints = Table('endpoints', metadata,
-                     autoload=True, autoload_with=engine)
 elderly = Table('elderly', metadata, autoload=True, autoload_with=engine) #Get information on table
 sensor = Table('sensor', metadata, autoload=True, autoload_with=engine) 
 user = Table('user', metadata, autoload=True, autoload_with=engine) 
@@ -165,47 +162,3 @@ def getAllAlarmNotSolvedSpecified(user_id):  #Re    turns a list of alarmID of a
         return func.changeToList(notRead)
 
 
-def storeSubscription(endpoint, userID):
-    with engine.connect() as connection:
-        query = select(endpoints).where(endpoints.columns.endpoint == endpoint)
-        resultSet = connection.execute(query).fetchall()
-        submittedEndpoint = json.loads(endpoint)["endpoint"]
-        for row in resultSet:
-            row_as_dict = dict(row)
-            rowEndpoint = json.loads(row_as_dict["endpoint"])["endpoint"]
-            if(submittedEndpoint == rowEndpoint):
-                query = update(endpoints).where(endpoints.columns.endpoint == endpoint).values(endpoint=endpoint, user=userID)
-                connection.execute(query)
-                return True
-
-        query = insert(endpoints).values(endpoint=endpoint, user=userID)
-        connection.execute(query)
-        return True
-
-def getSubscription(userID):
-    with engine.connect() as connection:
-        query = select(endpoints).where(endpoints.columns.user == userID)
-        resultSet = connection.execute(query).fetchall()
-        for row in resultSet:
-            row_as_dict = dict(row)
-            return row_as_dict["endpoint"]
-
-def getAllSubscriptions():
-    with engine.connect() as connection:
-        query = select(endpoints)
-        resultSet = connection.execute(query).fetchall()
-        return resultSet
-
-def deleteSubscription(endpoint):
-    with engine.connect() as connection:
-        query = select(endpoints).where(endpoints.columns.endpoint == endpoint)
-        resultSet = connection.execute(query).fetchall()
-        submittedEndpoint = json.loads(endpoint)["endpoint"]
-        for row in resultSet:
-            row_as_dict = dict(row)
-            rowEndpoint = json.loads(row_as_dict["endpoint"])["endpoint"]
-            if(submittedEndpoint == rowEndpoint):
-                print("the same endpoint")
-                query = delete(endpoints).where(endpoints.columns.endpoint == rowEndpoint)
-                connection.execute(query)
-                return True

@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:5000/auth";
+const API_URL = "http://127.0.0.1:5000";
 
 const signup = (username, password) => {
   return axios
-    .post(API_URL + "/signup", {
+    .post(API_URL + "/auth/signup", {
       username,
       password,
     })
@@ -19,21 +19,33 @@ const signup = (username, password) => {
 
 const login = (username, password) => {
   return axios
-    .post(API_URL + "/login", {
+    .post(API_URL + "/auth/login", {
       username,
       password,
     })
     .then((response) => {
       if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("user", JSON.stringify(response.data.accessToken));
       }
-
-      return response.data;
+      if (response.data.userID) {
+        localStorage.setItem("userID", response.data.userID);
+      }
+      axios
+        .get(API_URL + "/subscription", {
+          params: { userID: response.data.userID },
+        })
+        .then((sub) => {
+          const endpoint = JSON.parse(sub.data.endpoint);
+          localStorage.setItem("subscription", JSON.stringify(endpoint));
+        });
+        return response.data;
     });
 };
 
 const logout = () => {
   localStorage.removeItem("user");
+  localStorage.removeItem("userID");
+  localStorage.removeItem("subscription");
 };
 
 const getCurrentUser = () => {

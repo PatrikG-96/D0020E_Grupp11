@@ -2,8 +2,8 @@ from sqlalchemy import *
 
 
 def updateTable(connection, table, searchColumn, searchValue, column, value): #Updates a table. searchColumn must be unique. Takes a table variable, a string for column and string/int for value and search value. 
-    #if(CheckIfExist(connection, table, searchColumn, searchValue) == False):
-    #    return "Does not exist"
+    if(CheckIfExist(connection, table, searchColumn, searchValue) == False):
+        return "Does not exist"
     query = update(table).values(**{column: value}).where(table.columns[searchColumn] == searchValue) # **kwargs used to make it work
     connection.execute(query) #Execute the query
 
