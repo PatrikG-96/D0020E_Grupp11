@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 twisted = "*"
 treq = "*"
+sqlalchemy = "*"
+mysqlclient = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

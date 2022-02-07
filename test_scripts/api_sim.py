@@ -6,8 +6,11 @@ import datetime
 from random import randrange
 import json
 
+global num_msgs
+global time
+
 def make_messages(n):
-    times = np.random.uniform(0.0, 120.0, n)
+    times = np.random.uniform(0.0, time, n)
     types = np.random.randint(2, size=n)
     print(types)
     devices = np.random.randint(0,10,n)
@@ -62,18 +65,20 @@ Expected result:
 class Proto(Protocol):
 
     def sendMessage(self, msg):
-        print("sending message")
+        print(f"sending message: {msg}")
         self.transport.write(msg.encode())
 
 def proto_cb(proto):
     
-    messages = make_messages(100)
+    messages = make_messages(num_msgs)
 
     for msg in messages:
         reactor.callLater(msg[0], proto.sendMessage, msg[1])
     
     reactor.callLater(130, proto.transport.loseConnection)
 
+num_msgs = int(input("How many messages: "))
+time = int(input("How long should messages be spaced out: "))
 
 point = TCP4ClientEndpoint(reactor, "localhost", 9999)
 d = connectProtocol(point, Proto())
