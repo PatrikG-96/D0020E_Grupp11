@@ -11,7 +11,6 @@ import os
 load_dotenv(find_dotenv())
 
 key = bytes.fromhex(os.getenv("SECRET_KEY"))
-print(key)
 
 auth_routes = Blueprint("auth_routes", __name__)
 

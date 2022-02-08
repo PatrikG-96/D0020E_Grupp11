@@ -2,6 +2,7 @@ from database.database import *
 from flask import Blueprint, request, make_response, Response
 from sse.Announcer import AlarmAnnouncer
 from sse import Formatter
+from routes.webpush import push_alarm
 
 sse_routes = Blueprint('sse_routes', __name__)
 
@@ -38,8 +39,8 @@ def alert():
     uids_list = []
     for uid in uids:
         uids_list.append(uid[0])
-    print(uids_list)
-    
+        
+    push_alarm(uids_list, type)
     msg = Formatter.format_sse(str({"device_id" : device, "type" : type, "timestamp" : timestamp,
                                     "coords" : coords}).replace('\'', '"'))
     announcer.announce_alarm(uids_list, msg)

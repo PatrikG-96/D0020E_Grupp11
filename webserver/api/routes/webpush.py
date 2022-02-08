@@ -38,24 +38,23 @@ def subscription():
         return Response(json.dumps(subscription_token), status=201, mimetype="application/json")
 
 
-@webpush_routes.route("/push_alarm", methods=["GET", "POST"])
-def push_alarm():
+#@webpush_routes.route("/push_alarm", methods=["GET", "POST"])
+def push_alarm(uids, type):
     subscriptions = getAllSubscriptions()
 
     for sub in subscriptions:
+        if (sub.user not in uids):
+            continue
         message_body = json.dumps(
-            {"title": "New alarm!", "alarm-type": "fall-detected"})
-        print(message_body)
-        
+            {"title": "New alarm!", "alarm-type": type})
         try:
-            print("pushing")
+            
             webpush(
                 subscription_info=json.loads(sub.endpoint),
                 data=message_body,
                 vapid_private_key=VAPID_PRIVATE_KEY,
                 vapid_claims=VAPID_CLAIMS
             )
-            print("pushed")
         except WebPushException as ex:
             print(ex.response.status_code)
             if(ex.response.status_code == 410 or ex.response.status_code == 404):
