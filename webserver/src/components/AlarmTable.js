@@ -55,6 +55,7 @@ const rows = [
 function AlarmTable() {
   const [alarms, setAlarms] = useState([])
   var uid = localStorage.getItem('userID')
+  
   useEffect(() => {
     fetch("/alarm/active/subscribed?user_id="+uid).then(response => response.json()).then(data => {
       var arr = []
