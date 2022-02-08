@@ -2,3 +2,128 @@
 2022-02-08 00:11:45+0100 [-] ApiFactory starting on 9999
 2022-02-08 00:11:45+0100 [-] Starting factory <network.ApiFactory.ApiFactory object at 0x0000016E74B7FB20>
 2022-02-08 00:11:45+0100 [-] starting server
+2022-02-08 09:58:11+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 09:58:11+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 09:58:11+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 09:58:11+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58561)
+2022-02-08 09:58:12+0100 [ApiProtocol,0,127.0.0.1] Received data: '{"device_id": "1", "type": "fall", "coords": (85, 16), "timestamp": datetime.datetime(2022, 2, 8, 9, 58, 11, 964080)}'
+2022-02-08 09:58:12+0100 [ApiProtocol,0,127.0.0.1] Attempting to convert to json
+2022-02-08 09:58:12+0100 [-] Reason: [Failure instance: Traceback: <class 'json.decoder.JSONDecodeError'>: Expecting value: line 1 column 46 (char 45)
+2022-02-08 09:58:12+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\tcp.py:252:_dataReceived
+2022-02-08 09:58:12+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\network\ApiProtocol.py:24:dataReceived
+2022-02-08 09:58:12+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:662:callback
+2022-02-08 09:58:12+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:764:_startRunCallbacks
+2022-02-08 09:58:12+0100 [-] --- <exception caught here> ---
+2022-02-08 09:58:12+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:858:_runCallbacks
+2022-02-08 09:58:12+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\controller\ApiControllerService.py:21:toJson
+2022-02-08 09:58:12+0100 [-] c:\python39\lib\json\__init__.py:346:loads
+2022-02-08 09:58:12+0100 [-] c:\python39\lib\json\decoder.py:337:decode
+2022-02-08 09:58:12+0100 [-] c:\python39\lib\json\decoder.py:355:raw_decode
+2022-02-08 09:58:12+0100 [-] ]
+2022-02-08 09:58:12+0100 [ApiProtocol,0,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 09:58:12+0100 [ApiProtocol,0,127.0.0.1] Adding parsing callbacks
+2022-02-08 09:58:35+0100 [ApiProtocol,0,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58561)
+2022-02-08 09:58:49+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 09:58:49+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 09:58:49+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 09:58:49+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58565)
+2022-02-08 09:58:50+0100 [ApiProtocol,1,127.0.0.1] Received data: '{"device_id": "1", "type": "fall", "coords": (33, 81), "timestamp": datetime.datetime(2022, 2, 8, 9, 58, 49, 765443)}'
+2022-02-08 09:58:50+0100 [ApiProtocol,1,127.0.0.1] Attempting to convert to json
+2022-02-08 09:58:50+0100 [-] Reason: [Failure instance: Traceback: <class 'json.decoder.JSONDecodeError'>: Expecting value: line 1 column 46 (char 45)
+2022-02-08 09:58:50+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\tcp.py:252:_dataReceived
+2022-02-08 09:58:50+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\network\ApiProtocol.py:24:dataReceived
+2022-02-08 09:58:50+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:662:callback
+2022-02-08 09:58:50+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:764:_startRunCallbacks
+2022-02-08 09:58:50+0100 [-] --- <exception caught here> ---
+2022-02-08 09:58:50+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:858:_runCallbacks
+2022-02-08 09:58:50+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\controller\ApiControllerService.py:21:toJson
+2022-02-08 09:58:50+0100 [-] c:\python39\lib\json\__init__.py:346:loads
+2022-02-08 09:58:50+0100 [-] c:\python39\lib\json\decoder.py:337:decode
+2022-02-08 09:58:50+0100 [-] c:\python39\lib\json\decoder.py:355:raw_decode
+2022-02-08 09:58:50+0100 [-] ]
+2022-02-08 09:58:50+0100 [ApiProtocol,1,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 09:58:50+0100 [ApiProtocol,1,127.0.0.1] Adding parsing callbacks
+2022-02-08 09:58:56+0100 [ApiProtocol,1,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58565)
+2022-02-08 09:59:08+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 09:59:08+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 09:59:08+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 09:59:08+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58569)
+2022-02-08 09:59:09+0100 [ApiProtocol,2,127.0.0.1] Received data: '{"device_id": "1", "type": "fall", "coords": (61, 36), "timestamp": "2022-02-08 09:59:08.962268"}'
+2022-02-08 09:59:09+0100 [ApiProtocol,2,127.0.0.1] Attempting to convert to json
+2022-02-08 09:59:09+0100 [-] Reason: [Failure instance: Traceback: <class 'json.decoder.JSONDecodeError'>: Expecting value: line 1 column 46 (char 45)
+2022-02-08 09:59:09+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\tcp.py:252:_dataReceived
+2022-02-08 09:59:09+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\network\ApiProtocol.py:24:dataReceived
+2022-02-08 09:59:09+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:662:callback
+2022-02-08 09:59:09+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:764:_startRunCallbacks
+2022-02-08 09:59:09+0100 [-] --- <exception caught here> ---
+2022-02-08 09:59:09+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:858:_runCallbacks
+2022-02-08 09:59:09+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\controller\ApiControllerService.py:21:toJson
+2022-02-08 09:59:09+0100 [-] c:\python39\lib\json\__init__.py:346:loads
+2022-02-08 09:59:09+0100 [-] c:\python39\lib\json\decoder.py:337:decode
+2022-02-08 09:59:09+0100 [-] c:\python39\lib\json\decoder.py:355:raw_decode
+2022-02-08 09:59:09+0100 [-] ]
+2022-02-08 09:59:09+0100 [ApiProtocol,2,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 09:59:09+0100 [ApiProtocol,2,127.0.0.1] Adding parsing callbacks
+2022-02-08 09:59:14+0100 [ApiProtocol,2,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58569)
+2022-02-08 10:00:53+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 10:00:53+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 10:00:53+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 10:00:53+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58609)
+2022-02-08 10:00:54+0100 [ApiProtocol,3,127.0.0.1] Received data: '{"device_id": "1", "type": "fall", "coords": "(11, 6)", "timestamp": "2022-02-08 10:00:53.626223"}'
+2022-02-08 10:00:54+0100 [ApiProtocol,3,127.0.0.1] Attempting to convert to json
+2022-02-08 10:00:54+0100 [ApiProtocol,3,127.0.0.1] Deciding action on message of type: fall
+2022-02-08 10:00:54+0100 [-] Reason: [Failure instance: Traceback: <class 'xml.dom.NotSupportedErr'>: Unsupported alarm type
+2022-02-08 10:00:54+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\tcp.py:252:_dataReceived
+2022-02-08 10:00:54+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\network\ApiProtocol.py:24:dataReceived
+2022-02-08 10:00:54+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:662:callback
+2022-02-08 10:00:54+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:764:_startRunCallbacks
+2022-02-08 10:00:54+0100 [-] --- <exception caught here> ---
+2022-02-08 10:00:54+0100 [-] C:\Users\shirt\.virtualenvs\api_listener-ajibGYI2\lib\site-packages\twisted\internet\defer.py:858:_runCallbacks
+2022-02-08 10:00:54+0100 [-] C:\Users\shirt\D0020E_Grupp11\webserver\api_listener\controller\ApiControllerService.py:32:decide
+2022-02-08 10:00:54+0100 [-] ]
+2022-02-08 10:00:54+0100 [ApiProtocol,3,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 10:00:54+0100 [ApiProtocol,3,127.0.0.1] Adding parsing callbacks
+2022-02-08 10:02:31+0100 [ApiProtocol,3,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58609)
+2022-02-08 10:02:42+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 10:02:42+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 10:02:42+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 10:02:42+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58637)
+2022-02-08 10:02:43+0100 [ApiProtocol,4,127.0.0.1] Received data: '{"device_id": "1", "type": "fall_detected", "coords": "(49, 80)", "timestamp": "2022-02-08 10:02:42.825748"}'
+2022-02-08 10:02:43+0100 [ApiProtocol,4,127.0.0.1] Attempting to convert to json
+2022-02-08 10:02:43+0100 [ApiProtocol,4,127.0.0.1] Deciding action on message of type: fall_detected
+2022-02-08 10:02:43+0100 [ApiProtocol,4,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 10:02:43+0100 [ApiProtocol,4,127.0.0.1] Adding parsing callbacks
+2022-02-08 10:04:42+0100 [ApiProtocol,4,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58637)
+2022-02-08 10:04:51+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 10:04:51+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 10:04:51+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 10:04:51+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58671)
+2022-02-08 10:04:52+0100 [ApiProtocol,5,127.0.0.1] Received data: '{"device_id": "1", "type": "fall_detected", "coords": "(83, 75)", "timestamp": "2022-02-08 10:04:51.674501"}'
+2022-02-08 10:04:52+0100 [ApiProtocol,5,127.0.0.1] Attempting to convert to json
+2022-02-08 10:04:52+0100 [ApiProtocol,5,127.0.0.1] Deciding action on message of type: fall_detected
+2022-02-08 10:04:52+0100 [ApiProtocol,5,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 10:04:52+0100 [ApiProtocol,5,127.0.0.1] Adding parsing callbacks
+2022-02-08 10:06:03+0100 [ApiProtocol,5,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58671)
+2022-02-08 10:06:14+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 10:06:14+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 10:06:14+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 10:06:14+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58722)
+2022-02-08 10:06:15+0100 [ApiProtocol,6,127.0.0.1] Received data: '{"device_id": "1", "type": "fall_detected", "coords": "(64, 43)", "timestamp": "2022-02-08 10:06:14.420218"}'
+2022-02-08 10:06:15+0100 [ApiProtocol,6,127.0.0.1] Attempting to convert to json
+2022-02-08 10:06:15+0100 [ApiProtocol,6,127.0.0.1] Deciding action on message of type: fall_detected
+2022-02-08 10:06:15+0100 [ApiProtocol,6,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 10:06:15+0100 [ApiProtocol,6,127.0.0.1] Adding parsing callbacks
+2022-02-08 10:06:52+0100 [ApiProtocol,6,127.0.0.1] Connection lost from IPv4Address(type='TCP', host='127.0.0.1', port=58722)
+2022-02-08 10:07:01+0100 [network.ApiFactory.ApiFactory] In Protocol constructor
+2022-02-08 10:07:01+0100 [network.ApiFactory.ApiFactory] Adding callbacks to Protocol deferred
+2022-02-08 10:07:01+0100 [network.ApiFactory.ApiFactory] Adding parsing callbacks
+2022-02-08 10:07:01+0100 [network.ApiFactory.ApiFactory] Connection accepted from: IPv4Address(type='TCP', host='127.0.0.1', port=58752)
+2022-02-08 10:07:02+0100 [ApiProtocol,7,127.0.0.1] Received data: '{"device_id": "1", "type": "fall_confirmed", "coords": "(73, 37)", "timestamp": "2022-02-08 10:07:01.864966"}'
+2022-02-08 10:07:02+0100 [ApiProtocol,7,127.0.0.1] Attempting to convert to json
+2022-02-08 10:07:02+0100 [ApiProtocol,7,127.0.0.1] Deciding action on message of type: fall_confirmed
+2022-02-08 10:07:02+0100 [ApiProtocol,7,127.0.0.1] Alerting flask api
+2022-02-08 10:07:02+0100 [ApiProtocol,7,127.0.0.1] Adding callbacks to Protocol deferred
+2022-02-08 10:07:02+0100 [ApiProtocol,7,127.0.0.1] Adding parsing callbacks
+2022-02-08 10:07:02+0100 [-] Starting factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000016E74CDF5E0>, <HostnameEndpoint localhost:5000>)
+2022-02-08 10:07:03+0100 [HTTP11ClientProtocol,client] API response: <treq.response._Response 201 'text/html; charset=utf-8' 2 bytes>
+2022-02-08 10:07:03+0100 [-] Stopping factory _HTTP11ClientFactory(<function HTTPConnectionPool._newConnection.<locals>.quiescentCallback at 0x0000016E74CDF5E0>, <HostnameEndpoint localhost:5000>)

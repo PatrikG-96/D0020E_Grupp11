@@ -8,6 +8,7 @@ import json
 
 global num_msgs
 global time
+global msg
 
 def make_messages(n):
     times = np.random.uniform(0.0, time, n)
@@ -68,21 +69,44 @@ class Proto(Protocol):
         print(f"sending message: {msg}")
         self.transport.write(msg.encode())
 
-def proto_cb(proto):
+def many_messages(proto):
     
     messages = make_messages(num_msgs)
 
     for msg in messages:
         reactor.callLater(msg[0], proto.sendMessage, msg[1])
     
-    reactor.callLater(130, proto.transport.loseConnection)
+    reactor.callLater(time+10, proto.transport.loseConnection)
+    
+def single_message(proto):
+    
+    reactor.callLater(1, proto.sendMessage, msg)
 
-num_msgs = int(input("How many messages: "))
-time = int(input("How long should messages be spaced out: "))
+choice = int(input("What type of test? \n1 for sending randomized messages, 2 for sending one specified message\nChoice: "))
+
 
 point = TCP4ClientEndpoint(reactor, "localhost", 9999)
 d = connectProtocol(point, Proto())
-d.addCallback(proto_cb)
+
+if choice==1:
+    
+    num_msgs = int(input("How many messages: "))
+    time = int(input("How long should messages be spaced out: "))
+    d.addCallback(many_messages)
+    
+elif choice == 2:
+    
+    device = input("deviceID: ")
+    type = input("type: ")
+    print("Making timestamp and randoming coordinates")
+    coords = random_coords(1, 0, 100)[0]
+    now = datetime.datetime.now()
+    msg = str({'device_id' : device, 'type' : type, 'coords' : str(coords), 'timestamp': str(now)}).replace('\'', '"')
+    d.addCallback(single_message)
+
+else:
+    raise SystemExit
+
 reactor.run()
 
 
