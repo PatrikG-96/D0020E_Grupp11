@@ -17,10 +17,11 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0"
+
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && type ..\\src\\services\\sw.js >> \\build\\service-worker.js",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

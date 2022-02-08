@@ -7,12 +7,22 @@ import {
   PeopleSharp,
   SettingsApplications,
 } from "@mui/icons-material";
-import { Badge, Fade, Icon, ListItemIcon, ListItemText } from "@mui/material";
+import {
+  Alert,
+  Badge,
+  Fade,
+  Icon,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import MuiListItem from "@mui/material/ListItem";
 import React, { useEffect, useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { useNotification } from "../hooks/useNotification";
+import { Box } from "@mui/system";
+import AlertBanner from "./AlertBanner";
 
 const styles = {
   largeIcon: {
@@ -277,6 +287,11 @@ export function SecondaryListItems(props) {
           <ListItemText primary="Logga ut" />
         </Fade>
       </ListItem>
+      <AlertBanner
+        title="Warning"
+        message="Offline"
+        severity="warning"
+      />
     </div>
   );
 }
