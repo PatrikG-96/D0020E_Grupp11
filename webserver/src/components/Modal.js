@@ -15,6 +15,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import { ArrowRight } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { useOnlineStatus } from "../hooks/useOnlineStatus";
 
 const styles = {
   modal: {
@@ -37,13 +38,14 @@ export default function BasicModal({ open, handleClose, user }) {
   let location = useLocation();
   let auth = useAuth();
   let from = location.state?.from?.pathname || "/";
+  const isOnline = useOnlineStatus();
 
   const handleClick = () => {
     setLoading(true);
   };
 
   const handleOffline = () => {
-    auth.signin(user.username, "Offline", () => {
+    auth.signin(user.username, "offline","offline", () => {
       navigate(from, { replace: true });
     });
   };
@@ -100,17 +102,32 @@ export default function BasicModal({ open, handleClose, user }) {
                   </Button>
                 </Grid>
                 <Grid item xs={6}>
-                  <LoadingButton
-                    fullWidth
-                    variant="contained"
-                    sx={{ borderRadius: 0 }}
-                    onClick={handleClick}
-                    endIcon={<ArrowRight />}
-                    loading={loading}
-                    loadingPosition="end"
-                  >
-                    Try again
-                  </LoadingButton>
+                  {isOnline ? (
+                    <LoadingButton
+                      fullWidth
+                      variant="contained"
+                      sx={{ borderRadius: 0 }}
+                      onClick={handleClick}
+                      endIcon={<ArrowRight />}
+                      loading={loading}
+                      loadingPosition="end"
+                    >
+                      Try again
+                    </LoadingButton>
+                  ) : (
+                    <LoadingButton
+                      fullWidth
+                      disabled
+                      variant="contained"
+                      sx={{ borderRadius: 0 }}
+                      onClick={handleClick}
+                      endIcon={<ArrowRight />}
+                      loading={loading}
+                      loadingPosition="end"
+                    >
+                      Try again
+                    </LoadingButton>
+                  )}
                 </Grid>
               </Grid>
             </Card>

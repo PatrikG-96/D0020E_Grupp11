@@ -11,13 +11,20 @@ import {
   List,
   Paper,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { ChevronLeft, Menu, Notifications } from "@mui/icons-material";
+import {
+  ChevronLeft,
+  Menu,
+  SignalWifi4Bar,
+  SignalWifiStatusbarConnectedNoInternet4,
+} from "@mui/icons-material";
 import { MainListItems, SecondaryListItems } from "../components/ListItems";
 import { Outlet } from "react-router-dom";
 import NotificationsModal from "../components/NotificationModal";
+import { useOnlineStatus } from "../hooks/useOnlineStatus";
 
 const drawerWidth = 250;
 
@@ -100,6 +107,8 @@ function DashboardContent(props) {
     setCurrentTab(data);
   };
 
+  const isOnline = useOnlineStatus();
+
   return (
     <>
       <CssBaseline />
@@ -126,11 +135,19 @@ function DashboardContent(props) {
           >
             {currentTab}
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <Notifications />
-            </Badge>
-          </IconButton>
+          {isOnline ? (
+            <Tooltip title="User is online">
+              <IconButton color="success">
+                <SignalWifi4Bar />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <Tooltip title="User is offline">
+              <IconButton color="error">
+                <SignalWifiStatusbarConnectedNoInternet4 />
+              </IconButton>
+            </Tooltip>
+          )}
         </Toolbar>
       </AppBar>
       <Box sx={{ display: "flex" }}>
@@ -185,7 +202,9 @@ function DashboardContent(props) {
           <List>
             <SecondaryListItems
               open={open}
-              openNotif={()=> {props.handleOpenNotif()}}
+              openNotif={() => {
+                props.handleOpenNotif();
+              }}
             />
           </List>
         </Drawer>

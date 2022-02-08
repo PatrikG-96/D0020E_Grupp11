@@ -18,6 +18,7 @@ import BasicModal from "./Modal";
 import AuthService from "../services/auth.service";
 import { useNotification } from "../hooks/useNotification";
 import eventBus from "../EventBus";
+import { useOnlineStatus } from "../hooks/useOnlineStatus";
 
 function LoginForm() {
   let navigate = useNavigate();
@@ -41,11 +42,20 @@ function LoginForm() {
     try {
       await AuthService.login(form.username, form.password).then(
         (response) => {
-          auth.signin(form.username, response.userID, response.accessToken, () => {
-            notification.RequestPermission();
-            navigate(from, { replace: true });
-            eventBus.dispatch("login", {}); 
-          });
+          if (checked) {
+            localStorage.setItem("savedUser", form.username);
+          }
+
+          auth.signin(
+            form.username,
+            response.userID,
+            response.accessToken,
+            () => {
+              notification.RequestPermission();
+              navigate(from, { replace: true });
+              eventBus.dispatch("login", {});
+            }
+          );
         },
         (error) => {
           console.log(error);
@@ -59,6 +69,12 @@ function LoginForm() {
 
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
+
+  const [checked, setChecked] = useState(false);
+
+  const handleChecked = (event) => {
+    setChecked(event.target.checked);
+  };
 
   return (
     <Container>
@@ -103,7 +119,13 @@ function LoginForm() {
               autoComplete="current-password"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={
+                <Checkbox
+                  checked={checked}
+                  onChange={handleChecked}
+                  color="primary"
+                />
+              }
               label="Remember me"
             />
             <Button

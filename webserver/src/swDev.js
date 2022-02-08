@@ -34,7 +34,7 @@ export default function swDev() {
       });
     //"BD85L_ud7eQ_gJhg-8GoFXbCE5pHz7_fFrVOtV1W-WrdfTNpgChCA6uQdzJO-67PCJzD-nUH4ThCGauRB9byMdU";
 
-    let swUrl = `${process.env.PUBLIC_URL}/sw.js`;
+    let swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
     navigator.serviceWorker.register(swUrl).then((response) => {
       //console.warn("response", response);
       return response.pushManager
