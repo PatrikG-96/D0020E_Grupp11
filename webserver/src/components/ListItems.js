@@ -134,9 +134,11 @@ export function SecondaryListItems(props) {
   //TODO Fix the online icon to be green on login
   const [workerOnline, setWorkerOnline] = useState(null);
   useEffect(() => {
-    let endpoint = JSON.parse(localStorage.getItem("subscription"));
+    let endpoint = localStorage.getItem("subscription");
     if (endpoint) {
       setWorkerOnline(true);
+    } else {
+      setWorkerOnline(false);
     }
   }, [props]);
 
@@ -287,11 +289,7 @@ export function SecondaryListItems(props) {
           <ListItemText primary="Logga ut" />
         </Fade>
       </ListItem>
-      <AlertBanner
-        title="Warning"
-        message="Offline"
-        severity="warning"
-      />
+      <AlertBanner title="Warning" message="Offline" severity="warning" />
     </div>
   );
 }

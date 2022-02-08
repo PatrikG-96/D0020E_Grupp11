@@ -11,6 +11,8 @@ import os
 load_dotenv(find_dotenv())
 
 key = bytes.fromhex(os.getenv("SECRET_KEY"))
+currentSignupCode = "D0020E_GRUPP11"
+
 
 auth_routes = Blueprint("auth_routes", __name__)
 
@@ -64,6 +66,11 @@ def signup():
     data = json.loads(request.data)
     username = data["username"]
     password = data["password"]
+    signupCode = data["signupCode"]
+
+    if(currentSignupCode != signupCode):
+        return make_response('Not a valid signup code', 403)
+    
     
     try:
         hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt(14))

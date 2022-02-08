@@ -12,6 +12,7 @@ function Logout() {
       AuthService.logout();
       navigate("/", { replace: true });
     });
+    // eslint-disable-next-line
   }, []);
 
   return <div></div>;

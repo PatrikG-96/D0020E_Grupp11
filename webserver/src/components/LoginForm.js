@@ -18,7 +18,6 @@ import BasicModal from "./Modal";
 import AuthService from "../services/auth.service";
 import { useNotification } from "../hooks/useNotification";
 import eventBus from "../EventBus";
-import { useOnlineStatus } from "../hooks/useOnlineStatus";
 
 function LoginForm() {
   let navigate = useNavigate();

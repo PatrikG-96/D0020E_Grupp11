@@ -21,8 +21,7 @@ function SignupForm() {
   let auth = useAuth();
   let notification = useNotification();
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    signupCode: "",
     username: "",
     password: "",
   });
@@ -37,18 +36,19 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(form.username, form.password).then(
+      await AuthService.signup(form.username, form.password, form.signupCode).then(
         (response) => {
           // check for token and user already exists with 200
           console.log("Sign up successfully", response);
           doLogin();
         },
         (error) => {
-          console.log(error);
+          console.log(error.response.data);
         }
       );
     } catch (err) {
       console.log(err);
+      
     }
   };
 
@@ -95,27 +95,14 @@ function SignupForm() {
         </Typography>
         <Box component="form" noValidate sx={{ mt: 3 }}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="given-name"
-                name="firstName"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                value={form.firstName}
-                onChange={handleChange}
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
+
+            <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                value={form.lastName}
+                label="Signup code"
+                name="signupCode"
+                value={form.signupCode}
                 onChange={handleChange}
                 autoComplete="family-name"
               />
