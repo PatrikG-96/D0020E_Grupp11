@@ -4,7 +4,10 @@ import os
 from dotenv import load_dotenv
 import sqlalchemy
 from sqlalchemy import *
+from sqlalchemy.orm import *
+from sqlalchemy.ext.automap import automap_base
 import json
+from datetime import datetime
 
 load_dotenv()
 
@@ -14,198 +17,144 @@ password = os.getenv("PASSWORD")
 user = os.getenv("USER")
 
 try:
-    engine = create_engine(f"mysql://{user}:{password}@{host}/{name}", echo = True) #takes database as one argument, returns an engine object
+    engine = create_engine(f"mysql://{user}:{password}@{host}/{name}", echo = False) #takes database as one argument, returns an engine object
     #__connection = engine.connect() #Establish DBAPI connection to database
+    Session = sessionmaker(bind = engine)
+    session = Session()
 except sqlalchemy.exc.OperationalError:
     print("Can't connect to database")
 
-#Get the tables
+# Make mapped classes
 metadata = MetaData() #Get the tables from the database
-endpoints = Table('endpoints', metadata,
-                     autoload=True, autoload_with=engine)
-elderly = Table('elderly', metadata, autoload=True, autoload_with=engine) #Get information on table
-sensor = Table('sensor', metadata, autoload=True, autoload_with=engine) 
-user = Table('user', metadata, autoload=True, autoload_with=engine) 
-subscription = Table('subscription', metadata, autoload=True, autoload_with=engine) 
-alarm = Table('alarm', metadata, autoload=True, autoload_with=engine) 
-action = Table('action', metadata, autoload=True, autoload_with=engine) 
+
+Base = automap_base() 
+Base.prepare(engine, reflect=True) #Reflect the tables in the database
+User = Base.classes.user
+Subscription = Base.classes.subscription
+Sensor = Base.classes.sensor
+Elderly = Base.classes.elderly
+Alarm = Base.classes.alarm
+AlarmType = Base.classes.alarmtype
+Action = Base.classes.action
+ActionType = Base.classes.actiontype
+Endpoints = Base.classes.endpoints
 
 #The functions
 def setNewElderly(name): #Takes one string values as argument
-    with engine.connect() as conn:
-        query = insert(elderly).values(name=name) #Insert operation
-        conn.execute(query) #Execute the query
+    session.add(Elderly(name = name)) #Insert new
+    session.commit()
 
-def setNewUser(username, password): #Takes two string values as argument
-    with engine.connect() as conn:
-        query = insert(user).values(username=username, password=password)
-        conn.execute(query) #Execute the query
-
-def setNewSubscription(userID, machineID): #Takes two int values as argument
+def setNewUser(username, password, name): #Takes two string values as argument
     try:
-        with engine.connect() as conn:
-            query = insert(subscription).values(userID=userID, machineID=machineID) #Insert operation
-            conn.execute(query) #Execute the query
+        session.add(User(username = username, password = password, name = name, role = 'user'))
+        session.commit()
+    except sqlalchemy.exc.IntegrityError:
+        print("Username already exist")
+
+def setNewSubscription(userID, elderlyID): #Takes two int values as argument
+    try:
+        session.add(Subscription(userID = userID, elderlyID = elderlyID))
+        session.commit()
         return True
     except sqlalchemy.exc.IntegrityError:
         print("Foreign key constraint: value of value of machineID and/or userID do not exist")
         return False
 
-def setNewAlarm(alarmFlag, machineID): #Takes one string and one int value as argument
-    with engine.connect() as conn:
-        query = insert(alarm).values(alarmFlag = alarmFlag, machineID = machineID, received = 0, resolved = 0)
-        conn.execute(query)
+def setNewDevice(elderlyID):
+    session.add(Sensor(elderlyID = elderlyID))
+    session.commit()
 
+def setNewAlarm(elderlyID, alarmType, timestamp): #Takes one string and one int value as argument
+    session.add(Alarm(elderlyID = elderlyID, alarmType = alarmType, read = 0, resolved = 0, timestamp = timestamp))
+    session.commit()
 
-def readAlarm(alarmID, userID, timestamp):
-    with engine.connect() as conn:
-        query = insert(action).values(alarmID = alarmID, userID = userID, timestamp = timestamp, actionType = 'READ')
-        conn.execute(query)
-        query = update(alarm).values(received = 1).where(alarm.columns.alarmID == alarmID)
-        conn.execute(query)
+def readAlarm(alarmID, userID, timestamp, actionType):
+    session.add(Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp))
+    obj = session.query(Alarm).get(alarmID)
+    obj.read = 1
+    session.commit()
     
-def resolveAlarm(alarmID, userID, timestamp):
-    with engine.connect() as conn:
-        query = insert(action).values(alarmID = alarmID, userID = userID, timestamp = timestamp, actionType = 'SOLVED')
-        conn.execute(query)
-        query = update(alarm).values(resolved = 1).where(alarm.columns.alarmID == alarmID)
-        conn.execute(query)
+def resolveAlarm(alarmID, userID, timestamp, actionType):
+    session.add(Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp))
+    obj = session.query(Alarm).get(alarmID)
+    obj.resolved = 1
+    session.commit()
     
-def getAllAlarms():
-    with engine.connect() as conn:
-        query = select(alarm)
-        return conn.execute(query).fetchall()
+def getAllAlarms(): #Returns a resultset in the form of list of objects.
+    return session.query(Alarm).all()
         
     
-def getDevices():
-    with engine.connect() as conn:
-        query = select(sensor)
-        return conn.execute(query).fetchall()
+def getDevices():#Returns a resultset in the form of list of objects.
+    return session.query(Sensor).all()
 
-def getSubscribers(machineID): #Gets all the users that are subscripted to machineID. Takes an int as argument.
-    #return func.getSpecifiedData(__connection, subscription, 'userID', 'machineID', machineID)
-    with engine.connect() as conn:
-        query = select(subscription.columns.userID).where(subscription.columns.machineID == machineID)
-        return conn.execute(query).fetchall()
+def getSubscribers(machineID): #Gets all the users that are subscripted to edlerly thorugh machineID. Takes an int as argument.
+    #select subscription.userID from subscription inner join sensor on sensor.deviceID=machineID where sensor.elderlyID=subscription.elderlyID
+    result=session.query(Subscription.userID).join(Sensor, Sensor.deviceID == machineID).filter(Sensor.elderlyID==Subscription.elderlyID).all()
+    return result
 
 def getUserDeviceSubscriptions(userID):
-    with engine.connect() as conn:
-        query = select(alarm.columns.machineID, subscription).where(and_(alarm.columns.machineID == subscription.columns.machineID,
-                                                                     subscription.columns.userID == userID))
-        return conn.execute(query).fetchall()
+    result = session.query(Sensor.deviceID, Subscription).filter(Subscription.elderlyID==Sensor.elderlyID, Subscription.userID==userID).all()
+    return result
     
 def getUserActiveAlarms(userID):
-    with engine.connect() as conn:
-        j = alarm.join(subscription, and_(subscription.columns.machineID == alarm.columns.machineID, subscription.columns.userID == userID))
-        query = select(alarm, subscription).where(or_(alarm.columns.received == 0, alarm.columns.resolved == 0)).select_from(j)
-        return conn.execute(query).fetchall()
+    result = session.query(Alarm).filter(Alarm.elderlyID==Subscription.elderlyID, 
+        Subscription.userID==userID, or_(Alarm.read==0, Alarm.resolved==0)).all()
+    return result
 
 def getUser(userValue): #Returns a user with id, name and password. Takes a int or string
     if (isinstance(userValue, int) == True):
-        with engine.connect() as conn:
-            query = select(user).where(user.columns.userID == userValue)
-            result = conn.execute(query) #Execute the query
-            return changeToList(result.fetchall())
+        result = session.query(User).filter(User.userID == userValue).all()
+        return result
+
     else:
-        with engine.connect() as conn:
-            query = select(user).where(user.columns.username == userValue)
-            result = conn.execute(query) #Execute the query
-            return changeToList(result.fetchall())
+        result = session.query(User).filter(User.username == userValue).all()
+        return result
 
 def getAllAlarmNotRead(): #Returns all alarms that are not read
-    with engine.connect() as conn:
-        query = select(alarm).where(alarm.columns.received == 0)
-        result = conn.execute(query) #Execute the query
-        return result.fetchall()
+    result = session.query(Alarm).filter(Alarm.read==0).all()
+    return result
 
-
-
-def getAllAlarmNotReadSpecified(user_id):  #Returns a list of alarmID of alarms that are not read of a user. Takes an int as argument.
-    if(func.CheckIfExist(__connection, subscription, 'userID', user_id) == True):
-        allMachineID = func.getSpecifiedData(__connection, subscription, 'machineID', 'userID', user_id) # A list of the machineID that use is subscribed to
-        
-        allAlarmID = []
-        for x in allMachineID:
-            allAlarmID += func.getSpecifiedData(__connection, alarm, 'alarmID', 'machineID', x)
-
-        
-        notRead = [] #A list of alarmID of alarms that are not read
-        
-        for x in allAlarmID:
-            query = select(action.columns.alarmID).where(and_(action.columns.alarmID == x, action.columns.hasRead == 0)) 
-            result = __connection.execute(query) #Execute the query
-            notRead += result.fetchall()
-        return func.changeToList(notRead)
-
-    return "UserID do not exist"
-
-
-def getAllAlarmNotSolved(): #Returns all alarms that are not read
-    with engine.connect() as conn:
-        j = alarm.join(action, alarm.columns.alarmID == action.columns.alarmID)
-        query = select([alarm, action]).where(action.columns.solved==0).select_from(j)
-        result = conn.execute(query) #Execute the query
-        return result.fetchall()
-
-def getAllAlarmNotSolvedSpecified(user_id):  #Re    turns a list of alarmID of alarms that are not read of a user. Takes an int as argument.
-    if(func.CheckIfExist(__connection, subscription, 'userID', user_id) == True):
-        allMachineID = func.getSpecifiedData(__connection, subscription, 'machineID', 'userID', user_id) # A list of the machineID that use is subscribed to
-        
-        allAlarmID = []
-        for x in allMachineID:
-            allAlarmID += func.getSpecifiedData(__connection, alarm, 'alarmID', 'machineID', x)
-
-        
-        notRead = [] #A list of alarmID of alarms that are not read
-        
-        for x in allAlarmID:
-            query = select(action.columns.alarmID).where(and_(action.columns.alarmID == x, action.columns.sovled == 0)) 
-            result = __connection.execute(query) #Execute the query
-            notRead += result.fetchall()
-        return func.changeToList(notRead)
+def getAllAlarmNotSolved(): #Returns all alarms that are not solved
+    result = session.query(Alarm).filter(Alarm.resolved == 0).all()
+    return result
 
 
 def storeSubscription(endpoint, userID):
-    with engine.connect() as connection:
-        query = select(endpoints).where(endpoints.columns.endpoint == endpoint)
-        resultSet = connection.execute(query).fetchall()
-        submittedEndpoint = json.loads(endpoint)["endpoint"]
-        for row in resultSet:
-            row_as_dict = dict(row)
-            rowEndpoint = json.loads(row_as_dict["endpoint"])["endpoint"]
-            if(submittedEndpoint == rowEndpoint):
-                query = update(endpoints).where(endpoints.columns.endpoint == endpoint).values(endpoint=endpoint, user=userID)
-                connection.execute(query)
-                return True
+    resultSet = session.query(Endpoints).filter(Endpoints.endpoint == endpoint).all()
+    submittedEndpoint = json.loads(endpoint)["endpoint"]
+    for row in resultSet:
+        row_as_dict = {'id': row.id, 'endpoint': row.endpoint, 'userID': row.userID}
+        rowEndpoint = json.loads(row_as_dict["endpoint"])["endpoint"]
+        if(submittedEndpoint == rowEndpoint):
+            row.endpoint = endpoint
+            row.userID = userID
+            session.commit
+            return True
 
-        query = insert(endpoints).values(endpoint=endpoint, user=userID)
-        connection.execute(query)
-        return True
+    session.add(Endpoints(endpoint=endpoint, userID=userID))
+    session.commit()
+    return True
 
 def getSubscription(userID):
-    with engine.connect() as connection:
-        query = select(endpoints).where(endpoints.columns.user == userID)
-        resultSet = connection.execute(query).fetchall()
-        for row in resultSet:
-            row_as_dict = dict(row)
-            return row_as_dict["endpoint"]
+    resultSet = session.query(Endpoints).filter(Endpoints.userID == userID)
+    return resultSet[0].endpoint
 
 def getAllSubscriptions():
-    with engine.connect() as connection:
-        query = select(endpoints)
-        resultSet = connection.execute(query).fetchall()
-        return resultSet
+    return session.query(Endpoints).all()
 
 def deleteSubscription(endpoint):
     with engine.connect() as connection:
-        query = select(endpoints).where(endpoints.columns.endpoint == endpoint)
-        resultSet = connection.execute(query).fetchall()
+        resultSet = session.query(Endpoints).filter(Endpoints.endpoint == endpoint)
         submittedEndpoint = json.loads(endpoint)["endpoint"]
         for row in resultSet:
-            row_as_dict = dict(row)
+            row_as_dict = {'id': row.id, 'endpoint': row.endpoint, 'userID': row.userID}
             rowEndpoint = json.loads(row_as_dict["endpoint"])["endpoint"]
             if(submittedEndpoint == rowEndpoint):
                 print("the same endpoint")
-                query = delete(endpoints).where(endpoints.columns.endpoint == rowEndpoint)
-                connection.execute(query)
+                session.delete(row)
+                session.commit()
                 return True
+
+
+#print(getSubscription(1))
+print(deleteSubscription("""{"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABiA9a0z4LIENAEjvbvUzGtdKOhD5nOu9npFvVwPA73vLSqp00V7_jwoN1PVyigDFZHxlT80KdLmceC-pQ0csbr3ENouWaqymtsmC6aMO2Vum4tFoZAct0x-xvq4MKnhdB9abx-NQBJHmbApszrgB2qIGfRnyiIIPw4sNinXCzHOvwDS8o","expirationTime":null,"keys":{"auth":"BU802LufUiqraVSMDdgGLg","p256dh":"BMMjodI_R_Lh-z1czK1PQbWqRV8RgoFQeCPj0fSg6ZYgInPdYriYQnNsD6kc-m6vZEoDr555jiURL8ULkP3NcoE"}}"""))
