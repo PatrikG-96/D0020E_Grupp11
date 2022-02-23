@@ -31,7 +31,7 @@ class Sensor(object):
         self.monitor.deregisterSensor(self)
     
     @abc.abstractmethod
-    def parse(self, client, userdata, msg):
+    def parse(self, msg):
         raise NotImplementedError
     
     def returnData(self, data):
@@ -55,10 +55,10 @@ class MQTTSensor(Sensor):
         self.topic = topic
     
     def connected(self, client, userdata, flags, rc):
-        log.info(f"MQTT sensor connected with result code: {rc}")
+        log.info(f"({self.name}:{self.id}) Sensor connected with result code: {rc}")
         
     def disconnected(self, userdata, rc):
-        log.warning(f"MQTT sensor disconnected with result code: {rc}")
+        log.warning(f"({self.name}:{self.id}) Sensor disconnected with result code: {rc}")
         super().disconnect()
         self.connect()
     
@@ -68,6 +68,7 @@ class MQTTSensor(Sensor):
         super().connect()
         
     def start(self):
+        log.info(f"({self.name}:{self.id}) Sensor starting")
         self.client.subscribe(self.topic)
         self.client.loop_forever()
         
@@ -77,7 +78,7 @@ class WideFind(MQTTSensor):
         self.name = "WideFind"
         super().__init__(id)
         
-    def parse(self, client, userdata, msg):
+    def parse(self, msg):
         
         stringified = msg.payload.decode('utf-8')
         json_data = json.loads(stringified)
@@ -103,7 +104,7 @@ class FallSensor(WideFind):
     
     def __init__(self, id, detected_limit, resolved_limit, fall_timer):
         super().__init__(id)
-        self.client.on_message = self.parse
+        self.client.on_message = self.on_message
         self.isFalling = False
         self.detected_limit = detected_limit
         self.fall_timer = fall_timer
@@ -111,8 +112,8 @@ class FallSensor(WideFind):
         self.active = True
         self.timer = None    
     
-    def parse(self, client, userdata, msg):
-        data = super().parse(client, userdata, msg)
+    def on_message(self, client, userdata, msg):
+        data = super().parse(msg)
         
         if not self.isFalling and int(data['z']) < self.detected_limit:
             self.timer = Timer(self.fall_timer, self.__fall_confirmed, data)

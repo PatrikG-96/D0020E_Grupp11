@@ -25,9 +25,9 @@ class Monitor:
             log.error(f"(Monitor) Deleting sensor '{sensor.id}' failed with error: '{e}'")
         log.info(f"(Monitor) Deleted sensor '{sensor.id}'")
     
-    def sendData(self, message):
-        if type(message) == dict:
-            msg = json.dumps(message)
+    def sendData(self, message : dict):
+        
+        msg = json.dumps(message)
         self.client_generator.sendMessage(msg)
         
     
