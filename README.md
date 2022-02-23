@@ -37,7 +37,7 @@ All dependencies are resolved by virutal enviroments, but for the sake of comple
 
 ### Monitor
 - [paho-mqtt](https://github.com/eclipse/paho.mqtt.python)
-- [python-dotenv] (https://github.com/theskumar/python-dotenv)
+- [python-dotenv](https://github.com/theskumar/python-dotenv)
 
 ### The server and API
 - [Flask](https://github.com/pallets/flask)
