@@ -44,7 +44,7 @@ All dependencies are resolved by virutal enviroments, but for the sake of comple
 - [Twisted](https://github.com/twisted/twisted)
 - [SQLAlchemy](https://github.com/sqlalchemy)
 - [MySQLClient](https://github.com/PyMySQL/mysqlclient)
-- [python-dotenv] (https://github.com/theskumar/python-dotenv)
+- [python-dotenv](https://github.com/theskumar/python-dotenv)
 - [bcrypt](https://github.com/pyca/bcrypt)
 - [py-jwt](https://github.com/jpadilla/pyjwt)
 - [Marshmallow](https://github.com/marshmallow-code/marshmallow)
