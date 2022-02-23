@@ -18,7 +18,8 @@ When receiving an alert, the server will update its database, and if the alert i
 We didn't want to force any client using this system to keep an active TCP connection to our server. Therefore, we built a simple REST API in Flask on top of the same database used by the server. This API makes it easy to
 fetch all relevant data, like alarm logs, active alarms and so on. It's also a middle man for clients wanting to connect to the server for live alerts. To make a connection, the client must be authorized by the API, then 
 it will receive a token that can be used to authorize a connection to the server. In a process described in the Protocol specification PDF, the token is verified by the server, and if successful the connection is accepted,
-otherwise it's rejected.
+otherwise it's rejected. The server and API should be run together, as they need to share a database. It is possible to run them on different machines and remotely connect to the database, but it's simpler to run them as 
+one application.
 
 ### The clients
 The system is designed to be client neutral in the sense that any type of client following the specified protocols will be able to use the system, as long as they are authorized. We are developing our version of a client, which 
@@ -29,6 +30,27 @@ is a web frontend to the system.
 
 
 ## Monitor and adding new sensors
+
+
+## Dependencies
+All dependencies are resolved by virutal enviroments, but for the sake of completionism all third party dependencies are listed here
+
+### Monitor
+- [paho-mqtt](https://github.com/eclipse/paho.mqtt.python)
+- [python-dotenv] (https://github.com/theskumar/python-dotenv)
+
+### The server and API
+- [Flask](https://github.com/pallets/flask)
+- [Twisted](https://github.com/twisted/twisted)
+- [SQLAlchemy](https://github.com/sqlalchemy)
+- [MySQLClient](https://github.com/PyMySQL/mysqlclient)
+- [python-dotenv] (https://github.com/theskumar/python-dotenv)
+- [bcrypt](https://github.com/pyca/bcrypt)
+- [py-jwt](https://github.com/jpadilla/pyjwt)
+- [Marshmallow](https://github.com/marshmallow-code/marshmallow)
+
+### The web frontend
+
 
 
 
