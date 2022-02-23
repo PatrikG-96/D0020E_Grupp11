@@ -1,5 +1,6 @@
 from database.database import *
 from flask import Blueprint, request, make_response
+from routes.webpush import push_alarm
 
 alarm_routes = Blueprint('alarm_routes', __name__)
 
@@ -60,11 +61,7 @@ def get_active_subscribed_alarms():
 #@token_required
 def subscribe_to_alarm():
     
-    #token = request.headers.get('x-auth-token')
-    #data = jwt.decode(token, app.config['KEY'])
-    #uid = data['user']
     uid = 10
-    #data = json.loads(request.data)
     data = request.args
     device_id = data['device_id']    
     
