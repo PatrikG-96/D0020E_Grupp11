@@ -1,4 +1,5 @@
 from .generalFunc import *
+from ast import Sub
 from msilib.schema import ODBCAttribute
 import os
 from dotenv import load_dotenv
@@ -7,7 +8,7 @@ from sqlalchemy import *
 from sqlalchemy.orm import *
 from sqlalchemy.ext.automap import automap_base
 import json
-from datetime import datetime
+
 
 load_dotenv()
 
@@ -32,7 +33,7 @@ Base.prepare(engine, reflect=True) #Reflect the tables in the database
 User = Base.classes.user
 Subscription = Base.classes.subscription
 Sensor = Base.classes.sensor
-Elderly = Base.classes.elderly
+Monitor = Base.classes.monitor
 Alarm = Base.classes.alarm
 AlarmType = Base.classes.alarmtype
 Action = Base.classes.action
@@ -40,32 +41,34 @@ ActionType = Base.classes.actiontype
 Endpoints = Base.classes.endpoints
 
 #The functions
-def setNewElderly(name): #Takes one string values as argument
-    session.add(Elderly(name = name)) #Insert new
+def setNewMonitor(name): #Takes one string values as argument
+    session.add(Monitor(name = name)) #Insert new
     session.commit()
 
 def setNewUser(username, password, name): #Takes two string values as argument
     try:
         session.add(User(username = username, password = password, name = name, role = 'user'))
         session.commit()
+        return True
     except sqlalchemy.exc.IntegrityError:
         print("Username already exist")
+        return False
 
-def setNewSubscription(userID, elderlyID): #Takes two int values as argument
+def setNewSubscription(userID, monitorID): #Takes two int values as argument
     try:
-        session.add(Subscription(userID = userID, elderlyID = elderlyID))
+        session.add(Subscription(userID = userID, monitorID = monitorID))
         session.commit()
         return True
     except sqlalchemy.exc.IntegrityError:
         print("Foreign key constraint: value of value of machineID and/or userID do not exist")
         return False
 
-def setNewDevice(elderlyID):
-    session.add(Sensor(elderlyID = elderlyID))
+def setNewDevice(monitorID):
+    session.add(Sensor(monitorID = monitorID))
     session.commit()
 
-def setNewAlarm(elderlyID, alarmType, timestamp): #Takes one string and one int value as argument
-    session.add(Alarm(elderlyID = elderlyID, alarmType = alarmType, read = 0, resolved = 0, timestamp = timestamp))
+def setNewAlarm(monitorID, alarmType, timestamp): #Takes one string and one int value as argument
+    session.add(Alarm(monitorID = monitorID, alarmType = alarmType, read = 0, resolved = 0, timestamp = timestamp))
     session.commit()
 
 def readAlarm(alarmID, userID, timestamp, actionType):
@@ -87,17 +90,18 @@ def getAllAlarms(): #Returns a resultset in the form of list of objects.
 def getDevices():#Returns a resultset in the form of list of objects.
     return session.query(Sensor).all()
 
-def getSubscribers(machineID): #Gets all the users that are subscripted to edlerly thorugh machineID. Takes an int as argument.
-    #select subscription.userID from subscription inner join sensor on sensor.deviceID=machineID where sensor.elderlyID=subscription.elderlyID
-    result=session.query(Subscription.userID).join(Sensor, Sensor.deviceID == machineID).filter(Sensor.elderlyID==Subscription.elderlyID).all()
+def getSubscribers(deviceID): #Gets all the users that are subscripted to a monitor thorugh deviceID. Takes an int as argument.
+    #select subscription.userID from subscription inner join sensor on sensor.deviceID=machineID where sensor.monitorID=subscription.monitorID
+    result=session.query(Subscription).join(Sensor, Sensor.deviceID == deviceID).filter(Sensor.monitorID==Subscription.monitorID).all()
     return result
 
 def getUserDeviceSubscriptions(userID):
-    result = session.query(Sensor.deviceID, Subscription).filter(Subscription.elderlyID==Sensor.elderlyID, Subscription.userID==userID).all()
+    result=session.query(Sensor).join(Subscription, Subscription.userID == userID).filter(Subscription.monitorID==Sensor.monitorID).all()
+    #result = session.query(Sensor.deviceID, Subscription).filter(Subscription.monitorID==Sensor.monitorID, Subscription.userID==userID).all()
     return result
     
 def getUserActiveAlarms(userID):
-    result = session.query(Alarm).filter(Alarm.elderlyID==Subscription.elderlyID, 
+    result = session.query(Alarm).filter(Alarm.monitorID==Subscription.monitorID, 
         Subscription.userID==userID, or_(Alarm.read==0, Alarm.resolved==0)).all()
     return result
 
@@ -156,5 +160,4 @@ def deleteSubscription(endpoint):
                 return True
 
 
-#print(getSubscription(1))
-print(deleteSubscription("""{"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABiA9a0z4LIENAEjvbvUzGtdKOhD5nOu9npFvVwPA73vLSqp00V7_jwoN1PVyigDFZHxlT80KdLmceC-pQ0csbr3ENouWaqymtsmC6aMO2Vum4tFoZAct0x-xvq4MKnhdB9abx-NQBJHmbApszrgB2qIGfRnyiIIPw4sNinXCzHOvwDS8o","expirationTime":null,"keys":{"auth":"BU802LufUiqraVSMDdgGLg","p256dh":"BMMjodI_R_Lh-z1czK1PQbWqRV8RgoFQeCPj0fSg6ZYgInPdYriYQnNsD6kc-m6vZEoDr555jiURL8ULkP3NcoE"}}"""))
+
