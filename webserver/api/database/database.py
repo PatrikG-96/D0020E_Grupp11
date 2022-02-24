@@ -1,4 +1,4 @@
-from .generalFunc import *
+#from .generalFunc import *
 from ast import Sub
 from msilib.schema import ODBCAttribute
 import os
@@ -18,7 +18,8 @@ password = os.getenv("PASSWORD")
 user = os.getenv("USER")
 
 try:
-    engine = create_engine(f"mysql://{user}:{password}@{host}/{name}", echo = False) #takes database as one argument, returns an engine object
+    engine = create_engine("mysql://root@localhost/d0020e_dev", echo = False)
+    #engine = create_engine(f"mysql://{user}:{password}@{host}/{name}", echo = False) #takes database as one argument, returns an engine object
     #__connection = engine.connect() #Establish DBAPI connection to database
     Session = sessionmaker(bind = engine)
     session = Session()
@@ -45,7 +46,7 @@ def setNewMonitor(name): #Takes one string values as argument
     session.add(Monitor(name = name)) #Insert new
     session.commit()
 
-def setNewUser(username, password, name): #Takes two string values as argument
+def setNewUser(username, password, name): #Takes three string values as argument
     try:
         session.add(User(username = username, password = password, name = name, role = 'user'))
         session.commit()
@@ -133,10 +134,14 @@ def getUserActiveAlarms(userID):
 def getUser(userValue): #Returns a user with id, name and password. Takes a int or string
     if (isinstance(userValue, int) == True):
         result = session.query(User).filter(User.userID == userValue).all()
+        if not result: #If user do not exist
+            return False
         return result
 
     else:
         result = session.query(User).filter(User.username == userValue).all()
+        if not result:
+            return False
         return result
 
 def getAllAlarmNotRead(): #Returns all alarms that are not read
