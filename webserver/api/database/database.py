@@ -1,4 +1,4 @@
-#from .generalFunc import *
+from .generalFunc import *
 from ast import Sub
 from msilib.schema import ODBCAttribute
 import os
@@ -18,8 +18,7 @@ password = os.getenv("PASSWORD")
 user = os.getenv("USER")
 
 try:
-    engine = create_engine("mysql://root@localhost/d0020e_dev", echo = False)
-    #engine = create_engine(f"mysql://{user}:{password}@{host}/{name}", echo = False) #takes database as one argument, returns an engine object
+    engine = create_engine(f"mysql://{user}:{password}@{host}/{name}", echo = False) #takes database as one argument, returns an engine object
     #__connection = engine.connect() #Establish DBAPI connection to database
     Session = sessionmaker(bind = engine)
     session = Session()
