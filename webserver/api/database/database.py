@@ -27,9 +27,12 @@ except sqlalchemy.exc.OperationalError:
 
 # Make mapped classes
 metadata = MetaData() #Get the tables from the database
+metadata.reflect(bind=engine)
 
 Base = automap_base() 
 Base.prepare(engine, reflect=True) #Reflect the tables in the database
+
+
 User = Base.classes.user
 Subscription = Base.classes.subscription
 Sensor = Base.classes.sensor
@@ -42,14 +45,17 @@ Endpoints = Base.classes.endpoints
 
 #The functions
 def setNewMonitor(name): #Takes one string values as argument
-    session.add(Monitor(name = name)) #Insert new
+    monitorObj = Monitor(name = name)
+    session.add(monitorObj) #Insert new
     session.commit()
+    return monitorObj
 
 def setNewUser(username, password, name): #Takes three string values as argument
     try:
-        session.add(User(username = username, password = password, name = name, role = 'user'))
+        userObj = User(username = username, password = password, name = name, role = 'user')
+        session.add(userObj)
         session.commit()
-        return True
+        return (True, userObj)
     except sqlalchemy.exc.IntegrityError:
         print("Username already exist")
         return False
@@ -65,9 +71,10 @@ def deleteUser(userValue): #Takes either userID or username
 
 def setNewSubscription(userID, monitorID): #Takes two int values as argument
     try:
-        session.add(Subscription(userID = userID, monitorID = monitorID))
+        subscriptionObj = Subscription(userID = userID, monitorID = monitorID)
+        session.add(subscriptionObj)
         session.commit()
-        return True
+        return (True, subscriptionObj)
     except sqlalchemy.exc.IntegrityError:
         print("Foreign key constraint: value of value of machineID and/or userID do not exist")
         return False
@@ -77,8 +84,10 @@ def deleteSubscriber(userID, monitorID):
     session.commit()
 
 def setNewDevice(monitorID):
-    session.add(Sensor(monitorID = monitorID))
+    deviceObj = Sensor(monitorID = monitorID)
+    session.add(deviceObj)
     session.commit()
+    return deviceObj
 
 def deleteMonitor(monitorID):
     session.query(Monitor).filter(Monitor.monitorID == monitorID).delete()
@@ -89,20 +98,26 @@ def deleteDevice(deviceID):
     session.commit()
 
 def setNewAlarm(monitorID, alarmType, timestamp): #Takes one string and one int value as argument
-    session.add(Alarm(monitorID = monitorID, alarmType = alarmType, read = 0, resolved = 0, timestamp = timestamp))
+    alarmObj = Alarm(monitorID = monitorID, alarmType = alarmType, read = 0, resolved = 0, timestamp = timestamp)
+    session.add(alarmObj)
     session.commit()
+    return alarmObj
 
 def readAlarm(alarmID, userID, timestamp, actionType):
-    session.add(Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp))
+    actionObj = Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp)
+    session.add(actionObj)
     obj = session.query(Alarm).get(alarmID)
     obj.read = 1
     session.commit()
+    return actionObj
     
 def resolveAlarm(alarmID, userID, timestamp, actionType):
-    session.add(Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp))
+    actionObj = Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp)
+    session.add(actionObj)
     obj = session.query(Alarm).get(alarmID)
     obj.resolved = 1
     session.commit()
+    return actionObj
     
 def getAllAlarms(): #Returns a resultset in the form of list of objects.
     return session.query(Alarm).all()
@@ -164,9 +179,10 @@ def storeSubscription(endpoint, userID):
             session.commit
             return True
 
-    session.add(Endpoints(endpoint=endpoint, userID=userID))
+    endpointObj = Endpoints(endpoint=endpoint, userID=userID)
+    session.add(endpointObj)
     session.commit()
-    return True
+    return (True, endpointObj)
 
 def getSubscription(userID):
     resultSet = session.query(Endpoints).filter(Endpoints.userID == userID)
