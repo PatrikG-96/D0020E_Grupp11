@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 23 feb 2022 kl 11:12
+-- Tid vid skapande: 24 feb 2022 kl 12:46
 -- Serverversion: 10.4.21-MariaDB
 -- PHP-version: 8.0.12
 
@@ -34,6 +34,9 @@ CREATE TABLE `action` (
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumpning av Data i tabell `action`
+--
 
 -- --------------------------------------------------------
 
@@ -69,6 +72,9 @@ CREATE TABLE `alarm` (
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumpning av Data i tabell `alarm`
+--
 
 -- --------------------------------------------------------
 
@@ -112,6 +118,11 @@ CREATE TABLE `monitor` (
   `name` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumpning av Data i tabell `monitor`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +150,11 @@ CREATE TABLE `subscription` (
   `monitorID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumpning av Data i tabell `subscription`
+--
+
+
 
 -- --------------------------------------------------------
 
@@ -153,6 +169,7 @@ CREATE TABLE `user` (
   `name` varchar(128) NOT NULL,
   `role` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 --
@@ -282,35 +299,35 @@ ALTER TABLE `user`
 -- Restriktioner för tabell `action`
 --
 ALTER TABLE `action`
-  ADD CONSTRAINT `fk6` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
-  ADD CONSTRAINT `fk7` FOREIGN KEY (`alarmID`) REFERENCES `alarm` (`alarmID`),
+  ADD CONSTRAINT `fk6` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk7` FOREIGN KEY (`alarmID`) REFERENCES `alarm` (`alarmID`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk8` FOREIGN KEY (`actionType`) REFERENCES `actiontype` (`actionTypeID`);
 
 --
 -- Restriktioner för tabell `alarm`
 --
 ALTER TABLE `alarm`
-  ADD CONSTRAINT `fk4` FOREIGN KEY (`monitorID`) REFERENCES `monitor` (`monitorID`),
+  ADD CONSTRAINT `fk4` FOREIGN KEY (`monitorID`) REFERENCES `monitor` (`monitorID`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk5` FOREIGN KEY (`alarmType`) REFERENCES `alarmtype` (`alarmTypeID`);
 
 --
 -- Restriktioner för tabell `endpoints`
 --
 ALTER TABLE `endpoints`
-  ADD CONSTRAINT `fk_userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Restriktioner för tabell `sensor`
 --
 ALTER TABLE `sensor`
-  ADD CONSTRAINT `fk1` FOREIGN KEY (`monitorID`) REFERENCES `monitor` (`monitorID`);
+  ADD CONSTRAINT `fk1` FOREIGN KEY (`monitorID`) REFERENCES `monitor` (`monitorID`) ON DELETE CASCADE;
 
 --
 -- Restriktioner för tabell `subscription`
 --
 ALTER TABLE `subscription`
-  ADD CONSTRAINT `fk2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
-  ADD CONSTRAINT `fk3` FOREIGN KEY (`monitorID`) REFERENCES `monitor` (`monitorID`);
+  ADD CONSTRAINT `fk2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk3` FOREIGN KEY (`monitorID`) REFERENCES `monitor` (`monitorID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

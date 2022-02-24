@@ -54,6 +54,15 @@ def setNewUser(username, password, name): #Takes two string values as argument
         print("Username already exist")
         return False
 
+def deleteUser(userValue): #Takes either userID or username
+    if (isinstance(userValue, int) == True):
+        session.query(User).filter(User.userID == userValue).delete()
+        session.commit()
+
+    else:
+        session.query(User).filter(User.username == userValue).delete()
+        session.commit()
+
 def setNewSubscription(userID, monitorID): #Takes two int values as argument
     try:
         session.add(Subscription(userID = userID, monitorID = monitorID))
@@ -63,8 +72,20 @@ def setNewSubscription(userID, monitorID): #Takes two int values as argument
         print("Foreign key constraint: value of value of machineID and/or userID do not exist")
         return False
 
+def deleteSubscriber(userID, monitorID):
+    session.query(Subscription).filter(Subscription.userID == userID, Subscription.monitorID == monitorID).delete()
+    session.commit()
+
 def setNewDevice(monitorID):
     session.add(Sensor(monitorID = monitorID))
+    session.commit()
+
+def deleteMonitor(monitorID):
+    session.query(Monitor).filter(Monitor.monitorID == monitorID).delete()
+    session.commit()
+
+def deleteDevice(deviceID):
+    session.query(Sensor).filter(Sensor.deviceID == deviceID).delete()
     session.commit()
 
 def setNewAlarm(monitorID, alarmType, timestamp): #Takes one string and one int value as argument
@@ -90,7 +111,11 @@ def getAllAlarms(): #Returns a resultset in the form of list of objects.
 def getDevices():#Returns a resultset in the form of list of objects.
     return session.query(Sensor).all()
 
-def getSubscribers(deviceID): #Gets all the users that are subscripted to a monitor thorugh deviceID. Takes an int as argument.
+def getSubscribers(monitorID): #Gets all the users that are subscripted to a monitor. Takes an int as argument.
+    result=session.query(Subscription).filter(Subscription.monitorID==monitorID).all()
+    return result
+
+def getSubscribers(deviceID): #Gets all the users that are subscripted to a monitor through deviceID. Takes an int as argument.
     #select subscription.userID from subscription inner join sensor on sensor.deviceID=machineID where sensor.monitorID=subscription.monitorID
     result=session.query(Subscription).join(Sensor, Sensor.deviceID == deviceID).filter(Sensor.monitorID==Subscription.monitorID).all()
     return result
@@ -158,6 +183,3 @@ def deleteSubscription(endpoint):
                 session.delete(row)
                 session.commit()
                 return True
-
-
-
