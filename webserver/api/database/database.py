@@ -32,7 +32,6 @@ metadata.reflect(bind=engine)
 Base = automap_base() 
 Base.prepare(engine, reflect=True) #Reflect the tables in the database
 
-
 User = Base.classes.user
 Subscription = Base.classes.subscription
 Sensor = Base.classes.sensor
@@ -58,7 +57,7 @@ def setNewUser(username, password, name): #Takes three string values as argument
         return (True, userObj)
     except sqlalchemy.exc.IntegrityError:
         print("Username already exist")
-        return False
+        return (False, None)
 
 def deleteUser(userValue): #Takes either userID or username
     if (isinstance(userValue, int) == True):
@@ -77,7 +76,7 @@ def setNewSubscription(userID, monitorID): #Takes two int values as argument
         return (True, subscriptionObj)
     except sqlalchemy.exc.IntegrityError:
         print("Foreign key constraint: value of value of machineID and/or userID do not exist")
-        return False
+        return (False, None)
 
 def deleteSubscriber(userID, monitorID):
     session.query(Subscription).filter(Subscription.userID == userID, Subscription.monitorID == monitorID).delete()
@@ -177,7 +176,7 @@ def storeSubscription(endpoint, userID):
             row.endpoint = endpoint
             row.userID = userID
             session.commit
-            return True
+            return (True, None)
 
     endpointObj = Endpoints(endpoint=endpoint, userID=userID)
     session.add(endpointObj)
@@ -203,3 +202,4 @@ def deleteSubscription(endpoint):
                 session.delete(row)
                 session.commit()
                 return True
+
