@@ -39,10 +39,14 @@ Endpoints = Base.classes.endpoints
 
 #The functions
 def setNewMonitor(id, name): #Takes one string values as argument
-    monitorObj = Monitor(monitorID = id, name = name)
-    session.add(monitorObj) #Insert new
-    session.commit()
-    return monitorObj
+    try:
+        monitorObj = Monitor(monitorID = id, name = name)
+        session.add(monitorObj) #Insert new
+        session.commit()
+        return monitorObj
+    except Exception as e:
+        session.rollback()
+        raise Exception(e)
 
 def setNewUser(username, password, name): #Takes three string values as argument
     try:

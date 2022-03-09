@@ -5,12 +5,14 @@ from sse.Announcer import AlarmAnnouncer
 from sse import Formatter
 from routes.webpush import push_alarm
 from schemas.AlarmSchema import alarm_schema
+from routes.decorators.auth_decorators import token_required
 
 sse_routes = Blueprint('sse_routes', __name__)
 
 announcer = AlarmAnnouncer(5)
 
 @sse_routes.route("/alarm/listen")
+#@token_required
 def listen():
     
     if not current_app.config['LISTENER_CONNECTED']:
@@ -57,7 +59,7 @@ def alert():
         del form['info']
     
     
-    subs = getSubscribers(monitor)
+    subs = getSubscribers_m(monitor)
     uids_list = []
     for sub in subs:
         uids_list.append(sub.userID)
