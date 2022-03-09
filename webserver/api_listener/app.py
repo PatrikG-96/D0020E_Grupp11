@@ -2,16 +2,16 @@ from network.ApiProtocol import ApiProtocol
 from network.ApiFactory import ApiFactory
 from controller.ApiControllerService import ApiControllerService
 from twisted.python import log
+from client.setup import setup
+import sys
 
 def main():
-    log.startLogging(open('apilogs.txt', 'w'))
+    #log.startLogging(open('apilogs.txt', 'w'))
+    log.startLogging(sys.stdout)
     controller = ApiControllerService()
-    factory = ApiFactory(controller, "http://localhost:5000/alert")
-    from twisted.internet import reactor
-    reactor.listenTCP(9999, factory)
-    print("starting server")
-    reactor.run()
-    
+    ApiControllerService.supportAlarmType("fall_confirmed")
+    factory = ApiFactory(controller, "http://localhost:3000")
+    setup("http://localhost:5000", "patrik", "password", factory)
     
 if __name__ == "__main__":
     main()

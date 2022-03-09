@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+twisted = "*"
+python-dotenv = "*"
+mysqlclient = "*"
+sqlalchemy = "*"
+marshmallow = "*"
+bcrypt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

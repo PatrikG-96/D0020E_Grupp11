@@ -1,86 +1,129 @@
+from http.client import BAD_REQUEST
 from database.database import *
-from flask import Blueprint, request, make_response
+from flask import Blueprint, request, make_response, abort, current_app
+from routes.webpush import push_alarm
+from schemas.SubscribeSchema import subscribe_schema
+from schemas.ResponseSchema import response_schema
+from routes.decorators.auth_decorators import token_required
+import requests
+from dotenv import load_dotenv, find_dotenv
+import os
+
+load_dotenv(find_dotenv())
+
+api_url = os.getenv("ALARM_API")
 
 alarm_routes = Blueprint('alarm_routes', __name__)
 
-@alarm_routes.route("/alarm/response")
+#Tested
+@alarm_routes.route("/alarm/response", methods = ['POST'])
+@token_required
 def alarm_response():
-    #data = json.loads(request.data)
-    #alarmID = data['alarmID']
-    #userID = data['userID']
-    #read = data['read']
-    #resolved = data['resovled']
     
-    args = request.args
+    if not current_app.config['LISTENER_CONNECTED']:
+        return make_response({"status" : "API listener not connected"}, 503)
     
-    alarmID = args.get('alarm_id')
-    timestamp = args.get('timestamp')
-    userID = args.get('user_id')
-    read = args.get('read')
-    resolved = args.get('resolved')
+    errors = response_schema.validate(request.form)
     
-    if read=='1':
-        readAlarm(alarmID, userID, timestamp)
-    if resolved=='1':
-        resolveAlarm(alarmID, userID, timestamp)
+    if errors:
+        abort(BAD_REQUEST, str(errors))
         
-    return make_response("success", 201)
+    msg = request.form.to_dict()
+    msg['userID'] = current_app.config['CLIENT_ID']
     
+    header = {'x-auth-token' : current_app.config['JWT']}
+    result = requests.post(api_url+"/alarm/active/respond", msg, headers = header)    
     
+    return result.json()
+    
+#Tested 
 @alarm_routes.route("/alarm/active/all")
-#@token_required
+@token_required
 def get_active_alarm():
 
-    alarms = getAllAlarmNotRead()
-    print(alarms)
-    result = {"length" : len(alarms)}
-    i = 0
-    for alarm in alarms:
-        result[str(i)] = {'alarmID' : alarm[0], 'type' : alarm[1], 'deviceID' : alarm[2], 'read' : alarm[3], 'resolved': alarm[4]}
-        i+=1
-    return result
+    header = {'x-auth-token' : current_app.config['JWT']}
+    result = requests.get(api_url+"/alarm/active/all", headers = header)
 
+    return result.json() 
 
-@alarm_routes.route("/alarm/active/subscribed")
-#@token_required
+#Tested, just dumb implementation
+@alarm_routes.route("/alarm/subscribed")
+@token_required
 def get_active_subscribed_alarms():
     
-    uid = request.args.get('user_id')
+    if not current_app.config['LISTENER_CONNECTED']:
+        return make_response({"status" : "API listener not connected"}, 503)
     
-    alarms = getUserActiveAlarms(uid)
-    result = {'length' : len(alarms)}
+    
+    uid = request.args.get('userID')
+    
+    subs = getUserDeviceSubscriptions(int(uid))
+    
+    if len(subs) == 0:
+        return {"status" : "no subscriptions"}
+    
+    monitor_ids = []
+    for sub in subs:
+        monitor_ids.append(sub.monitorID)
+    
+    print("montor ids:" + str(monitor_ids))
+    
+    header = {'x-auth-token' : current_app.config['JWT']}
+    result = requests.get(api_url+f"/alarm/active/subscribed?userID={current_app.config['CLIENT_ID']}", headers = header)
+    
+    
+    res = {}
     i = 0
-    for alarm in alarms:
-        result[str(i)] = {'alarmID' : alarm[0], 'type' : alarm[1], 'deviceID' : alarm[2], 'read' : alarm[3], 'resolved' : alarm[4]}
-        i+=1
+    for key, value in result.json().items():
         
-    return result
+        if key == "length":
+            continue
+        if int(value['monitorID']) in monitor_ids:
+            res[str(i)] = value
+        i+=1
+      
+    return res
 
-@alarm_routes.route("/alarm/subscribe")
-#@token_required
+
+#Tested
+@alarm_routes.route("/alarm/subscribe", methods = ['POST'])
+@token_required
 def subscribe_to_alarm():
     
-    #token = request.headers.get('x-auth-token')
-    #data = jwt.decode(token, app.config['KEY'])
-    #uid = data['user']
-    uid = 10
-    #data = json.loads(request.data)
-    data = request.args
-    device_id = data['device_id']    
+    if not current_app.config['LISTENER_CONNECTED']:
+        return make_response({"status" : "API listener not connected"}, 503)
     
-    if setNewSubscription(uid, device_id):
-        return make_response("success", 201)
-    return make_response("failed", 401)
     
-
+    errors = subscribe_schema.validate(request.args)
+    
+    if errors:
+        abort(BAD_REQUEST, str(errors))
+    
+    
+    monitorID = request.args.get('monitorID')
+    userID = request.args.get('userID')
+    
+    header = {'x-auth-token' : current_app.config['JWT']}
+    result = requests.get(api_url+f"/alarm/subscribe?userID={current_app.config['CLIENT_ID']}&monitorID={monitorID}", headers = header)
+    
+    # If the result isn't json serializable, the request failed
+    try:
+        result.json()
+    except:
+        abort(BAD_REQUEST, "Subscription failed")
+    
+    
+    
+    if setNewSubscription(userID, monitorID):
+        return {"status" : "success"}
+    return {"status" : "failed"}
+    
+#Tested
 @alarm_routes.route("/alarm/all")
+@token_required
 def get_all_alarms():
     
-    alarms = getAllAlarms()
-    result = {"length" : len(alarms)}
-    i = 0
-    for alarm in alarms:
-        result[str(i)] = {'alarmID' : alarm[0], 'type' : alarm[1], 'deviceID' : alarm[2], 'read' : alarm[3], 'resolved': alarm[4]}
-        i+=1
-        
-    return result
+    header = {'x-auth-token' : current_app.config['JWT']}
+    result = requests.get(api_url+"/alarm/all", headers = header)
+    
+    return result.json()

@@ -98,7 +98,7 @@ elif choice == 2:
     
     device = input("deviceID: ")
     type = input("type: ")
-    print("Making timestamp and randoming coordinates")
+    print("Making timestamp and random coordinates")
     coords = random_coords(1, 0, 100)[0]
     now = datetime.datetime.now()
     msg = str({'device_id' : device, 'type' : type, 'coords' : str(coords), 'timestamp': str(now)}).replace('\'', '"')
@@ -106,6 +106,7 @@ elif choice == 2:
 
 else:
     raise SystemExit
+
 
 reactor.run()
 

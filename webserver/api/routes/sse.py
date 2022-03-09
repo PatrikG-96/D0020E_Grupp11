@@ -1,8 +1,10 @@
+from http.client import BAD_REQUEST
 from database.database import *
-from flask import Blueprint, request, make_response, Response
+from flask import Blueprint, request, make_response, Response, abort, current_app
 from sse.Announcer import AlarmAnnouncer
 from sse import Formatter
 from routes.webpush import push_alarm
+from schemas.AlarmSchema import alarm_schema
 
 sse_routes = Blueprint('sse_routes', __name__)
 
@@ -10,6 +12,10 @@ announcer = AlarmAnnouncer(5)
 
 @sse_routes.route("/alarm/listen")
 def listen():
+    
+    if not current_app.config['LISTENER_CONNECTED']:
+        return make_response({"status" : "API listener not connected"}, 503)
+    
     
     args = request.args
     if not args.get('user_id'):
@@ -25,23 +31,41 @@ def listen():
     
     return Response(stream(), mimetype='text/event-stream')
 
-    
+#Is triggered by api_listener    
 @sse_routes.route("/alert", methods=['POST'])
 def alert():
     
-    form = request.form  # should be a DB query for all user_ids that subscribe to the device
-    device = form.get("device_id")
-    type = form.get("type")
-    timestamp = form.get("timestamp")
-    coords = form.get("coords")
+    form = json.loads(request.data.decode())
     
-    uids = getSubscribers(device)
+    errors = alarm_schema.validate(form)
+    
+    if errors:
+        abort(BAD_REQUEST, errors)
+    
+    
+    monitor = form["monitor_id"]
+    type = form["alarm_type"]
+    timestamp = form["timestamp"]
+    info = form['info']
+    sensor_id = form['sensor_id']
+    sensor_info = form['sensor_info']
+    alarm_id = form['alarm_id']
+    
+    
+    if type == "fall_confirmed":
+        form["coords"] = info['coords']
+        del form['info']
+    
+    
+    subs = getSubscribers(monitor)
     uids_list = []
-    for uid in uids:
-        uids_list.append(uid[0])
+    for sub in subs:
+        uids_list.append(sub.userID)
         
-    push_alarm(uids_list, type)
-    msg = Formatter.format_sse(str({"device_id" : device, "type" : type, "timestamp" : timestamp,
-                                    "coords" : coords}).replace('\'', '"'))
-    announcer.announce_alarm(uids_list, msg)
-    return make_response("Yo", 201)
+    #push_alarm(uids_list, type)
+    
+    
+    
+    format_msg = Formatter.format_sse(json.dumps(form))
+    announcer.announce_alarm(uids_list, format_msg)
+    return {"success" : "Yes"}

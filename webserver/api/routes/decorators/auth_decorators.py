@@ -1,8 +1,14 @@
 from functools import wraps
-from flask import request, jsonify
+from flask import request, jsonify, current_app
 import jwt
 from datetime import datetime
-from __main__ import app
+from dotenv import load_dotenv, find_dotenv
+import os
+
+load_dotenv(find_dotenv())
+
+key = bytes.fromhex(os.getenv("SECRET_KEY"))
+
 
 def token_required(func):
     # decorator factory which invoks update_wrapper() method and passes decorated function as an argument
@@ -13,9 +19,8 @@ def token_required(func):
         if not token:
             return jsonify({'Alert!': 'Token is missing!'}), 401
         try:
-            data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
-            expireTime = datetime.fromtimestamp(data['expires'])
-            print(expireTime)
+            data = jwt.decode(token, key, algorithms=["HS256"])
+            expireTime = datetime.strptime(data['expires'],"%Y-%m-%d %H:%M:%S")
         except jwt.exceptions.ExpiredSignatureError:
             return jsonify({'Message': 'Signature has expired'}), 403
         except jwt.exceptions.InvalidTokenError:

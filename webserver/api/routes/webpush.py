@@ -15,7 +15,7 @@ def subscription():
     """
         POST creates a subscription
         GET returns vapid public key which clients uses to send around push notification
-    """
+    """    
 
     if request.method == "GET":
         if(request.args.get("userID") is not None):
