@@ -7,12 +7,10 @@ class ClientAuthSchema(Schema):
     """ /auth/client/login - POST   
     
     Parameters:
-     - client id
      - username
      - password
     """
     
-    client_id = fields.Int(required = True)
     username = fields.Str(required = True, validate=Length(max=128))
     password = fields.Str(required = True)
     
@@ -24,5 +22,6 @@ class ClientAddSchema(Schema):
      - client id
     """
     
-    client_id = fields.Int(required = True)
+    username = fields.Str(required = True, validate=Length(max=128))
+    password = fields.Str(required = True)
     

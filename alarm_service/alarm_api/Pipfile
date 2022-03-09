@@ -11,6 +11,7 @@ sqlalchemy = "*"
 mysqlclient = "*"
 bcrypt = "*"
 pyjwt = "*"
+pycryptodome = "*"
 
 [dev-packages]
 

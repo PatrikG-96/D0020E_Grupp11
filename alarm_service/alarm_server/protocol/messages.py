@@ -3,23 +3,12 @@ from copy import deepcopy
 
 response_types = ['READ', 'RESOLVED']
 
+ALARM_TYPE_ACTION = {'fall_detected' : False, 'fall_confirmed' : True}
+
 __message_types = ["RequireToken", "TokenResponse", "TokenAuthResult",
                    "AlarmNotification", "AlarmResponse", "AlarmResponseConfirmation",
                    "SensorAlert", "SensorAlertResponse",
                    "ErrorMessage"]
-
-class Types(enum.Enum):
-    
-    RequireTokenMessage = 1,
-    TokenResponseMessage = 2,
-    TokenAuthResultMessage = 3,
-    AlarmNotificationMessage = 4,
-    AlarmResponseMessage = 5,
-    AlarmResponseConfirmation = 6,
-    ErrorMessage = 7,
-    SensorAlertMessage = 8,
-    SensorAlertResponseMessage = 9
-
 
 class ErrorCodes(enum.Enum):
     
@@ -30,7 +19,8 @@ class ErrorCodes(enum.Enum):
     InvalidClient = 302,
     InvalidResponse = 303,
     InvalidType = 304,
-    InvalidMessageFormat = 305
+    InvalidMessageFormat = 305,
+    UnknownError = 401
     
 
 class Message:
@@ -57,7 +47,8 @@ class RequireTokenMessage(Message):
 class TokenResponseMessage(Message):
     
     def __init__(self, json):
-        self.client_id = json['client_id']
+        self.username = json['username']
+        self.password = json['password']
         self.token = json['token']
         super().__init__(json)
 

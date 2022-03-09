@@ -6,7 +6,8 @@ from protocol.messages import ErrorCodes
 import json
 from controller.CallbackExceptions import *
 from copy import deepcopy
-
+from database.database import setNewAlarm, getSensorMonitor, getSensor, readAlarm, resolveAlarm, getUser, getServerAccess
+import bcrypt
 
 def decode(bytes):
     try:
@@ -20,7 +21,7 @@ def decodeErr(failure : Failure):
          log.msg(failure.value.__repr__())
 
 def toJson(data : str):
-    log.msg(f"Attemping to parse {data} to JSON format")
+    log.msg(f"Attempting to parse {data} to JSON format")
     try:
         return json.loads(data)
     except Exception as e:
@@ -51,17 +52,38 @@ def parseErr(failure : Failure):
 
 def __tokenResponse(message : TokenResponseMessage):
     
-    # Verify that token exists in database.
+    log.msg(f"Parsing token response")
+    success = True
+    user = getUser(message.username)
     
+    if user is None:
+        log.msg(f"Did not find user")
+        success = False
     
-    success = message.token == "1337"
+    access = getServerAccess(user.userID)
+    
+    if access is None:
+        log.msg("did not find access")
+        success = False
+    else:
+        # Do we need to verify password here? super slow with bcrypt
+        if bcrypt.checkpw(message.password.encode(), user.password.encode()):
+            log.msg("password verified")
+            success = (message.token == access.token)
+            log.msg(f"Message token: {message.token}, access token: {access.token}")
+        else:
+            log.msg(f"password {message.password} was incorrect")
     if success:
-        return TokenAuthResultMessage.success(message.client_id)
-    return TokenAuthResultMessage.failure(message.client_id)
+        return TokenAuthResultMessage.success(user.userID)
+    return TokenAuthResultMessage.failure(user.userID)
     
 def __alarmResponse(message : AlarmResponseMessage):
     
-    # Update state of alarm, add action
+    if message.reponse_type == "READ":
+        readAlarm(int(message.alarm_id), int(message.client_id), message.timestamp)
+    if message.reponse_type == "RESOLVED":
+        resolveAlarm(int(message.alarm_id), int(message.client_id), message.timestamp)
+    
     worked = True
     if worked:
         return AlarmResponseConfirmationMessage.success(message.json)
@@ -70,22 +92,27 @@ def __alarmResponse(message : AlarmResponseMessage):
     
 def __sensorResponse(message : SensorAlertMessage):
     
-    # create the new alarm
-    worked = True
+    sensor = getSensor(message.sensor_id)
+    print(f"Sensor: {sensor.sensorID}")
+    monitor = getSensorMonitor(sensor.sensorID)
+    print(f"Monitor: {monitor.monitorID}") 
+    
+    alarm = setNewAlarm(monitor.monitorID, message.alarm_type, message.timestamp)
+    
     args = {'type' : "SensorAlertResponse", 'received' : False}
-    if worked:
+    
+    # Do I need to check for errors here?
+    if True:
         args['received'] = True
     res = SensorAlertResponseMessage(args)
     
-    # Get monitor id by using sensor id
-    # sensor_info, right now just sensor name
-    # alarm_id ... push to database then get the alarm again? or UUID?
-    alarm_args = {'type' : 'AlarmNotification', 'monitor_id' : 1, 'sensor_id' : message.sensor_id, 'sensor_info' : message.sensor_name,
-                  "alarm_type" : message.alarm_type, 'timestamp' : message.timestamp, 'alarm_id' : 1, 'info' : {}}
-    
-    msg = AlarmNotificationMessage(alarm_args)
-    
-    res.setAlarm(msg)
+    if ALARM_TYPE_ACTION[message.alarm_type]:
+        
+        alarm_args = {'type' : 'AlarmNotification', 'monitor_id' : monitor.monitorID, 'sensor_id' : message.sensor_id, 'sensor_info' : message.sensor_name,
+                  "alarm_type" : message.alarm_type, 'timestamp' : message.timestamp, 'alarm_id' : alarm.alarmID, 'info' : message.params}
+        msg = AlarmNotificationMessage(alarm_args)
+        res.setAlarm(msg)
+        
     return res
     
     
@@ -108,7 +135,7 @@ def decideErr(failure : Failure):
     else:
         log.msg(str(failure.value))
     
-    return ErrorMessage({'type' : Types.ErrorMessage, 'error_code' : failure.value.code})
+    return ErrorMessage({'type' : "ErrorMessage", 'error_code' : failure.value.code})
     
     
 #def msgToJson(message : Message):

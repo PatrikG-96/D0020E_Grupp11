@@ -9,6 +9,7 @@ python-dotenv = "*"
 mysqlclient = "*"
 sqlalchemy = "*"
 marshmallow = "*"
+bcrypt = "*"
 
 [dev-packages]
 

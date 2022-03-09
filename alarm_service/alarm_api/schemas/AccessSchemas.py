@@ -4,15 +4,19 @@ from datetime import datetime
 
 class RequestAccessSchema(Schema):
     
-    client_id = fields.Int(required = True)
-    timestamp = fields.DateTime(required =  True)
+    user_id = fields.Int(required = True)
+    timestamp = fields.String(required =  True)
+    
     
     @validates('timestamp')
-    def is_timestamp(value):
-        
+    def is_timestamp(self, value):
         try:
-            datetime.strptime(value, "%Y/%m/%d %H:%M:%S")
+            datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
         except ValueError:
+            
             raise ValidationError
     
+class RevokeAccessSchema(Schema):
     
+    user_id = fields.Int(required = True)
+    token = fields.String(required = True, validate=Length(64))

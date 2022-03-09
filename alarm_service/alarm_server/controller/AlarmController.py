@@ -1,8 +1,9 @@
 from twisted.internet.defer import Deferred
 from controller.Callbacks import *
 import json
-
+from twisted.python import log
 from network.AlarmFactory import AlarmFactory
+from database.database import getSubscribers
 
 class AlarmController:
     
@@ -12,8 +13,17 @@ class AlarmController:
     def registerFactory(self, factory : AlarmFactory):
         self.factory = factory
         
-    def triggerFactory(self, ids, message):
-        self.factory.trigger(ids, message)
+    def alertClients(self, message : AlarmNotificationMessage):
+        
+        ids = []
+        print(f"In alertClients, monitorID: {message.monitor_id}")
+        subs = getSubscribers(message.monitor_id)
+        print(f"subs : {subs}")
+        for sub in subs:
+            ids.append(sub.userID)
+        
+        log.msg(f"Alert clients!")
+        self.factory.sendToAll(message, ids)
     
     def getAlarmCallbacks(self, proto_cb):
         deferred = Deferred()

@@ -1,6 +1,5 @@
 
 from .AlarmController import AlarmController
-
 from twisted.internet.defer import Deferred
 from controller.Callbacks import *
 
@@ -26,10 +25,6 @@ class MonitorController:
     
     def triggerAlerts(self, message : AlarmNotificationMessage):
         
-        # get uids from database.
-        # message.monitor_id
-        uids = [1,2]
-        
-        self.alarm_controller.triggerFactory(uids, message)
+        self.alarm_controller.alertClients(message)
     
     
