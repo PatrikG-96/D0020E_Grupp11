@@ -52,7 +52,7 @@ def setNewMonitor(name : str): #Takes one string values as argument
         object
             The object of the newly created monitor.
     """
-
+    session.commit()
     monitorObj = Monitor(name = name)
     session.add(monitorObj) #Insert new
     session.commit()
@@ -77,6 +77,7 @@ def setNewUser(username : str, password : str, name : str): #Takes three string 
     """
          
     try:
+        session.commit()
         userObj = User(username = username, password = password, name = name, role = 'user')
         session.add(userObj)
         session.commit()
@@ -93,7 +94,7 @@ def deleteUser(userValue : str or int): #Takes either userID or username
         userValue : string or int
             The data of the user that is to be deleted.
     """
-
+    session.commit()
     if (isinstance(userValue, int) == True):
         session.query(User).filter(User.userID == userValue).delete()
         session.commit()
@@ -119,6 +120,7 @@ def setNewSubscription(userID : int, monitorID : int): #Takes two int values as 
     """
 
     try:
+        session.commit()
         subscriptionObj = Subscription(userID = userID, monitorID = monitorID)
         session.add(subscriptionObj)
         session.commit()
@@ -137,7 +139,7 @@ def deleteSubscriber(userID : int, monitorID : int):
         monitorID : int
             The identification of a monitor.
     """
-
+    session.commit()
     session.query(Subscription).filter(Subscription.userID == userID, Subscription.monitorID == monitorID).delete()
     session.commit()
 
@@ -154,7 +156,7 @@ def setNewDevice(monitorID : int):
         object
             The object of the newly created device.
     """
-
+    session.commit()
     deviceObj = Sensor(monitorID = monitorID)
     session.add(deviceObj)
     session.commit()
@@ -168,7 +170,7 @@ def deleteMonitor(monitorID : int):
         monitorID : int
             The identification of a monitor.
     """
-
+    session.commit()
     session.query(Monitor).filter(Monitor.monitorID == monitorID).delete()
     session.commit()
 
@@ -180,6 +182,7 @@ def deleteDevice(deviceID : int):
         deviceID : int
             The identification of a device.
     """
+    session.commit()
     session.query(Sensor).filter(Sensor.deviceID == deviceID).delete()
     session.commit()
 
@@ -200,7 +203,7 @@ def setNewAlarm(monitorID : int, alarmType : int, timestamp : str): #Takes two s
         object
             The object of the newly created alarm.
     """
-
+    session.commit()
     alarmObj = Alarm(monitorID = monitorID, alarmType = alarmType, read = 0, resolved = 0, timestamp = timestamp)
     session.add(alarmObj)
     session.commit()
@@ -225,7 +228,7 @@ def readAlarm(alarmID : int, userID : int, timestamp : str, actionType : str):
         object
             The object of the newly created action.
     """
-
+    session.commit()
     actionObj = Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp)
     session.add(actionObj)
     obj = session.query(Alarm).get(alarmID)
@@ -252,7 +255,7 @@ def resolveAlarm(alarmID : int, userID : int, timestamp : str, actionType : str)
         object
             The object of the newly created action.
     """
-
+    session.commit()
     actionObj = Action(alarmID = alarmID, userID = userID, actionType = actionType, timestamp = timestamp)
     session.add(actionObj)
     obj = session.query(Alarm).get(alarmID)
@@ -268,7 +271,7 @@ def getAllAlarms(): #Returns a resultset in the form of list of objects.
         list
             A list of all alarm-object in the database.
     """
-
+    session.commit()
     return session.query(Alarm).all()
         
     
@@ -280,6 +283,7 @@ def getDevices():#Returns a resultset in the form of list of objects.
         list
             A list of all sensor-object in the database.
     """
+    session.commit()
     return session.query(Sensor).all()
 
 def getSubscribers(monitorID : int): #Gets all the users that are subscripted to a monitor. Takes an int as argument.
@@ -295,7 +299,7 @@ def getSubscribers(monitorID : int): #Gets all the users that are subscripted to
         list
             A list of all subscription-object filtered by the parameter in the database.
     """
-
+    session.commit()
     result=session.query(Subscription).filter(Subscription.monitorID==monitorID).all()
     return result
 
@@ -313,7 +317,7 @@ def getSubscribers(deviceID : int): #Gets all the users that are subscripted to 
         list
             A list of all subscription-object filtered by the parameter in the database.
     """
-
+    session.commit()
     result=session.query(Subscription).join(Sensor, Sensor.deviceID == deviceID).filter(Sensor.monitorID==Subscription.monitorID).all()
     return result
 
@@ -330,7 +334,7 @@ def getUserDeviceSubscriptions(userID : int):
         list
             A list of all sensor-object filtered by the parameter in the database.
     """
-
+    session.commit()
     result=session.query(Sensor).join(Subscription, Subscription.userID == userID).filter(Subscription.monitorID==Sensor.monitorID).all()
     #result = session.query(Sensor.deviceID, Subscription).filter(Subscription.monitorID==Sensor.monitorID, Subscription.userID==userID).all()
     return result
@@ -348,7 +352,7 @@ def getUserActiveAlarms(userID : int):
         list
             A list of all alarm-object that are active filtered by the parameter in the database.
     """
-
+    session.commit()
     result = session.query(Alarm).filter(Alarm.monitorID==Subscription.monitorID, 
         Subscription.userID==userID, or_(Alarm.read==0, Alarm.resolved==0)).all()
     return result
@@ -366,7 +370,7 @@ def getUser(userValue : int or str): #Returns a user with id, name and password.
         object
             The user-object filtered by the parameter.
     """
-
+    session.commit()
     if (isinstance(userValue, int) == True):
         result = session.query(User).filter(User.userID == userValue)
         if not result: #If user do not exist
@@ -387,7 +391,7 @@ def getAllAlarmNotRead(): #Returns all alarms that are not read
         list
             A list of all alarm-object filtered by parameter in the database.
     """
-
+    session.commit()
     result = session.query(Alarm).filter(Alarm.read==0).all()
     return result
 
@@ -399,6 +403,7 @@ def getAllAlarmNotSolved(): #Returns all alarms that are not solved
         list
             A list of all alarm-object filtered by parameter in the database.
     """
+    session.commit()
     result = session.query(Alarm).filter(Alarm.resolved == 0).all()
     return result
 
@@ -418,7 +423,7 @@ def storeSubscription(endpoint : str, userID : int):
         tuple
             Either return True or False for the bolean and the newly stored object of the endpoint or none for object depending if it succeedes.
     """
-
+    session.commit()
     resultSet = session.query(Endpoints).filter(Endpoints.endpoint == endpoint).all()
     submittedEndpoint = json.loads(endpoint)["endpoint"]
     for row in resultSet:
@@ -448,6 +453,7 @@ def getSubscription(userID : int):
         string
             An endpoint filtered by the parameter.
     """
+    session.commit()
     resultSet = session.query(Endpoints).filter(Endpoints.userID == userID).all()
     return resultSet[0].endpoint
 
@@ -459,6 +465,7 @@ def getAllSubscriptions():
         list
             A list of all endpoints-object.
     """
+    session.commit()
     return session.query(Endpoints).all()
 
 def deleteSubscription(endpoint : str):
@@ -474,6 +481,7 @@ def deleteSubscription(endpoint : str):
         boolean
             True if it's the same endpoint.
     """
+    session.commit()
     resultSet = session.query(Endpoints).filter(Endpoints.endpoint == endpoint).all()
     submittedEndpoint = json.loads(endpoint)["endpoint"]
     for row in resultSet:
