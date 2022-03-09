@@ -1,0 +1,38 @@
+{	
+    "F1587D88122BE247" :
+        {
+            "type" : "FallSensor",
+            "address" : "130.240.74.55",
+            "port" : "1883",
+            "timeout" : "60",
+            "thresh_detect" : "200",
+            "thresh_confirm" : "300",
+            "fall_grace_period" : "5",
+            "fall_timer" : "10",
+            "topic" : "ltu-system/#"
+        },
+    "67BA3CF4E0622323" :
+        {
+            "type" : "FallSensor",
+            "address" : "130.240.74.55",
+            "port" : "1883",
+            "timeout" : "60",
+            "thresh_detect" : "200",
+            "thresh_confirm" : "300",
+            "fall_grace_period" : "5",
+            "fall_timer" : "10",
+            "topic" : "ltu-system/#"
+        },
+    "8F44CDEF5DC36678":
+        {
+            "type" : "FallSensor",
+            "address" : "130.240.74.55",
+            "port" : "1883",
+            "timeout" : "60",
+            "thresh_detect" : "200",
+            "thresh_confirm" : "300",
+            "fall_grace_period" : "5",
+            "fall_timer" : "10",
+            "topic" : "ltu-system/#"
+        }
+}

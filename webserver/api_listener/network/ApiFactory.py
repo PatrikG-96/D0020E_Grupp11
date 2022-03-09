@@ -1,8 +1,9 @@
 from asyncio import protocols
 from twisted.internet.protocol import Factory
 from .ApiProtocol import ApiProtocol
+from client.network.AlarmClientFactory import AlarmClientFactory
 
-class ApiFactory(Factory):
+class ApiFactory(AlarmClientFactory):
     
     protocol = ApiProtocol
     
@@ -11,4 +12,4 @@ class ApiFactory(Factory):
         self.api_url = api_url
         
     def buildProtocol(self, addr):
-        return ApiProtocol(addr, self)
+        return ApiProtocol(self, addr)
