@@ -10,7 +10,7 @@ def main():
     log.startLogging(sys.stdout)
     controller = ApiControllerService()
     ApiControllerService.supportAlarmType("fall_confirmed")
-    factory = ApiFactory(controller, "http://localhost:3000")
+    factory = ApiFactory(controller, "http://localhost:2000")
     setup("http://localhost:5000", "patrik", "password", factory)
     
 if __name__ == "__main__":

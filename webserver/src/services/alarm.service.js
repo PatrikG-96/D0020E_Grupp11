@@ -4,7 +4,7 @@ import useEventSource from "../hooks/useEventSource";
 function SetListener(endpoint, user_id) {
   const eventSource = useEventSource(
     // ? Endpoint might be obsolete here
-    `http://localhost:5000/alarm/listen?user_id=${user_id}`
+    `http://localhost:2000/alarm/listen?user_id=${user_id}`
   );
   const [alarms, setAlarms] = useState([]);
 

@@ -76,7 +76,8 @@ def signup():
     
     try:
         hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt(14))
-        setNewUser(username, hashed_pw, "user")
+        user = setNewUser(username, hashed_pw, "user")
+        return {'user' : user[1].userID}
     except:
         return make_response('Unable to register', 403, {'WWW-Authenticate': 'Basic realm: "Registration Failed"'})
 
