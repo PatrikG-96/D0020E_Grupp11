@@ -10,15 +10,14 @@ function SetListener(endpoint, user_id) {
 
   useEffect(() => {
     if (eventSource) setAlarms((oldArray) => [...oldArray, eventSource]);
-    //console.log(alarms);
+    console.log(alarms);
   }, [eventSource]);
 
-  return alarms
-};
+  return alarms;
+}
 
 const AlarmService = {
-  SetListener
+  SetListener,
 };
-
 
 export default AlarmService;
