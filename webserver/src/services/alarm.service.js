@@ -10,7 +10,6 @@ function SetListener(endpoint, user_id) {
 
   useEffect(() => {
     if (eventSource) setAlarms((oldArray) => [...oldArray, eventSource]);
-    console.log(alarms);
   }, [eventSource]);
 
   return alarms;

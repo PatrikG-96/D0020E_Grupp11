@@ -30,7 +30,7 @@ def login():
         If login succeeds, JSON with the 'accessToken' tag which contains a JWT. JWT contains field 'user_id' and 'expires'
         If login failes, HTTP header response code 403
     """
-    data = request.form
+    data = json.loads(request.data)
     username = data["username"]
     password = data["password"]
     

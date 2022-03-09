@@ -7,7 +7,7 @@ const signup = (username, password, signupCode) => {
     .post(API_URL + "/auth/signup", {
       username,
       password,
-      signupCode
+      signupCode,
     })
     .then((response) => {
       if (response.data.accessToken) {
@@ -31,15 +31,15 @@ const login = (username, password) => {
       if (response.data.userID) {
         localStorage.setItem("userID", response.data.userID);
       }
-      axios
-        .get(API_URL + "/subscription", {
-          params: { userID: response.data.userID },
-        })
-        .then((sub) => {
-          const endpoint = JSON.parse(sub.data.endpoint);
-          localStorage.setItem("subscription", JSON.stringify(endpoint));
-        });
-        return response.data;
+      // axios
+      //   .get(API_URL + "/subscription", {
+      //     params: { userID: response.data.userID },
+      //   })
+      //   .then((sub) => {
+      //     const endpoint = JSON.parse(sub.data.endpoint);
+      //     localStorage.setItem("subscription", JSON.stringify(endpoint));
+      //   });
+      return response.data;
     });
 };
 
