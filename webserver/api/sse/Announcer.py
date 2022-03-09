@@ -18,6 +18,7 @@ class AlarmAnnouncer:
     def announce_alarm(self, users, msg):
         print (f'Users to alert: {users}')
         print (f'Listeners: {self.listeners}')
+        print (f"Message: {msg}")
         for user in users:
             try:
                 self.listeners[user].put_nowait(msg)

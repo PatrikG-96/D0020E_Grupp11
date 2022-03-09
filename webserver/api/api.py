@@ -10,6 +10,10 @@ from routes.webpush import webpush_routes
 app = Flask(__name__)
 cors = CORS(app)
 
+app.config['LISTENER_CONNECTED'] = False
+app.config['CLIENT_ID'] = None
+app.config['JWT'] = None
+
 app.register_blueprint(auth_routes)
 app.register_blueprint(alarm_routes)
 app.register_blueprint(device_routes)

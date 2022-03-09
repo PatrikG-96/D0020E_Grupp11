@@ -25,22 +25,28 @@ class AlarmFactory(ServerFactory):
         d.addCallback(self.notifyClients)
         return d
     
-    def trigger(self, ids: list, message : str):
-        args = (ids, message)
-        print("should callback")
+    def sendToAll(self, message : dict, ids : list = None):
+        args = {'ids': ids, 'message' : message}
+        print(f"ids : {ids}")
         self.d.callback(args)
         self.d = self.__makeDeferred()
     
     def notifyClients(self, args):
-        ids = args[0]
-        message = args[1]
+        ids = args['ids']
+        message = args['message']
+        
+        if ids is None:
+            for id, client in self.clients.items():
+                client.send(message)
+        
         for id in ids:
             if id in self.clients:
+                log.msg(f"Should send to client: {id}")
                 self.clients[id].send(message)
     
     def register(self, proto : AlarmProtocol):
         log.msg(f"Client '{proto.client_id}' authorized. Registering.")
-        self.clients[proto.client_id] = proto
+        self.clients[int(proto.client_id)] = proto
         
     def deregister(self, proto : AlarmProtocol):
         if proto.client_id in self.clients:

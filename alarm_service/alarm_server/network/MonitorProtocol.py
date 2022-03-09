@@ -2,7 +2,7 @@ from twisted.internet.protocol import Protocol
 from twisted.python.failure import Failure
 from twisted.python import log
 import json
-from protocol.messages import RequireTokenMessage, Message
+from protocol.messages import RequireTokenMessage, SensorAlertResponseMessage
 
 class MonitorProtocol(Protocol):
     
@@ -17,13 +17,13 @@ class MonitorProtocol(Protocol):
     def __resetCallbacks(self):
         self.d = self.factory.monitor_service.getMonitorCallbacks(self.send)
         
-    def send(self, message : Message):
+    def send(self, message : SensorAlertResponseMessage):
         
         msg = message.json
         
         self.transport.write(json.dumps(msg).encode())
         
-        if msg['type'] == "SensorAlertResponse" and msg['received'] == True:
+        if message.alarm is not None:
             self.factory.monitor_service.triggerAlerts(message.alarm)
     
     def dataReceived(self, data: bytes):

@@ -1,22 +1,19 @@
-2022-02-22 14:37:28+0100 [-] Log opened.
-2022-02-22 14:37:28+0100 [-] AlarmFactory starting on 9999
-2022-02-22 14:37:28+0100 [-] Starting factory <network.AlarmFactory.AlarmFactory object at 0x000002828EC032B0>
-2022-02-22 14:37:28+0100 [-] MonitorFactory starting on 8888
-2022-02-22 14:37:28+0100 [-] Starting factory <network.MonitorFactory.MonitorFactory object at 0x000002828EC033D0>
-2022-02-22 14:37:28+0100 [-] Starting alarm server on port: '9999' and monitor server on port: '8888'.
-2022-02-22 14:37:47+0100 [network.AlarmFactory.AlarmFactory] Client created: 'IPv4Address(type='TCP', host='127.0.0.1', port=64667)'
-2022-02-22 14:37:47+0100 [network.AlarmFactory.AlarmFactory] Connection established to: 'IPv4Address(type='TCP', host='127.0.0.1', port=64667)'
-2022-02-22 14:37:47+0100 [AlarmProtocol,0,127.0.0.1] Client: 'IPv4Address(type='TCP', host='127.0.0.1', port=64667)'. Data received: '{"client_id": 1, "type": "TokenResponse", "token": "1337"}'
-2022-02-22 14:37:47+0100 [AlarmProtocol,0,127.0.0.1] Attemping to parse {"client_id": 1, "type": "TokenResponse", "token": "1337"} to JSON format
-2022-02-22 14:37:47+0100 [AlarmProtocol,0,127.0.0.1] Attempting to parse {'client_id': 1, 'type': 'TokenResponse', 'token': '1337'} into a Message object
-2022-02-22 14:37:47+0100 [-] Token res
-2022-02-22 14:37:47+0100 [AlarmProtocol,0,127.0.0.1] Deciding on action for message: TokenResponse.
-2022-02-22 14:37:47+0100 [AlarmProtocol,0,127.0.0.1] Client '1' authorized. Registering.
-2022-02-22 14:38:03+0100 [network.MonitorFactory.MonitorFactory] Client created: 'IPv4Address(type='TCP', host='127.0.0.1', port=64677)'
-2022-02-22 14:38:03+0100 [network.MonitorFactory.MonitorFactory] Connection established to: 'IPv4Address(type='TCP', host='127.0.0.1', port=64677)'
-2022-02-22 14:38:03+0100 [MonitorProtocol,0,127.0.0.1] Client: 'IPv4Address(type='TCP', host='127.0.0.1', port=64677)'. Data received: '{"sensor_id": "1", "sensor_name": "Test", "alarm_type": "fall_detected", "timestamp": "2022-02-22 02:45:56", "params": {"coords": "(1, 2, 3)"}, "type": "SensorAlert"}'
-2022-02-22 14:38:03+0100 [MonitorProtocol,0,127.0.0.1] Attemping to parse {"sensor_id": "1", "sensor_name": "Test", "alarm_type": "fall_detected", "timestamp": "2022-02-22 02:45:56", "params": {"coords": "(1, 2, 3)"}, "type": "SensorAlert"} to JSON format
-2022-02-22 14:38:03+0100 [MonitorProtocol,0,127.0.0.1] Attempting to parse {'sensor_id': '1', 'sensor_name': 'Test', 'alarm_type': 'fall_detected', 'timestamp': '2022-02-22 02:45:56', 'params': {'coords': '(1, 2, 3)'}, 'type': 'SensorAlert'} into a Message object
-2022-02-22 14:38:03+0100 [MonitorProtocol,0,127.0.0.1] Deciding on action for message: SensorAlert.
-2022-02-22 14:38:03+0100 [-] should callback
-2022-02-22 14:38:03+0100 [MonitorProtocol,0,127.0.0.1] Connection lost from: 'IPv4Address(type='TCP', host='127.0.0.1', port=64677)'. Exception: 'Connection was closed cleanly.'
+2022-02-24 17:37:40+0100 [-] Log opened.
+2022-02-24 17:37:40+0100 [-] AlarmFactory starting on 9999
+2022-02-24 17:37:40+0100 [-] Starting factory <network.AlarmFactory.AlarmFactory object at 0x00000257757B8D60>
+2022-02-24 17:37:40+0100 [-] MonitorFactory starting on 8888
+2022-02-24 17:37:40+0100 [-] Starting factory <network.MonitorFactory.MonitorFactory object at 0x00000257757B8190>
+2022-02-24 17:37:40+0100 [-] Starting alarm server on port: '9999' and monitor server on port: '8888'.
+2022-02-24 17:40:30+0100 [network.MonitorFactory.MonitorFactory] Client created: 'IPv4Address(type='TCP', host='127.0.0.1', port=51931)'
+2022-02-24 17:40:30+0100 [network.MonitorFactory.MonitorFactory] Connection established to: 'IPv4Address(type='TCP', host='127.0.0.1', port=51931)'
+2022-02-24 17:40:30+0100 [MonitorProtocol,0,127.0.0.1] Client: 'IPv4Address(type='TCP', host='127.0.0.1', port=51931)'. Data received: '{"sensor_id": "F1587D88122BE247", "sensor_name": "WideFind_FallSensor", "alarm_type": "fall_detected", "timestamp": "2022-02-24 16:39:59", "params": {"coords": "('4621', '-2387', '132')"}, "type": "SensorAlert"}'
+2022-02-24 17:40:30+0100 [MonitorProtocol,0,127.0.0.1] Attempting to parse {"sensor_id": "F1587D88122BE247", "sensor_name": "WideFind_FallSensor", "alarm_type": "fall_detected", "timestamp": "2022-02-24 16:39:59", "params": {"coords": "('4621', '-2387', '132')"}, "type": "SensorAlert"} to JSON format
+2022-02-24 17:40:30+0100 [MonitorProtocol,0,127.0.0.1] Attempting to parse {'sensor_id': 'F1587D88122BE247', 'sensor_name': 'WideFind_FallSensor', 'alarm_type': 'fall_detected', 'timestamp': '2022-02-24 16:39:59', 'params': {'coords': "('4621', '-2387', '132')"}, 'type': 'SensorAlert'} into a Message object
+2022-02-24 17:40:30+0100 [MonitorProtocol,0,127.0.0.1] Deciding on action for message: SensorAlert.
+2022-02-24 17:40:30+0100 [MonitorProtocol,0,127.0.0.1] Connection lost from: 'IPv4Address(type='TCP', host='127.0.0.1', port=51931)'. Exception: 'Connection was closed cleanly.'
+2022-02-24 17:40:36+0100 [-] Received SIGINT, shutting down.
+2022-02-24 17:40:36+0100 [network.AlarmFactory.AlarmFactory] (TCP Port 9999 Closed)
+2022-02-24 17:40:36+0100 [-] Stopping factory <network.AlarmFactory.AlarmFactory object at 0x00000257757B8D60>
+2022-02-24 17:40:36+0100 [network.MonitorFactory.MonitorFactory] (TCP Port 8888 Closed)
+2022-02-24 17:40:36+0100 [-] Stopping factory <network.MonitorFactory.MonitorFactory object at 0x00000257757B8190>
+2022-02-24 17:40:36+0100 [-] Main loop terminated.

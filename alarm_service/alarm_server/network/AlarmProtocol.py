@@ -7,7 +7,6 @@ import json
 
 class AlarmProtocol(Protocol):
     
-    
     def __init__(self, addr, factory):
         log.msg(f"Client created: '{addr}'")
         self.client_id = None
@@ -22,12 +21,21 @@ class AlarmProtocol(Protocol):
     def send(self, message : Message):
         
         msg = message.json
+        disconnect = False
+        if msg['type'] == "TokenAuthResult":
+            
+            if msg['success'] == True:
+                self.client_id = msg['client_id']          
+                self.factory.register(self)
         
-        if msg['type'] == "TokenAuthResult" and msg['success'] == True:  
-            self.client_id = msg['client_id']          
-            self.factory.register(self)
+            if msg['success'] == False:
+                
+                disconnect = True
+        log.msg(f"(Client:{self.client_id}) Sending!")
+        self.transport.write(json.dumps(msg).encode())    
         
-        self.transport.write(json.dumps(msg).encode())
+        if disconnect:
+            self.transport.loseConnection()
         
     
     def dataReceived(self, data: bytes):

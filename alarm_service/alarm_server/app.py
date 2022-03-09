@@ -6,13 +6,15 @@ from controller.AlarmController import AlarmController
 from twisted.python import log
 from dotenv import load_dotenv, find_dotenv
 import os
+import sys
 
 def main():
     
     load_dotenv(find_dotenv())
     
 
-    log.startLogging(open('logs.txt', 'w'))
+    #log.startLogging(open('logs.txt', 'w'))
+    log.startLogging(sys.stdout)
     
     alarm_port = int(os.getenv('ALARM_PORT'))
     monitor_port = int(os.getenv('MONITOR_PORT'))

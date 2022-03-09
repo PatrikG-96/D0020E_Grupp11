@@ -9,6 +9,7 @@ treq = "*"
 sqlalchemy = "*"
 mysqlclient = "*"
 python-dotenv = "*"
+marshmallow = "*"
 
 [dev-packages]
 

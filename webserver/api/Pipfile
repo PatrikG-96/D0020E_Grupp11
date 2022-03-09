@@ -16,6 +16,7 @@ mysqlclient = "*"
 flask-cors = "*"
 bcrypt = "*"
 pywebpush = "*"
+marshmallow = "*"
 
 [dev-packages]
 
