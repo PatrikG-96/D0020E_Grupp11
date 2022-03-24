@@ -11,30 +11,104 @@ log = logging.getLogger()
 
 class Sensor(object):
     
+    """
+    An abstract representation of a sensor.
+    
+    Attributes
+    ----------
+    id : str
+        any type of unique identifier that a sensor may have
+    monitor : Monitor
+        the parent Monitor of the sensor
+    name : str
+        a name of the sensor
+        
+    Methods
+    -------
+    setMonitor(monitor : Monitor)
+        Set the parent monitor of this sensor
+    start()
+        Start the sensor. After calling start, we should be receiving data from the sensor.
+        Abstract method.
+    connect()
+        Connect to the sensor. After calling connect, there should be an established connection
+        to the sensor, or all neccessary setup for starting the sensor should be completed.
+        Abstract method.
+    disconnect()
+        Disconnect the sensor. Abstract method.
+    parse(msg : str) -> dict
+        Converts the data received from the sensor into a python dictionary. The msg parameter
+        does not have to be a string. Abstract method.
+    returnData(data : dict)
+        Forwards data to the Monitor. The Monitor will pass it along to a client thread.
+    """
+    
     __metaclass__ = abc.ABCMeta
     
     def __init__(self, id):
+        """
+        Create the Sensor
+        
+        Parameters
+        ----------
+        id : str
+            an unique identifier for the sensor
+        monitor : Monitor
+            a Monitor instance to set as parent
+        name : str
+            name of the sensor
+        """
         self.id = id
         self.monitor = None
         self.name = "Sensor"
         
     def setMonitor(self, monitor : Monitor):
+        """
+        Set the parent monitor of this sensor
+        
+        Parameters
+        ----------
+        monitor : Monitor
+            a Monitor instance
+        """
         self.monitor = monitor
     
     @abc.abstractmethod
     def start(self):
+        """
+        Start the sensor. Calling this method means that we can now receive data from the sensor.
+        """
         raise NotImplementedError
     
     @abc.abstractmethod
     def connect(self):
+        """
+        Connect to the sensor. Calling this method means that we should be ready to start the sensor.
+        """
         raise NotImplementedError
         
     @abc.abstractmethod
     def disconnect(self):
+        """
+        Disconnect from the sensor. Calling this method should mean that we no longer receive data from an
+        already connected sensor.
+        """
         raise NotImplementedError
     
     @abc.abstractmethod
     def parse(self, msg : str) -> dict:
+        """
+        Parse a message into a python dictionary.
+        
+        Parameters
+        ----------
+        msg : str
+            Message to parse. Does not have to be a string in overloaded subclass methods
+            
+        Returns
+        -------
+        A python dictionary containing all fields from the original message.
+        """
         raise NotImplementedError
     
     def returnData(self, data : dict):
@@ -62,10 +136,8 @@ class MQTTSensor(Sensor):
     def setConnectCallback(self, func):
         self.connect_cb = func
     
-    
     def setDisonnectCallback(self, func):
         self.disconnect_cb = func
-    
     
     def setTopic(self, topic):
         self.topic = topic
@@ -135,7 +207,7 @@ class FallSensor(WideFind):
     def __init__(self, id,addr, port, timeout, detected_limit, resolved_limit, grace_period, fall_timer):
         super().__init__(id, addr, port, timeout)
         self.name = "WideFind_FallSensor"
-        self.client.on_message = self.on_message
+        self.client.on_message = self.__on_message
         self.isFalling = False
         self.detected_limit = detected_limit
         self.fall_timer = fall_timer
@@ -145,7 +217,7 @@ class FallSensor(WideFind):
         self.active = True
         self.timer = None    
     
-    def on_message(self, client, userdata, msg):
+    def __on_message(self, client, userdata, msg):
         data = super().parse(msg)
         
         if data is None:

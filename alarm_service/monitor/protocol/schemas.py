@@ -6,16 +6,41 @@ from datetime import datetime
 from protocol.messages import response_types
 #from messages import response_types
 
+"""
+This module contains Marshmallow schemas for validating protocol message JSON data.
+No instances of these classes need to be created outside this module, the following
+attributes already exist:
 
+    require_token_schema : RequireTokenSchema
+    token_response_schema : TokenResponseSchema
+    token_result_schema : TokenAuthResultSchema
+    alarm_notification_schema : AlarmNotificationSchema
+    alarm_response_schema : AlarmResponseSchema
+    alarm_response_confirmation_schema : AlarmResponseConfirmationSchema
+    sensor_alert_schema : SensorAlertSchema
+    sensor_alert_response_schema : SensorAlertResponseSchema
+    message_schema : MessageSchema
+    
+If validation is required, use these. Their function should be obvious due to
+the naming convention.
+"""
 
 class MessageSchema(Schema):
+    """
+    Schema for validating a generic Message
+    """
     class Meta:
         unknown = INCLUDE
     
     type = fields.String(required = True)
 
 class SensorAlertSchema(MessageSchema):
-    sensor_id = fields.Int(required = True)
+    
+    """
+    Schema for validating a SensorAlert message
+    """
+    
+    sensor_id = fields.String(required = True)
     sensor_name = fields.String(required = True)
     alarm_type = fields.String(required = True)
     timestamp = fields.String(required = True)
@@ -32,20 +57,43 @@ class SensorAlertSchema(MessageSchema):
 
 class SensorAlertResponseSchema(MessageSchema):
     
+    """
+    Schema for validating a SensorAlertResponse message
+    """
+    
     received = fields.Bool(required = True)    
     
-class RequireTokenSchema(MessageSchema): pass
+class RequireTokenSchema(MessageSchema): 
+    """
+    Schema for validating a RequireToken message. Technically redundant as the format is identical to a 
+    generic message. Exists for completionisms sake and for more clarity in code.
+    """
+    
+    pass
 
 class TokenResponseSchema(MessageSchema):
     
+    """
+    Schema for validating a TokenResponse message
+    """
+    
     token = fields.String(required = True)
-    client_id = fields.Int(required = True)
+    username = fields.String(required = True)
+    password = fields.String(required = True)
     
 class TokenAuthResultSchema(MessageSchema):
+    
+    """
+    Schema for validating a TokenAuthResult message
+    """
     
     success = fields.Bool(required = True)
 
 class AlarmSchema(MessageSchema):
+    
+    """
+    Schema for validating a generic Alarm message
+    """
     
     timestamp = fields.String(required = True)
     alarm_id = fields.Int(required = True)
@@ -62,12 +110,20 @@ class AlarmSchema(MessageSchema):
 
 class AlarmNotificationSchema(AlarmSchema):
     
-    sensor_id = fields.Int(required = True)
+    """
+    Schema for validating a AlarmNotification message
+    """
+    
+    sensor_id = fields.String(required = True)
     sensor_info = fields.String(required = True)
     alarm_type = fields.String(required = True)
     monitor_id = fields.Int(required = True)
     
 class AlarmResponseSchema(AlarmSchema):
+    
+    """
+    Schema for validating a AlarmResponse message
+    """
     
     response_type = fields.String(required = True)
     client_id = fields.Int(required = True)
@@ -79,6 +135,10 @@ class AlarmResponseSchema(AlarmSchema):
             raise ValidationError
         
 class AlarmResponseConfirmationSchema(AlarmResponseSchema):
+    
+    """
+    Schema for validating a AlarmResponseConfirmation message
+    """
     
     success = fields.Bool(required = True)
         

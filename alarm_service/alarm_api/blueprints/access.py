@@ -40,7 +40,7 @@ def request_server_access():
     
     digest = SHA256.new(data=generate_token(32))
     token = digest.hexdigest()
-     
+    
     #Request was validated, JWT was validated, client should get server access
     try:
         access = addServerAccessToken(int(user_id), token, timestamp)

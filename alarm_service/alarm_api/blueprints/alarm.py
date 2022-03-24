@@ -27,7 +27,7 @@ def __format_alarms(alarm_list):
     return result
 
 @alarm.route('/alarm/active/all', methods = ['GET'])
-@token_required
+#@token_required
 def get_all_active_alarms():
     """ API endpoint for retreiving all active alarms
     """
