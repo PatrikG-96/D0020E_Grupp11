@@ -9,6 +9,17 @@ from copy import deepcopy
 from database.database import setNewAlarm, getSensorMonitor, getSensor, readAlarm, resolveAlarm, getUser, getServerAccess
 import bcrypt
 
+# TODO: Modify the arguments taken by callbacks. A reference to the client who sent the message should be included.
+#       This lets us add a new attribute to AlarmProtocol that indicates whether or not the client is authenticated yet.
+#       Right now, not having this implemented makes the system unusable security wise, as the server will accept any
+#       message after requiring a token.
+#       Solution: 
+#       Add a boolean authenticated field in AlarmProtocol. Modify the argument sent to Deferred.callback() to 
+#       include both the message and the client who sent it. For each function deciding action for a message type, check
+#       that client it authenticated, except for in TokenResponse message. Create new exception, UnauthenticatedException,
+#       generate an error message when it occurs.
+#       Result: 
+#       No messages other than TokenResponse is accepted until the TokenResponse is received.
 
 """
 This module contains all callbacks used in controller logics. These are defined to adhere to twisted Deferred callback chains,
@@ -44,6 +55,7 @@ def decode(bytes):
     DecodeException
         Raised when decoding failed for any reason. 
     """
+    # May seem redundant, but makes sense in twisted context...
     try:
         return bytes.decode()
     except Exception as e:
@@ -64,6 +76,7 @@ def decodeErr(failure : Failure):
         The exception that the twisted Failure object is wrapping will be raised again, whatever it is
     """
     log.msg(f"In decodeErr: {failure.value}")
+    # The only action we perform is logging if the exception actually was related to decoding...
     if type(failure.value) == DecodeException:
         log.msg(failure.value.__repr__())
     failure.raiseException()
@@ -132,6 +145,7 @@ def parseJson(json: dict):
         Raised when an unexpected exception occurs
     """
     log.msg(f"Attempting to parse {str(json)} into a Message object")
+    # Defined in protocol, simply converts JSON to message object
     return parse_JSON(json)
 
 def parseErr(failure : Failure):
@@ -177,8 +191,12 @@ def __tokenResponse(message : TokenResponseMessage):
     """
     
     log.msg(f"Parsing token response")
+    
+    # Kinda ugly, but used to determine what response to generate in the end...
     success = True
+    
     user = getUser(message.username)
+    
     
     if user is None:
         log.msg(f"Did not find user")
@@ -192,11 +210,13 @@ def __tokenResponse(message : TokenResponseMessage):
     else:
         # Do we need to verify password here? super slow with bcrypt
         if bcrypt.checkpw(message.password.encode(), user.password.encode()):
-            log.msg("password verified")
+            # If password matches and the access token matches for that user,
+            # success = True
             success = (message.token == access.token)
-            log.msg(f"Message token: {message.token}, access token: {access.token}")
         else:
-            log.msg(f"password {message.password} was incorrect")
+            success = False
+            
+    # Generate a token auth result given the success or failure of verifiying the token
     if success:
         return TokenAuthResultMessage.success(user.userID)
     return TokenAuthResultMessage.failure(user.userID)
@@ -223,6 +243,7 @@ def __alarmResponse(message : AlarmResponseMessage):
             resolveAlarm(int(message.alarm_id), int(message.client_id), message.timestamp)
         success = True
     except Exception as e:
+        # More could be done here
         log.msg(f"Responding to message failed with error: " + str(e))
         
     if success:

@@ -71,6 +71,7 @@ class AlarmProtocol(Protocol):
         msg = message.json
         
         #Should be moved to controller logic - add client information to Deferred trigger argument
+        # See callbacks.py for a solution
         disconnect = False
         if msg['type'] == "TokenAuthResult":
             
@@ -100,6 +101,7 @@ class AlarmProtocol(Protocol):
             Raw data received from the client
         """
         log.msg(f"Client: '{self.addr}'. Data received: '{data.decode()}'")
+        # Would be handled in controller logic with change suggested in callbacks.py
         #if not self.authorized:
         #    log.msg(f"Client is not authorized. Ending connection")
         #    self.transport.loseConnection()

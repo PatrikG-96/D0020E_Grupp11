@@ -18,6 +18,15 @@ server_port = os.getenv('SERVER_PORT')
 request_access_schema = RequestAccessSchema()
 revoke_access_schema = RevokeAccessSchema()
 
+"""
+This module contains routes to do with requesting and revoking access to the alarm server.
+
+Attributes
+----------
+access : Blueprint
+    Blueprint containing all routes in this module. Use this to register the routes.
+"""
+
 access = Blueprint('access', __name__)
 
 
@@ -28,7 +37,22 @@ def generate_token(size):
 @access.route("/server/access/request", methods=['POST'])
 @token_required
 def request_server_access():
+    """
+    Endpoint for requesting server access
+
+    Methods: POST
     
+    Post form
+    ---------
+    user_id : int
+        unique user ID
+    timestamp : string
+        timestamp in string form
+        
+    Returns
+    -------
+    JSON data with a server access token, the servers IP and port, or an error tag if failed
+    """
     errors = request_access_schema.validate(request.form)
     
     if errors:
@@ -45,14 +69,31 @@ def request_server_access():
     try:
         access = addServerAccessToken(int(user_id), token, timestamp)
     except Exception as e:
+        # For some reason the token could not be added, this should be improved
         return {"error" : "Access was granted, but generating token failed with error: " + str(e)}
     
     
     return {"token" : access.token, "ip" : server_ip, "port" : server_port}
     
 @access.route("/server/access/revoke", methods = ['POST'])
-#@...
+@token_required
 def revoke_server_access():
+    """
+    Endpoint for revoking access to the server
+    
+    Methods: POST
+    
+    Post form
+    ---------
+    user_id : int
+        unique user ID
+    token : string
+        access token to revoke
+        
+    Returns
+    -------
+    JSON data with a "success" tag, or an "error" tag if failed
+    """
     
     errors = revoke_access_schema.validate(request.form)
     
@@ -65,8 +106,8 @@ def revoke_server_access():
     try:
         deleteServerAccess(int(user_id), token)
     except Exception as e:
+        # More specific error management might be good here
         return {"error" : "Could not delete access token"}
-    
     
     return {"success" : "true"}
     
