@@ -1,3 +1,8 @@
+/**
+ * * authHeader
+ * retreives the accessToken stored with the user in order to access API
+ *
+ */
 function authHeader() {
   const user = JSON.parse(localStorage.getItem("user"));
 

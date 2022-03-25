@@ -14,7 +14,6 @@ import { Close } from "@mui/icons-material";
 import { Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useReducer, useRef, useState } from "react";
-import { io } from "socket.io-client";
 import * as THREE from "three";
 import ActionsDrawer from "../ActionsDrawer";
 
@@ -30,15 +29,12 @@ function reducer(state, action) {
 }
 
 function ClientBox(props) {
-  const socket = io("http://localhost:5000");
-
   const boxRef = useRef();
 
   const [hovered, hover] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [focusOnTarget, setFocusOnTarget] = useState(false);
   const [lookAtTarget, setLookAtTarget] = useState(false);
-  const [tag, setTag] = useState();
   const [offset, setOffset] = useState({ horizontal: 250, vertical: 350 });
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -79,37 +75,21 @@ function ClientBox(props) {
     ];
   };
 
-  socket.on("new-rapport", (data) => {
-    console.log({ x: data.posX / 10, y: data.posZ / 10, z: data.posY / 10 });
-
-    if (data.id === props.id) {
-      setTag({
-        id: data.id,
-        position: {
-          x: parseFloat(data.posX / 10),
-          y: parseFloat(data.posZ / 10),
-          z: parseFloat(data.posY / 10),
-        },
-      });
-    }
-  });
-
   useFrame((state, delta) => {
-    //console.log(props.position[0]);
-    if (props.id !== null && tag !== undefined) {
-      console.log(tag.position);
+    if (props.id !== null) {
+      //console.log(props.position);
       const vec = new THREE.Vector3(
-        tag.position.x,
-        tag.position.y,
-        tag.position.z
+        props.position[0],
+        props.position[1],
+        props.position[2]
       );
 
       boxRef.current.position.lerp(vec, 0.01);
 
       const cameraVec = new THREE.Vector3(
-        tag.position.x + 30,
-        tag.position.y + 30,
-        tag.position.z + 30
+        props.position[0],
+        props.position[1],
+        props.position[2]
       );
 
       var distance = state.camera.position.distanceTo(boxRef.current.position);
@@ -130,7 +110,7 @@ function ClientBox(props) {
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}
       onClick={(event) => setClicked(!clicked)}
-      scale={10}
+      scale={5}
     >
       <boxBufferGeometry attach="geometry" />
       <meshStandardMaterial color={hovered ? "hotpink" : "blue"} />

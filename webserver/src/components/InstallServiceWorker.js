@@ -1,6 +1,6 @@
 import { Box, Grid, LinearProgress } from "@mui/material";
 import React, { useState } from "react";
-import eventBus from "../EventBus";
+import eventBus from "../services/EventBus";
 
 function InstallServiceWorker() {
   const [progress, setProgress] = useState(0);
