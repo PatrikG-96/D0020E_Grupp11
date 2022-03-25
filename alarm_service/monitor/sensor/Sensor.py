@@ -9,6 +9,12 @@ from protocol.messages import SensorAlertMessage
 
 log = logging.getLogger()
 
+"""
+This module contains a general Sensor class, along with some MQTT implementation and a single function
+that creates FallSensors given a JSON from a sensor.json file. More sensor types could be supported by 
+this function.
+"""
+
 class Sensor(object):
     
     """
@@ -112,6 +118,15 @@ class Sensor(object):
         raise NotImplementedError
     
     def returnData(self, data : dict):
+        """
+        Forwards data in the form of a python dictionary to the Monitors sendData method. It's up to the Monitor
+        to decide what to do with it.
+        
+        Parameters
+        ----------
+        data : dict
+            A python dictionary containing the message fields.
+        """
         self.monitor.sendData(self.id, data)
     
     def __str__(self):
@@ -119,7 +134,52 @@ class Sensor(object):
 
 class MQTTSensor(Sensor):
     
+    """
+    Extension of Sensor. Represents a sensor that uses MQTT. This class is abstract and won't function
+    on its own. Subclass this for any type of sensor that uses MQTT. This class is based on paho.mqtt.
+    
+    Attributes
+    ----------
+    client : paho.mqtt.client
+        a MQTT client instance
+    addr : str
+        the address of the MQTT broker
+    port : int
+        the port of the MQTT broker
+    timeout : int
+        a timeout value for the MQTT connection
+    topic : str
+        the topic to subscribe to
+    connect_cb : function
+        a callback to the called when connected to the broker
+    disconnect_cb : function
+        a callback to the called when disconnected from the broker
+    
+    Methods
+    -------
+    setConnectCallback(func : function)
+        Set a callback for connecting to the broker
+    setDisconnectCallback(func : function)
+        Set a callback for disconnecting from the broker
+    setTopic(topic : str)
+        Set the topic to subscribe to
+    """
+    
     def __init__(self, id, addr, port, timeout):
+        """
+        Create the MQTTSensor
+        
+        Parameters
+        ----------
+        id : str
+            unique ID of the sensor
+        addr : str
+            IP address of the MQTT broker
+        port : int
+            port of the MQTT broker
+        timeout : int
+            timeout value for MQTT connection                
+        """
         self.client = mqtt.Client()
         self.client.on_connect = self.connected
         self.client.on_disconnect = self.disconnect
@@ -134,15 +194,43 @@ class MQTTSensor(Sensor):
         super().__init__(id)
         
     def setConnectCallback(self, func):
+        """
+        Set the connection callback function
+        
+        Parameters
+        ----------
+        func : function
+            callback function to be called on connecting to the broker
+        """
         self.connect_cb = func
     
     def setDisonnectCallback(self, func):
+        """
+        Set the disconnection callback function
+        
+        Parameters
+        ----------
+        func : function
+            callback function to be called on disconnecting from the broker
+        """
         self.disconnect_cb = func
     
     def setTopic(self, topic):
+        """
+        Set the topic to subscribe to
+        
+        Parameters
+        ----------
+        topic : str
+            the topic to subscribe to.
+        """
         self.topic = topic
     
     def connected(self, client, userdata, flags, rc):
+        
+        """
+        Connection callback used in paho.mqtt.client when connecting
+        """
         
         log.info(f"({self.name}:{self.id}) Sensor connected with result code: {rc}")
         if rc == 0:
@@ -153,6 +241,9 @@ class MQTTSensor(Sensor):
                 
         
     def disconnect(self, client, userdata, rc):
+        """
+        Disconnect callback used in paho.mqtt.client when disconnecting
+        """
         log.warning(f"({self.name}:{self.id}) Sensor disconnected with result code: {rc}")
         
         if self.disconnect_cb is not None:
@@ -166,17 +257,55 @@ class MQTTSensor(Sensor):
         
         
     def start(self):
+        """
+        Start the MQTT sensor. Subscribes to the topic, then start a new daemon thread for the 
+        sensor to run in.
+        """
+        
         log.info(f"({self.name}:{self.id}) Sensor starting")
         self.client.subscribe(self.topic)
         self.client.loop_start()
         
 class WideFind(MQTTSensor):
     
+    """
+    Extension of MQTTSensor. Represents a connection to WideFind sensor, with an implementation
+    of Sensor.parse().
+    """
+    
     def __init__(self, id, addr, port, timeout):
+        """
+        Create the WideFind sensor
+        
+        Parameters
+        ----------
+        id : str
+            unique ID of the sensor
+        addr : str
+            IP address of the MQTT broker
+        port : int
+            port of the MQTT broker
+        timeout : int
+            timeout value for MQTT connection                
+        """
         super().__init__(id, addr, port, timeout)
         self.name = "WideFind"
         
     def parse(self, msg):
+        
+        """
+        Parse the data received from WideFind sensors into a python dictionary.
+        
+        Parameters
+        ----------
+        msg : str
+            A message in WideFind format. See WideFind documentation for more details
+            
+        Returns
+        -------
+        A python dictionary containing all fields found in the message string, or None
+        if the message was for a sensor without this sensors ID.
+        """
         
         stringified = msg.payload.decode('utf-8')
         json_data = json.loads(stringified)
@@ -204,11 +333,49 @@ class WideFind(MQTTSensor):
 
 class FallSensor(WideFind):
     
+    """
+    Extension of WideFind. Uses data from WideFind to determine whether or not a situation seems to be
+    a fall or not.
+    
+    Attributes
+    ----------
+    detected_limit : int
+        A threshhold for the vertical position that should be interpreted as being a fall. Measured in millimeters.
+        For example, a detected_limit of 200 means that a fall is detected when the sensor sends a position below 
+        200 mm.
+    resolved_limit : int
+        Another threshhold for vertical position, but instead for when the fall should be interpreted as being resolved.
+        A resolved_limit of 300 means that once we have deteremined that a fall is detected (using detected_limit), we cancel
+        the fall before confirming it if at any point before confirmation the sensor sends a position above 300.
+    grace_period : int
+        A time value in seconds that describes how long we should wait after passing the detected_limit before detecting a fall.
+        This value is mainly used to avoid having falls being detected immediatly when the sensor is dropped or anything like 
+        that. Having a grace_period of 5 would mean that we wait for 5 seconds after passing the detected_limit before drawing
+        the conclusion that a fall has been detected. 
+    fall_timer : int
+        A time value in seconds that defines how long we wait between detecting a fall and confirming it. A fall_timer of 
+        60 seconds means that after a fall has been detected, we wait for 60 seconds before confirming the fall.
+    active : bool
+        Indicates whether or not the sensor is actively looking for falls. This is True until we detect a fall, where it 
+        becomes False until the fall is resolved, where it is set to True again.
+    timer : Timer
+        A Timer object to trigger a callback function after a given time. Alternative to python signal library
+        to support Windows        
+        
+    Methods
+    -------
+    __fall_detected(message : dict)
+        Triggered by self.timer when a fall is detected, sends a message to server via the Monitor and starts
+        a new Timer for fall confirmation
+    __fall_confirmed(message : dict)
+        Triggered by self.time when a fall is confirmed, sends a message to server via the Monitor and marks the 
+        fall as resolved to allow for detecting new falls.
+    """
+    
     def __init__(self, id,addr, port, timeout, detected_limit, resolved_limit, grace_period, fall_timer):
         super().__init__(id, addr, port, timeout)
         self.name = "WideFind_FallSensor"
         self.client.on_message = self.__on_message
-        self.isFalling = False
         self.detected_limit = detected_limit
         self.fall_timer = fall_timer
         print(f"falltimer: {self.fall_timer}")
@@ -232,14 +399,22 @@ class FallSensor(WideFind):
         if not self.active and int(data['z']) > self.resolved_limit:
             log.info(f"({self.name}:{self.id}) Fall resolved")
             self.timer.stop()
-            self.isFalling = False
             self.active = True
     
         
     def __fall_detected(self, message):
         
+        """
+        Callback for when a fall is detected. Sends the a message to the server and starts a Timer for 
+        confirming the fall.
+        
+        Parameters
+        ----------
+        message : dict
+            the message in dictionary form
+        """
+        
         log.info(f"({self.name}:{self.id}) Fall detected")
-        self.isFalling = True
         coords = (message['x'], message['y'], message['z'])
         msg = SensorAlertMessage.make(self.id, self.name, "fall_detected", message['timestamp'], {'coords' : str(coords)})
         super().returnData(msg.json)
@@ -248,6 +423,14 @@ class FallSensor(WideFind):
         
         
     def __fall_confirmed(self, message):
+        """
+        Callback for confirming the fall. Sends a message to the server.
+        
+        Parameters
+        ----------
+        message : dict
+            the message in dictionary form
+        """
         log.info(f"({self.name}:{self.id}) Fall confirmed")
         coords = (message['x'], message['y'], message['z'])
         msg = SensorAlertMessage.make(self.id, self.name, "fall_confirmed", message['timestamp'], params={'coords' : str(coords)})
@@ -256,6 +439,18 @@ class FallSensor(WideFind):
     
 
 def load_sensor_json(json):
+    """
+    Loads the content of a sensor.json file and creates the respective sensor objects
+
+    Parameters
+    ----------
+    json : dict
+        JSON loaded from sensor.json
+
+    Returns
+    -------
+    A list of all created sensors.    
+    """
     sensor_list = []
     for id, value in json.items():
         

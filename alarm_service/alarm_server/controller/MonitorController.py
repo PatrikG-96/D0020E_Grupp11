@@ -1,5 +1,5 @@
 
-from alarm_service.alarm_server.network.MonitorFactory import MonitorFactory
+from network.MonitorFactory import MonitorFactory
 from .AlarmController import AlarmController
 from twisted.internet.defer import Deferred
 from controller.Callbacks import *

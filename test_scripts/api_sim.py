@@ -6,6 +6,11 @@ import datetime
 from random import randrange
 import json
 
+
+############
+# OUTDATED #
+############
+
 global num_msgs
 global time
 global msg

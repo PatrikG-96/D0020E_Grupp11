@@ -3,6 +3,15 @@ from marshmallow.validate import Length, Range
 from datetime import datetime
 import json
 
+"""
+This module contains Marshmallow schemas to validate form data in the access API endpoints.
+
+Attributes
+----------
+alarm_schema : AlarmSchema
+"""
+
+
 class AlarmSchema(Schema):
     
     type = fields.String(required = True)

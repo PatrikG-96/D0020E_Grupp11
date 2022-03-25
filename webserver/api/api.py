@@ -20,10 +20,6 @@ app.register_blueprint(device_routes)
 app.register_blueprint(sse_routes)
 app.register_blueprint(webpush_routes)
 
-@app.route("/images/<name>")
-def test(name):
-    file = f"{app.root_path}/images/{name}"
-    return send_file(file, mimetype="image/png")
 
 
   

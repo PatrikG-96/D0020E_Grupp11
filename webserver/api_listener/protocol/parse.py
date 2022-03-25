@@ -60,16 +60,15 @@ def parse_JSON(msg_json : dict) -> Message:
     errors = message_schema.validate(msg_json)
     
     if errors:
-        log.msg("found format errors")
+        log.msg("Found format errors")
         raise FormatException(f"Errors: {str(errors)}", ErrorCodes.InvalidType.value,"Message", msg_json)
-    
     
     func = __type_actions[msg_json['type']]
     try:
         res = func(msg_json)
         return res
     except Exception as e:
-        traceback.print_exc()
+        #traceback.print_exc()
         raise UnknownException(e.__traceback__, ErrorCodes.UnknownError.value)
     
 
