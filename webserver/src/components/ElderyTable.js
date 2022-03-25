@@ -2,7 +2,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@mui/material";
-const API_PATH = "http://localhost:5000"
+const API_PATH = "http://localhost:5000";
 
 function ElderlyTable() {
   const [elderly, setEldery] = useState([]);
@@ -17,10 +17,6 @@ function ElderlyTable() {
 
   const handleUpdateElders = () => {
     console.log(elderly);
-    //axios.post(API_PATH, { function: "get_all_products" }).then((res) => {
-    //  console.log(res.data.products);
-    //  setEldery(res.data.products);
-    //});
   };
 
   const columns = [
