@@ -111,7 +111,11 @@ function BeaconBox(props) {
       scale={10}
     >
       <boxBufferGeometry attach="geometry" />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <meshStandardMaterial
+        color={
+          hovered || props.id === "03FF5C0A2BFA3A9B" ? "hotpink" : "orange"
+        }
+      />
       {clicked ? (
         <Html
           position={[0, 1, 0]}

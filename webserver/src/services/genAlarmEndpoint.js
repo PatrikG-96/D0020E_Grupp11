@@ -2,7 +2,23 @@ import axios from "axios";
 import eventBus from "./EventBus";
 const API_URL = "http://localhost:5000";
 
-export default function swDev() {
+/**
+ * ! For a more detailed overview read:
+ * ! https://web.dev/push-notifications-web-push-protocol/
+ *
+ * @function generateEndpoint() Generates a USVString that stores an endpoint to a clients browser
+ *
+ *
+ * @method urlBase64ToUint8Array(base64String) Encodes a base64String to Uint8 Array
+ *  @param base64String 64 string public key
+ *
+ * @method setSubscription() subscribes the service worker to an endpoint in order to receive notifications
+ *
+ * @method sendToServer() Stores the created subscription and associates it with the loggin in user in the database
+ *  @param sub The created subscription from setSubscription()
+ */
+
+export default function generateEndpoint() {
   function urlBase64ToUint8Array(base64String) {
     const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
     const base64 = (base64String + padding)

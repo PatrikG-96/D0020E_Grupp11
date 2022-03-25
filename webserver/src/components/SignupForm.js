@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import { useAuth } from "../hooks/useAuth";
-import eventBus from "../EventBus";
+import eventBus from "../services/EventBus";
 import { useNotification } from "../hooks/useNotification";
 
 function SignupForm() {
@@ -36,7 +36,11 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(form.username, form.password, form.signupCode).then(
+      await AuthService.signup(
+        form.username,
+        form.password,
+        form.signupCode
+      ).then(
         (response) => {
           // check for token and user already exists with 200
           console.log("Sign up successfully", response);
@@ -48,7 +52,6 @@ function SignupForm() {
       );
     } catch (err) {
       console.log(err);
-      
     }
   };
 
@@ -95,7 +98,6 @@ function SignupForm() {
         </Typography>
         <Box component="form" noValidate sx={{ mt: 3 }}>
           <Grid container spacing={2}>
-
             <Grid item xs={12}>
               <TextField
                 required

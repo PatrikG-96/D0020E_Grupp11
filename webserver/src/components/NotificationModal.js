@@ -15,7 +15,7 @@ import {
 import swDev from "../swDev";
 import { DataObject, Engineering, ExpandMore } from "@mui/icons-material";
 import InstallServiceWorker from "./InstallServiceWorker";
-import eventBus from "../EventBus";
+import eventBus from "../services/EventBus";
 import PrettyPrintJson from "../services/PrettyPrintJson";
 import AlertBanner from "./AlertBanner";
 
@@ -85,7 +85,11 @@ export default function NotificationsModal(props) {
       <Fade in={props.open}>
         <Card sx={style}>
           <Grid container>
-            <AlertBanner title="Warning" message="Notifictions will only be received when online" severity="warning" />
+            <AlertBanner
+              title="Warning"
+              message="Notifictions will only be received when online"
+              severity="warning"
+            />
             <Grid item xs={12}>
               <Typography variant="h6" component="h2">
                 Notifications

@@ -17,7 +17,7 @@ import { useAuth } from "../hooks/useAuth";
 import BasicModal from "./Modal";
 import AuthService from "../services/auth.service";
 import { useNotification } from "../hooks/useNotification";
-import eventBus from "../EventBus";
+import eventBus from "../services/EventBus";
 
 function LoginForm() {
   let navigate = useNavigate();

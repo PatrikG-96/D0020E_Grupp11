@@ -107,10 +107,10 @@ self.addEventListener("notificationclick", function (event) {
 
   switch (event.action) {
     case "yes":
-      console.log("User ❤️️'s coffee.");
+      console.log("Alarm confirmed");
       break;
     case "no":
-      console.log("User ❤️️'s doughnuts.");
+      console.log("Alarm response Denied");
       break;
     default:
       console.log(`Unknown action clicked: '${event.action}'`);

@@ -14,10 +14,9 @@ import SignupForm from "./components/SignupForm.js";
 import Logout from "./components/Logout.js";
 import NotificationProvider from "./providers/NotificationProvider.js";
 import Dashboard from "./pages/Dashboard.js";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import * as serviceWorkerRegistration from "./services/serviceWorkerRegistration";
 import { OnlineStatusProvider } from "./hooks/useOnlineStatus.js";
 import Login from "./pages/Login.js";
-
 
 const App = () => {
   return (

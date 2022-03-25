@@ -2,6 +2,22 @@ import axios from "axios";
 
 const API_URL = "http://127.0.0.1:2000";
 
+/**
+ * * Methods for user creation and authentication
+ 
+ * @method signup()
+ *  @param username 
+ *  @param password  
+ *  @param signupCode a code stored on the server side in order to block unwanted singups
+ *
+ * @method login() Logs in the user and stores the username and userID in the localStorage
+ *  @param username 
+ *  @param password
+ *
+ * @method logout() Removes all the information on the user from localStorage
+ * 
+ * @method getCurrentUser() function for retreiving the stored (logged in) user
+ */
 const signup = (username, password, signupCode) => {
   return axios
     .post(API_URL + "/auth/signup", {

@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from "react";
 import * as THREE from "three";
 
-function RoomBoundry({ firstPos, secPos }) {
+function RoomBoundry({ firstPos, secPos, color }) {
   const points = useMemo(
     () => [
       new THREE.Vector3(firstPos.x, firstPos.y, firstPos.z),
@@ -32,7 +32,7 @@ function RoomBoundry({ firstPos, secPos }) {
         <bufferGeometry attach="geometry" onUpdate={onUpdate} />
         <lineBasicMaterial
           attach="material"
-          color={"#9c88ff"}
+          color={color}
           linewidth={10}
           linecap={"round"}
           linejoin={"round"}
