@@ -28,9 +28,106 @@ is a web frontend to the system.
 
 ## How to install and run the code
 
+### Prerequisites
+
+- Python 3.9 installed
+- Node.js installed (only for frontend)
+- pipenv installed
+- MySQL installed
+
+### Database and .env files
+To run all parts of this project, you need to have 2 MySQL databases. The Alarm API and server require a shared database as defined in "alarm_service/dev_db.sql". If you intend to run these two on separate machines, they need
+still need to connect to the same database. For the frontend, a scaled down version of this database is required, found in "webserver/frontend_db.sql". This database is required for the web API and alarm listener. There are also
+a few .env files that need to be manually added. These are not in the git repo as they contained some personal information. Given more time, using .env files would be changed for a more reasonable configuration method. 
+However, for now he following .env files need to be made.
+
+- "alarm_service/alarm_server/.env"
+	- ALARM_PORT="port of alarm side of server"
+	- MONITOR_PORT="port of monitor side of server"
+	- DB_NAME="name of the database"
+	- DB_HOST="address of database, or localhost if local"
+	- DB_USER="username for the database"
+	- DB_PASSWORD="password for the database"
+- "alarm_service/alarm_api/.env"
+	- FLASK_APP=app.py
+	- FLASK_ENV=development
+	- KEY="a 32 byte key in the form of a hex string"
+	- SERVER_IP="IP of server if not hosted on the same machine, otherwise just 127.0.0.1"
+	- SERVER_PORT="port of the alarm socket of alarm server"
+	- DB_NAME="name of the database"
+	- DB_HOST="address of database, or localhost if local"
+	- DB_USER="username for the database"
+	- DB_PASSWORD="password for the database"
+- "alarm_service/monitor/.env
+	- HOST="IP of alarm server"
+	- PORT="port of monitor side of server"
+	- TIMEOUT="timeout in seconds for connecting to server"
+- "webserver/alarm_listener/.env"
+	- DB_NAME="name of the database"
+	- DB_HOST="address of database, or localhost if local"
+	- DB_USER="username for the database"
+	- DB_PASSWORD="password for the database"
+- "webserver/api/.env"
+	- FLASK_APP=app.py
+	- FLASK_ENV=development
+	- KEY="a 32 byte key in the form of a hex string"
+	- ALARM_API="url to alarm API"
+	- DB_NAME="name of the database"
+	- DB_HOST="address of database, or localhost if local"
+	- DB_USER="username for the database"
+	- DB_PASSWORD="password for the database"
+
+### Running the alarm API and server
+Alarm server
+1. Go to "alarm_service/alarm_server" in a cmd window.
+2. Run "pipenv install".
+3. Run "pipenv shell".
+4. Run "python app.py". Log output should appear in the cmd window, unless logging to a file.
+
+Alarm API
+1. Go to "alarm_service/alarm_api" in a cmd window.
+2. Run "pipenv install".
+3. Run "pipenv shell".
+4. Run "flask run". You should see standard flask output
+
+### Running the monitor
+Modify the sensor.json file as needed.
+1. Go to "alarm_service/monitor" in a cmd window.
+2. Run "pipenv install".
+3. Run "pipenv shell".
+4. Run "python app.py". Log output should appear in the cmd window, unless logging to a file.
+
+### Running the frontend
+The web API
+1. Go to "webserver/api" in a cmd window.
+2. Run "pipenv install".
+3. Run "pipenv shell".
+4. Run "flask run -p 2000". You should see standard flask output. Port 2000 is used for development purposes.
+
+The alarm listener
+1. Make sure the web API, alarm API and alarm server is started.
+2. Go to "webserver/alarm_listener" in a cmd window.
+3. Run "pipenv install".
+4. Run "pipenv shell".
+5. Run "python app.py". Log output should appear in the cmd window, unless logging to a file.
+6. Wait for a moment and verify that the connection is successful. When the process is complete, you should see a POST request to the "/auth/client/connected" route in the web API window.
+
+The website
+1. Go to "webserver/src" in a new cmd window
+2. Run "npm install"
+3. Run "npm run start"
+4. Wait for the development server to start.
+
+### Testing the system without access to WideFind sensors
+
+1. Perform the setup as described above, skipping the monitor step.
+2. Run "test_scripts/sensor_alert_test.py".
+3. The alarm should be displayed on the 3D view in the browser.
+Coordinates can be changed manually in the script to test different positions.
 
 ## Monitor and adding new sensors
 
+To support additional sensors, you must extend the Sensor class in the Monitor module. See documentation for more details
 
 ## Dependencies
 All dependencies are resolved by virutal enviroments, but for the sake of completionism all third party dependencies are listed here
